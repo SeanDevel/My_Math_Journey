@@ -1,0 +1,256 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=3cm} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\usepackage{minted}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+% problem box
+\newtcolorbox{pbox}{
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\begin{document}
+	
+\title{Calculus Bites}
+\author{Sean}
+% \date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Differential}
+
+\section{Derivative}
+
+\begin{pbox}
+Why we can get \(f^{\prime}(0)=0\) from \(\lim_{x\to 0}\frac{f(x)}{x^2}=0\)?
+\end{pbox}
+
+To see why \( f'(0) = 0 \) follows from the given limit, let's carefully analyze the relationship between the limit \(\lim_{x \to 0} \frac{f(x)}{x^2} = 0\) and the definition of the derivative.
+
+\subsubsection{Definitions and reasoning:}
+\begin{enumerate}
+\item 
+\textbf{Limit condition:}\newline
+The given condition states:
+\[
+\lim_{x \to 0} \frac{f(x)}{x^2} = 0.
+\]
+This implies that \( f(x) \) grows slower than \( x^2 \) as \( x \to 0 \), meaning that \( f(x) \) becomes negligible relative to \( x^2 \) near \( x = 0 \).
+
+\item 
+\textbf{Derivative at 0:}\newline
+By the definition of the derivative:
+\[
+f'(0) = \lim_{h \to 0} \frac{f(h)}{h}.
+\]
+To compute \( f'(0) \), we must examine the behavior of \( \frac{f(h)}{h} \) as \( h \to 0 \).
+
+\item 
+\textbf{Relation between \(\frac{f(x)}{x^2}\) and \(\frac{f(x)}{x}\):}\newline
+Since \(\lim_{x \to 0} \frac{f(x)}{x^2} = 0\), we can write:
+\[
+\frac{f(x)}{x^2} \to 0 \quad \text{as } x \to 0.
+\]
+Multiply both sides by \( x \) (valid for \( x \neq 0 \)) to get:
+\[
+\frac{f(x)}{x} = x \cdot \frac{f(x)}{x^2}.
+\]
+Now, as \( x \to 0 \), the factor \( x \) in this expression tends to 0, and \( \frac{f(x)}{x^2} \to 0 \). Therefore:
+\[
+\frac{f(x)}{x} \to 0 \quad \text{as } x \to 0.
+\]
+
+\item 
+\textbf{Conclusion:}\newline
+Since \( \frac{f(h)}{h} \to 0 \) as \( h \to 0 \), it follows from the definition of the derivative that:
+\[
+f'(0) = 0.
+\]
+
+\end{enumerate}
+
+\subsubsection{Intuition:}
+
+The limit condition \(\lim_{x \to 0} \frac{f(x)}{x^2} = 0\) tells us that \( f(x) \) is much smaller than \( x^2 \) near 0. Because \( x \) grows much faster than \( f(x) \), the slope of \( f(x) \) at 0 (given by \( f'(0) \)) must also be 0.
+
+\chapter{Definite integrals}
+
+\section{Integral Region}
+
+\subsection{A String of Inequality}
+
+\(D={ (x,y) | 0 \leq x^2 \leq y \leq x \leq x  }\). How do you parse such an integral region? In other words, by splitting a string of formulas into easily recognizable formulas, I can draw the correct integration region based on the formulas.
+
+To parse an integral region like \( D = { (x, y) \mid 0 \leq x^2 \leq y \leq x } \), we need to break down the inequalities into understandable parts and analyze their meaning step by step. Here’s how you can do it:
+
+\hrulefill
+
+\subsubsection{Step-by-Step Parsing}
+\begin{enumerate}
+\item 
+\textbf{Expression Format}:
+The region is described by:
+\[
+0 \leq x^2 \leq y \leq x.
+\]
+
+This means the constraints on \(x\) and \(y\) must satisfy all these inequalities simultaneously.
+
+\end{enumerate}
+
+\hrulefill
+\begin{enumerate}
+\item 
+\textbf{Split the Inequalities}:
+The compound inequality can be split into smaller parts:
+\begin{itemize}
+\item 
+\(0 \leq x^2\): \(x^2\) is non-negative, which is always true for real \(x\).
+
+\item 
+\(x^2 \leq y\): \(y\) is greater than or equal to \(x^2\).
+
+\item 
+\(y \leq x\): \(y\) is less than or equal to \(x\).
+
+\end{itemize}
+
+\end{enumerate}
+
+\hrulefill
+\begin{enumerate}
+\item 
+\textbf{Understand the Range of \(x\)}:
+\begin{itemize}
+\item 
+From \(y \leq x\), we know \(x\) acts as an upper limit for \(y\).
+
+\item 
+From \(x^2 \leq y\), \(y\) must also be greater than or equal to \(x^2\).
+
+\item 
+Since \(y \leq x\), \(x\) must be non-negative (\(x \geq 0\)), because \(x^2 \geq 0\) and \(y\) must lie between \(x^2\) and \(x\).
+
+\end{itemize}
+
+Therefore, the range of \(x\) is:
+\[
+x \in [0, 1],
+\]
+because \(y \leq x\) and \(y \geq x^2\) will collapse to \(x \in [0, 1]\) for the region to remain valid.
+
+\end{enumerate}
+
+\hrulefill
+\begin{enumerate}
+\item 
+\textbf{Range of \(y\) for a Given \(x\)}:
+For a fixed \(x\) in \([0, 1]\):
+\begin{itemize}
+\item 
+\(y\) lies between \(x^2\) and \(x\):
+\[
+y \in [x^2, x].
+\]
+
+\end{itemize}
+
+\end{enumerate}
+
+\hrulefill
+\begin{enumerate}
+\item 
+\textbf{Integration Region}:
+The integration region \(D\) can now be described in rectangular coordinates:
+\[
+D = { (x, y) \mid 0 \leq x \leq 1, , x^2 \leq y \leq x }.
+\]
+
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{Visualization and Drawing}
+\begin{enumerate}
+\item 
+\textbf{Boundaries}:
+\begin{itemize}
+\item 
+The curve \(y = x^2\): Parabolic lower boundary.
+
+\item 
+The line \(y = x\): Linear upper boundary.
+
+\end{itemize}
+
+\item 
+\textbf{Range}:
+\begin{itemize}
+\item 
+\(x\) varies from \(0\) to \(1\), and \(y\) is sandwiched between \(x^2\) and \(x\).
+
+\end{itemize}
+
+\item 
+\textbf{Shape}:
+The region forms a thin strip between the parabola and the line in the first quadrant, bounded by \(x \in [0, 1]\).
+
+\end{enumerate}
+
+\subsubsection{Code Example (Matplotlib)}
+
+If you want to plot the region:
+
+\begin{minted}[frame=lines, fontsize=\normalsize]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the range of x
+x = np.linspace(0, 1, 500)
+y_lower = x**2  # y = x^2
+y_upper = x     # y = x
+
+# Plot the region
+plt.fill_between(x, y_lower, y_upper, color='lightblue', label='Region D')
+
+# Plot the curves
+plt.plot(x, y_lower, label='y = x^2', color='blue')
+plt.plot(x, y_upper, label='y = x', color='orange')
+
+# Labels and legend
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.title('Integration Region D')
+plt.grid(True)
+plt.axis('equal')
+
+plt.show()
+\end{minted}
+
+
+\end{document}

@@ -1,0 +1,475 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=3cm} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+% problem box
+\newtcolorbox{pbox}{
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\newtcolorbox{light_gray_box}{
+colback=light_gray,
+colframe=light_gray,
+boxrule=0pt,
+leftrule=2pt,
+rightrule=2pt,
+toprule=2pt,
+bottomrule=2pt,
+sharp corners,
+}
+
+\begin{document}
+	
+\title{Mathematical Insights}
+\author{Sean}
+% \date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Limit}
+
+\begin{pbox}
+Here is a limit:
+
+\[\lim_{x\to 0} \frac{\ln{(1+x)}(e^{2x}-1)-2x^2}{x^3}\]
+
+To obtain the result for this limit, we write the original limit as
+
+\[\lim_{x\to 0} \frac{\ln(1+x)(e^{2x}-1)-2x\ln(1+x)+2x\ln(1+x)-2x^2}{x^3}\]
+
+What problem-solving ideas can we learn from this solving method?
+\end{pbox}
+
+The method you've described for evaluating the limit involves several insightful problem-solving strategies that are widely applicable in calculus and mathematical analysis. Here's a breakdown of the key ideas illustrated by this approach:
+\begin{enumerate}
+\item 
+\textbf{Adding and Subtracting the Same Term (Strategic Manipulation):}
+\begin{itemize}
+\item 
+\textbf{Purpose:} By adding and subtracting the same term, you create an expression that can be rearranged to highlight components that are easier to handle.
+
+\item 
+\textbf{Application:} In your limit, introducing \( -2x\ln(1+x) + 2x\ln(1+x) \) allows the separation of the original expression into parts that can cancel out lower-order terms, simplifying the overall limit evaluation.
+
+\end{itemize}
+
+\item 
+\textbf{Decomposition into Simpler Components:}
+\begin{itemize}
+\item 
+\textbf{Purpose:} Breaking down a complex expression into smaller, more manageable parts makes it easier to analyze and compute limits.
+
+\item 
+\textbf{Application:} After adding and subtracting \( 2x\ln(1+x) \), the expression is split into two distinct fractions:
+\[
+\frac{\ln(1+x)(e^\{2x\}-1) - 2x\ln(1+x)}{x^3} + \frac{2x\ln(1+x) - 2x^2}{x^3}
+\]
+Each of these can be tackled separately, often simplifying the computation.
+
+\end{itemize}
+
+\item 
+\textbf{Cancellation of Leading Terms:}
+\begin{itemize}
+\item 
+\textbf{Purpose:} Eliminating lower-order terms that may complicate the limit allows for a clearer path to the solution.
+
+\item 
+\textbf{Application:} By restructuring the numerator, you effectively cancel out terms that would otherwise dominate as \( x \to 0 \), making the remaining terms more manageable for evaluation.
+
+\end{itemize}
+
+\item 
+\textbf{Preparation for Series Expansion or Taylor Series:}
+\begin{itemize}
+\item 
+\textbf{Purpose:} Expressing functions as power series enables the approximation of functions near a point, facilitating the computation of limits involving indeterminate forms.
+
+\item 
+\textbf{Application:} Once the expression is decomposed, you can expand \( \ln(1+x) \) and \( e^{2x} \) into their Taylor series around \( x = 0 \). This allows you to identify and compute the coefficients of \( x^3 \) in the numerator, which are essential for evaluating the limit.
+
+\end{itemize}
+
+\item 
+\textbf{Organizing Terms for Simplification:}
+\begin{itemize}
+\item 
+\textbf{Purpose:} Structuring the expression in a way that highlights symmetries or cancellations makes the mathematical manipulation more straightforward.
+
+\item 
+\textbf{Application:} The rearrangement helps in identifying terms that cancel or combine neatly, reducing computational complexity.
+
+\end{itemize}
+
+\item 
+\textbf{Facilitating Application of L’Hôpital’s Rule (if needed):}
+\begin{itemize}
+\item 
+\textbf{Purpose:} While not directly used in your method, organizing the limit can make it easier to apply L’Hôpital’s Rule if the limit initially presents an indeterminate form like \( 0/0 \) or \( \infty/\infty \).
+
+\item 
+\textbf{Application:} By simplifying the expression, you might reach a form where derivatives become easier to compute, should you choose to apply L’Hôpital’s Rule.
+
+\end{itemize}
+
+\end{enumerate}
+
+\textbf{Summary of the Process:}
+\begin{itemize}
+\item 
+\textbf{Strategic Term Addition/Subtraction:} Introduce terms that aid in simplifying the expression.
+
+\item 
+\textbf{Expression Decomposition:} Break down the limit into simpler parts.
+
+\item 
+\textbf{Cancellation and Simplification:} Remove or combine terms to reduce complexity.
+
+\item 
+\textbf{Series Expansion Preparation:} Arrange terms to facilitate the use of power series for approximation.
+
+\end{itemize}
+
+By employing these strategies, you not only simplify the computation of the specific limit but also develop a versatile toolkit for tackling a wide range of limit problems in calculus.
+
+\textbf{Final Thought:} This approach exemplifies the power of algebraic manipulation and strategic decomposition in solving complex mathematical problems, highlighting the importance of flexibility and creativity in problem-solving.
+
+\textbf{Answer Summary:}
+They demonstrate how to strategically add and subtract terms to reorganize and simplify an expression, breaking it into manageable parts, canceling leading terms, and preparing the limit for expansion or separate evaluation. This method highlights the use of expression manipulation, decomposition into simpler components, and rearrangement to facilitate limit computation.
+
+\chapter{Partial Differential Equations}
+
+\section{Problem}
+
+\begin{pbox}
+Assume f(u) is differentiable in \((0,+\infty)\).
+
+\( z=xf(\dfrac{y}{x})+y \) satisfies the relationship \( x \dfrac{\partial z}{\partial x} - y\dfrac{\partial z}{\partial y} = 2z \). Derive an expression for f(u).
+\end{pbox}
+
+\subsection{Solution}
+
+To determine the expression for \( f(u) \) given the relationship \( z = x f\left(\frac{y}{x}\right) + y \) and the partial differential equation (PDE):
+
+\[
+x \frac{\partial z}{\partial x} - y \frac{\partial z}{\partial y} = 2z,
+\]
+
+follow these steps:
+
+\subsubsection{1. Define \( u \) and Express \( z \) in Terms of \( u \)}
+
+Let:
+\[
+u = \frac{y}{x}.
+\]
+Then, \( z \) can be written as:
+\[
+z = x f(u) + y = x f(u) + x u = x \left( f(u) + u \right).
+\]
+
+\subsubsection{2. Compute the Partial Derivatives}
+
+Compute the partial derivatives of \( z \) with respect to \( x \) and \( y \):
+
+\subsubsection{Partial Derivative with Respect to \( x \):}
+
+\[
+\frac{\partial z}{\partial x} = f(u) + x f'(u) \left( \frac{\partial u}{\partial x} \right) + \frac{\partial (x u)}{\partial x}.
+\]
+Since \( u = \frac{y}{x} \), we have:
+\[
+\frac{\partial u}{\partial x} = -\frac{y}{x^2} = -\frac{u}{x}.
+\]
+Thus:
+\[
+\frac{\partial z}{\partial x} = f(u) - u f'(u).
+\]
+
+\subsubsection{Partial Derivative with Respect to \( y \):}
+
+\[
+\frac{\partial z}{\partial y} = x f'(u) \left( \frac{\partial u}{\partial y} \right) + \frac{\partial (x u)}{\partial y}.
+\]
+Since:
+\[
+\frac{\partial u}{\partial y} = \frac{1}{x},
+\]
+we get:
+\[
+\frac{\partial z}{\partial y} = f'(u) + 1.
+\]
+
+\subsubsection{3. Substitute into the PDE}
+
+Substitute the partial derivatives into the PDE:
+\[
+x \left( f(u) - u f'(u) \right) - y \left( f'(u) + 1 \right) = 2 \left( x f(u) + y \right).
+\]
+Since \( y = u x \), the equation becomes:
+\[
+x f(u) - x u f'(u) - u x f'(u) - u x = 2 x f(u) + 2 u x.
+\]
+Simplifying:
+\[
+-2u f'(u) - f(u) - 3u = 0.
+\]
+Rearranging:
+\[
+2u f'(u) + f(u) + 3u = 0.
+\]
+
+\subsubsection{4. Solve the Ordinary Differential Equation (ODE)}
+
+The ODE is:
+\[
+2u f'(u) + f(u) + 3u = 0.
+\]
+Divide by \( 2u \):
+\[
+f'(u) + \frac{1}{2u} f(u) = -\frac{3}{2}.
+\]
+This is a linear first-order ODE. The integrating factor \( \mu(u) \) is:
+\[
+\mu(u) = e^{\int \frac{1}{2u} , du} = e^{\frac{1}{2} \ln u} = u^{\frac{1}{2}}.
+\]
+Multiply both sides by \( \mu(u) \):
+\[
+u^{\frac{1}{2}} f'(u) + \frac{1}{2} u^{-\frac{1}{2}} f(u) = -\frac{3}{2} u^{\frac{1}{2}}.
+\]
+Recognizing the left side as the derivative of \( u^{\frac{1}{2}} f(u) \):
+\[
+\frac{d}{du} \left( u^{\frac{1}{2}} f(u) \right) = -\frac{3}{2} u^{\frac{1}{2}}.
+\]
+Integrate both sides:
+\[
+u^{1/2} f(u) = -\frac{3}{2} \cdot \frac{2}{3} u^{\frac{3}{2}} + C,
+\]
+where \( C \) is the constant of integration.
+
+Simplifying:
+\[
+f(u) = -u + \frac{C}{\sqrt{u}}.
+\]
+
+\subsubsection{Final Expression}
+
+Thus, the general solution for \( f(u) \) is:
+\[
+f(u) = -u + \frac{C}{\sqrt{u}},
+\]
+where \( C \) is an arbitrary constant.
+
+\textbf{Answer:} After simplifying, a general solution is \(–u\) plus a constant times \(u^{-\frac{1}{2}}\). Thus,
+
+\[f(u) = – u + C u^{-\frac{1}{2}}\]
+
+\subsection{Idea}
+
+This math problem is an excellent example of applying various problem-solving strategies in the context of partial differential equations (PDEs) and ordinary differential equations (ODEs). Here are the key problem-solving ideas and techniques illustrated by this problem:
+
+\subsubsection{1. Variable Substitution to Simplify the Problem}
+
+\textbf{Idea:} Introduce new variables or expressions to reduce the complexity of the equation.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Defining \( u = \frac{y}{x} \):} By introducing \( u \), the problem leverages the relationship between \( y \) and \( x \) to express \( z \) in terms of a single variable \( u \). This substitution transforms the original function \( f\left(\frac{y}{x}\right) \) into \( f(u) \), simplifying differentiation and substitution into the PDE.
+
+\end{itemize}
+
+\subsubsection{2. Expressing Functions in Terms of Dimensionless Variables}
+
+\textbf{Idea:} Use dimensionless or ratio-based variables to capture the essential behavior of the system without dependence on specific scales.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Using \( u = \frac{y}{x} \):} This ratio is dimensionless and encapsulates how \( y \) scales with \( x \), making the function \( f(u) \) dependent solely on this relationship rather than on \( x \) and \( y \) separately.
+
+\end{itemize}
+
+\subsubsection{3. Computing Partial Derivatives Carefully}
+
+\textbf{Idea:} Accurately compute partial derivatives with respect to each variable, considering the dependencies introduced by substitutions.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Calculating \( \frac{\partial z}{\partial x} \) and \( \frac{\partial z}{\partial y} \):} Using the chain rule, the derivatives account for how \( u \) changes with \( x \) and \( y \). This meticulous computation is crucial for correctly substituting into the PDE.
+
+\end{itemize}
+
+\subsubsection{4. Substituting Expressions into the PDE}
+
+\textbf{Idea:} Replace the computed derivatives and expressions back into the original equation to derive a new equation that may be simpler to solve.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Plugging \( \frac{\partial z}{\partial x} \) and \( \frac{\partial z}{\partial y} \) into the PDE:} This substitution leads to an equation involving \( f(u) \) and its derivative \( f'(u) \), setting the stage for solving for \( f(u) \).
+
+\end{itemize}
+
+\subsubsection{5. Simplifying the Resulting Equation}
+
+\textbf{Idea:} Manipulate the equation algebraically to isolate terms and reduce it to a standard form that can be solved using known methods.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Reducing to an ODE:} The PDE simplifies to an ordinary differential equation in terms of \( u \), specifically \( 2u f'(u) + f(u) + 3u = 0 \), which is more straightforward to solve.
+
+\end{itemize}
+
+\subsubsection{6. Recognizing and Solving Linear First-Order ODEs}
+
+\textbf{Idea:} Identify the type of differential equation and apply appropriate solution techniques, such as integrating factors for linear equations.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Identifying the ODE:} The equation \( 2u f'(u) + f(u) + 3u = 0 \) is recognized as a linear first-order ODE.
+
+\item 
+\textbf{Using Integrating Factors:} Dividing by \( 2u \) and finding the integrating factor \( \mu(u) = u^{\frac{1}{2}} \) allows the ODE to be written in a form where the left side is the derivative of \( \mu(u)f(u) \).
+
+\end{itemize}
+
+\subsubsection{7. Applying the Integrating Factor Method}
+
+\textbf{Idea:} Multiply both sides of the linear ODE by an integrating factor to make the left-hand side an exact derivative, facilitating integration.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Multiplying by \( u^{\frac{1}{2}} \):} This transforms the ODE into \( \frac{d}{du} \left( u^{\frac{1}{2}} f(u) \right) = -\frac{3}{2} u^{\frac{1}{2}} \), which can be directly integrated.
+
+\end{itemize}
+
+\subsubsection{8. Integrating and Solving for the Function}
+
+\textbf{Idea:} Perform integration on both sides to solve for the unknown function, keeping track of constants of integration.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Integrating Both Sides:} The integration yields \( u^{1/2} f(u) = -u^{3/2} + C \), leading to the solution \( f(u) = -u + \frac{C}{\sqrt{u}} \).
+
+\end{itemize}
+
+\subsubsection{9. Interpreting the General Solution}
+
+\textbf{Idea:} Understand the form of the general solution, including arbitrary constants, and recognize the family of possible solutions.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Final Expression:} The solution \( f(u) = -u + \frac{C}{\sqrt{u}} \) represents a family of functions parameterized by the constant \( C \), showing all possible functions \( f(u) \) that satisfy the original PDE.
+
+\end{itemize}
+
+\subsubsection{10. Verification and Consistency Checks}
+
+\textbf{Idea:} Ensure that each step maintains the integrity of the original problem and that the final solution satisfies all given conditions.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Substitution Back:} Although not explicitly shown, verifying that the derived \( f(u) \) satisfies the original PDE would be a critical step in confirming the solution's correctness.
+
+\end{itemize}
+
+\subsubsection{11. Handling Constants of Integration}
+
+\textbf{Idea:} Recognize that constants of integration arise when solving differential equations and understand their role in the general solution.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Constant \( C \):} The constant \( C \) represents the generality of the solution, accounting for all possible specific solutions that differ by this constant.
+
+\end{itemize}
+
+\subsubsection{12. Breaking Down Complex Problems into Manageable Steps}
+
+\textbf{Idea:} Decompose a complex problem into smaller, sequential steps, each of which is easier to handle.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Sequential Approach:} The problem was tackled by first defining variables, computing derivatives, substituting into the PDE, simplifying, and finally solving the ODE, demonstrating a structured approach to problem-solving.
+
+\end{itemize}
+
+\subsubsection{13. Leveraging Mathematical Structure and Properties}
+
+\textbf{Idea:} Utilize the inherent structure of mathematical equations, such as linearity or homogeneity, to apply appropriate solution techniques.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{Linearity of the ODE:} Recognizing that the ODE is linear allowed the use of the integrating factor method, a standard technique for such equations.
+
+\end{itemize}
+
+\subsubsection{14. Generalization and Understanding the Solution Space}
+
+\textbf{Idea:} Seek general solutions that encompass all specific instances, providing a comprehensive understanding of possible outcomes.
+
+\textbf{Application:}
+\begin{itemize}
+\item 
+\textbf{General Solution for \( f(u) \):} By including the constant \( C \), the solution accounts for all functions \( f(u) \) that satisfy the given conditions, illustrating the concept of generality in solutions.
+
+\end{itemize}
+
+\subsubsection{Summary}
+
+This problem exemplifies a systematic approach to solving PDEs by:
+\begin{enumerate}
+\item 
+\textbf{Simplifying Variables:} Reducing the number of variables through substitution.
+
+\item 
+\textbf{Computing Derivatives Accurately:} Applying the chain rule and other differentiation techniques.
+
+\item 
+\textbf{Substituting and Simplifying:} Inserting expressions back into the original equation to obtain a solvable form.
+
+\item 
+\textbf{Solving Differential Equations:} Applying methods like integrating factors to find general solutions.
+
+\item 
+\textbf{Understanding Solution Forms:} Recognizing the structure of solutions and the role of constants.
+
+\end{enumerate}
+
+By mastering these techniques, one can tackle a wide range of similar mathematical problems involving differential equations and functional relationships.
+
+\end{document}
