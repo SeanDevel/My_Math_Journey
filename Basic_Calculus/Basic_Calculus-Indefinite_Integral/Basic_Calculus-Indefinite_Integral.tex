@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=3cm} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\usepackage{minted}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+% problem box
+\newtcolorbox{pbox}{
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\begin{document}
+	
+\title{Calculus Bites}
+\author{Sean}
+% \date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Integration By Parts}
+
+\section{Example}
+
+\begin{pbox}
+\( \int (x+1) \cos{x} dx \).
+\end{pbox}
+
+To solve the indefinite integral \( \int (x+1) \cos{x} , dx \), we can use the method of integration by parts. The formula for integration by parts is:
+
+\[
+\int u , dv = uv - \int v , du
+\]
+
+We will choose \( u = x + 1 \) and \( dv = \cos{x} , dx \).
+\begin{enumerate}
+\item 
+\textbf{Differentiate \( u \) and integrate \( dv \):}
+\[
+u = x + 1 \quad \Rightarrow \quad du = dx
+\]
+\[
+dv = \cos{x} , dx \quad \Rightarrow \quad v = \int \cos{x} , dx = \sin{x}
+\]
+
+\item 
+\textbf{Apply the integration by parts formula:}
+\[
+\int (x+1) \cos{x} , dx = (x+1) \sin{x} - \int \sin{x} , dx
+\]
+
+\item 
+\textbf{Integrate \( \sin{x} \):}
+\[
+\int \sin{x} , dx = -\cos{x}
+\]
+
+\item 
+\textbf{Substitute back:}
+\[
+\int (x+1) \cos{x} , dx = (x+1) \sin{x} + \cos{x} + C
+\]
+
+\end{enumerate}
+
+Thus, the indefinite integral is:
+
+\[
+\int (x+1) \cos{x} , dx = (x+1) \sin{x} + \cos{x} + C
+\]
+
+\end{document}

@@ -1,0 +1,3685 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=1in} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+\newtcolorbox{bluebox}{
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\newtcolorbox{light_gray_box}{
+colback=light_gray,
+colframe=light_gray,
+boxrule=0pt,
+leftrule=2pt,
+rightrule=2pt,
+toprule=2pt,
+bottomrule=2pt,
+sharp corners,
+}
+
+\usepackage{enumitem}
+
+
+\begin{document}
+	
+\title{Basis Calculus}
+\author{Your Name}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Function}
+
+\begin{itemize}[label=\textbullet] % Primary list level with solid dot
+	\item This is an EXAMPLE of \{itemize\}
+	\item First primary item
+	\item Second primary item
+	\begin{itemize}[label=\(\circ\), left=1.5em] % Secondary list level with hollow dot
+		\item First secondary item
+		\item Second secondary item
+	\end{itemize}
+	\item Third primary item
+\end{itemize}
+	
+\begin{bluebox}
+Let \(x=x(y)\) be the inverse function of \(y=y(x)\). Why can we conclude that \(y^{\prime}=\dfrac{1}{x^{\prime}}\), and \(y^{\prime\prime}=-\dfrac{x^{\prime\prime}}{(x^{\prime})^3}\)?
+\end{bluebox}
+
+
+Let \( x = x(y) \) be the inverse function of \( y = y(x) \). This means that \( y(x(y)) = y \) and \( x(y(x)) = x \). The relationship between their derivatives comes from implicit differentiation and the properties of inverse functions.
+
+\textbf{1. First Derivative}
+
+From the inverse relationship, we know:
+\[
+y(x(y)) = y
+\]
+
+Differentiate both sides with respect to \( y \):
+\[
+\dfrac{d}{dy} y(x(y)) = \dfrac{d}{dy} y
+\]
+
+Using the chain rule on the left-hand side:
+\[
+\dfrac{dy}{dx} \cdot \dfrac{dx}{dy} = 1
+\]
+
+This simplifies to:
+\[
+y'(x) \cdot x'(y) = 1
+\]
+
+Therefore:
+\[
+y' = \dfrac{1}{x'}
+\]
+This shows why \( y'(x) = \dfrac{1}{x'(y)} \), since the derivatives of inverse functions are reciprocals of each other.
+
+\textbf{2. Second Derivative}
+
+Next, let's find the second derivative. Start by differentiating \( y' = \dfrac{1}{x'} \) with respect to \( x \).
+
+First, we rewrite \( y'(x) = \dfrac{1}{x'(y)} \). Then differentiate it with respect to \( x \):
+
+\[
+\dfrac{d}{dx} y' = \dfrac{d}{dx} \left( \dfrac{1}{x'} \right)
+\]
+
+Using the quotient rule, where \( x' = \dfrac{dx}{dy} \):
+\[
+y'' = -\dfrac{x''}{(x')^3}
+\]
+
+This gives us the second derivative of \( y \) in terms of the derivatives of \( x \).
+
+\textbf{Summary:}
+- \( y' = \dfrac{1}{x'} \)
+- \( y'' = -\dfrac{x''}{(x')^3} \)
+
+These relationships arise due to the reciprocal nature of derivatives for inverse functions and the application of the quotient rule.
+
+\begin{bluebox}
+Illustrate the quotient rule applied in that case of the second part "Second Derivative" in detail
+\end{bluebox}
+
+
+Certainly! Let’s go through the application of the \textbf{quotient rule} in detail for finding the second derivative in the case of \( y' = \dfrac{1}{x'} \).
+
+\textbf{Step 1: Start with the First Derivative}
+
+You are given that \( y' = \dfrac{1}{x'} \), where \( x' = \dfrac{dx}{dy} \).
+
+To find the second derivative \( y'' \), we need to differentiate \( y' = \dfrac{1}{x'} \) with respect to \( x \). This is where the \textbf{quotient rule} comes in.
+
+\textbf{Step 2: Recall the Quotient Rule}
+
+The quotient rule states that if you have a function \( f(x) = \dfrac{g(x)}{h(x)} \), then its derivative is:
+\[
+f'(x) = \dfrac{g'(x)h(x) - g(x)h'(x)}{h(x)^2}
+\]
+In our case, \( g(x) = 1 \) (the constant numerator), and \( h(x) = x'(y) \) (the denominator, which is a function of \( y \)).
+
+\textbf{Step 3: Apply the Quotient Rule}
+
+Let’s differentiate \( y' = \dfrac{1}{x'} \) with respect to \( x \).
+
+- \( g(x) = 1 \), so \( g'(x) = 0 \) (the derivative of a constant is zero).
+- \( h(x) = x'(y) \), so we need to differentiate \( x' \) with respect to \( x \) to find \( h'(x) \).
+
+Using the quotient rule:
+\[
+y'' = \dfrac{g'(x) \cdot h(x) - g(x) \cdot h'(x)}{h(x)^2}
+\]
+
+Substitute \( g(x) = 1 \), \( g'(x) = 0 \), and \( h(x) = x'(y) \):
+\[
+y'' = \dfrac{0 \cdot x'(y) - 1 \cdot \dfrac{d}{dx} x'(y)}{(x'(y))^2}
+\]
+
+\textbf{Step 4: Differentiate \( x'(y) \)}
+
+Now, we need to compute \( \dfrac{d}{dx} x'(y) \). Since \( x'(y) = \dfrac{dx}{dy} \), differentiating it with respect to \( x \) gives us the second derivative of \( x \) with respect to \( y \), i.e., \( x''(y) \). Using the chain rule:
+\[
+\dfrac{d}{dx} x'(y) = \dfrac{d}{dy} x'(y) \cdot \dfrac{dy}{dx} = x''(y) \cdot y'(x)
+\]
+But from the earlier result, we know that \( y'(x) = \dfrac{1}{x'(y)} \). Therefore, we have:
+\[
+\dfrac{d}{dx} x'(y) = \dfrac{x''(y)}{x'(y)}
+\]
+
+\textbf{Step 5: Substitute into the Quotient Rule Expression}
+
+Now substitute \( \dfrac{d}{dx} x'(y) = \dfrac{x''(y)}{x'(y)} \) into the quotient rule formula:
+\[
+y'' = \dfrac{-1 \cdot \dfrac{x''(y)}{x'(y)}}{(x'(y))^2}
+\]
+
+This simplifies to:
+\[
+y'' = -\dfrac{x''(y)}{(x'(y))^3}
+\]
+
+\textbf{Conclusion}
+
+Thus, the second derivative of \( y \) with respect to \( x \) is:
+\[
+y'' = -\dfrac{x''(y)}{(x'(y))^3}
+\]
+
+This result is derived by applying the quotient rule and differentiating the first derivative \( y' = \dfrac{1}{x'} \) in detail.
+
+\begin{bluebox}
+Is it possible to deduce that \(y(x(y))=y\) and \(x(y(x))=x\)?
+\end{bluebox}
+
+Yes, it is possible to deduce that \( y(x(y)) = y \) and \( x(y(x)) = x \) based on the definition of inverse functions. Here's how:
+
+1. Inverse Functions
+
+By definition, if \( x = x(y) \) is the inverse of \( y = y(x) \), it means that applying one function after the other (composition of functions) should return the original input. This property of inverse functions can be written as:
+
+\[
+x = x(y) \quad \text{is the inverse of} \quad y = y(x)
+\]
+
+This implies the following relationships:
+
+- If you start with \( y \), apply \( x(y) \) to get \( x \), and then apply \( y(x) \), you should get back \( y \). In other words:
+\[
+y(x(y)) = y
+\]
+
+- Similarly, if you start with \( x \), apply \( y(x) \), and then apply \( x(y) \), you should get back \( x \). This gives:
+\[
+x(y(x)) = x
+\]
+
+2. Why These Identities Hold
+
+These equalities hold because of the nature of inverse functions. For a function \( y = y(x) \) and its inverse \( x = x(y) \), the definition of the inverse function is:
+
+\[
+x = x(y) \iff y = y(x)
+\]
+
+This implies that the two functions "undo" each other. Specifically:
+
+- When \( x = x(y) \), substituting this into the original function \( y = y(x) \) should return the input \( y \).
+- Similarly, when \( y = y(x) \), substituting this into the inverse function \( x = x(y) \) should return the input \( x \).
+
+These are fundamental properties of inverse functions, which can be seen in familiar examples like:
+
+- If \( y = f(x) = x^2 \) (for positive \( x \)), then its inverse is \( x = \sqrt{y} \).
+- Composing them gives \( f(\sqrt{y}) = y \) and \( \sqrt{f(x)} = x \).
+
+3. General Formulation
+
+For any pair of functions \( f(x) \) and \( g(y) \), if \( f(x) \) is the inverse of \( g(y) \), then:
+
+\[
+f(g(x)) = x \quad \text{and} \quad g(f(y)) = y
+\]
+
+In the case you provided, \( y(x(y)) = y \) and \( x(y(x)) = x \) follow directly from this principle.
+
+Conclusion
+
+So, yes, it is perfectly valid to deduce that \( y(x(y)) = y \) and \( x(y(x)) = x \) based on the definition of inverse functions. These identities reflect the fact that one function undoes the action of the other.
+
+\begin{bluebox}
+I believe I can use the \(tan\) and \(arctan\) case to memorize the identities firmly. Which is \(tan(arctan(1))=1\), and \(arctan(tan(\dfrac{\pi}{4}))= \dfrac{\pi}{4}\)
+\end{bluebox}
+Yes, using the relationship between the tangent function (\(\tan\)) and its inverse function (\(\arctan\)) is a great way to reinforce the identities. Let's break down the two examples you provided:
+
+\textbf{1. Understanding the Identity \( \tan(\arctan(1)) = 1 \)}
+
+- Start by considering \( \arctan(1) \). By definition, \( \arctan \) (or inverse tangent) is the angle \(\theta\) whose tangent is 1:
+\[
+\arctan(1) = \theta \quad \text{such that} \quad \tan(\theta) = 1.
+\]
+
+- The value of \(\theta\) that satisfies \( \tan(\theta) = 1 \) is \( \theta = \dfrac{\pi}{4} \) (or \( 45^\circ \) in degrees). Thus:
+\[
+\arctan(1) = \dfrac{\pi}{4}.
+\]
+
+- Applying \( \tan \) to \( \arctan(1) \) simply gives back the value of \( \tan(\dfrac{\pi}{4}) \), which is 1:
+\[
+\tan(\arctan(1)) = \tan\left(\dfrac{\pi}{4}\right) = 1.
+\]
+
+So, we have confirmed that:
+\[
+\tan(\arctan(1)) = 1.
+\]
+
+\textbf{2. Understanding the Identity \( \arctan(\tan(\dfrac{\pi}{4})) = \dfrac{\pi}{4} \)}
+
+- Consider \( \tan(\dfrac{\pi}{4}) \). We know:
+\[
+\tan\left(\dfrac{\pi}{4}\right) = 1.
+\]
+
+- Now, we apply \( \arctan \) to \( \tan(\dfrac{\pi}{4}) \). Since \( \arctan \) is the inverse of \( \tan \), it returns the angle whose tangent is 1, which is again \( \dfrac{\pi}{4} \):
+\[
+\arctan(\tan(\dfrac{\pi}{4})) = \dfrac{\pi}{4}.
+\]
+
+\textbf{Key Insight}
+
+These two identities, \( \tan(\arctan(1)) = 1 \) and \( \arctan(\tan(\dfrac{\pi}{4})) = \dfrac{\pi}{4} \), perfectly illustrate the principle:
+
+1. \textbf{\( \tan(\arctan(y)) = y \)} for any \( y \) in the domain of \( \arctan \), which is all real numbers \( y \).
+
+2. \textbf{\( \arctan(\tan(x)) = x \)} for any \( x \) within the principal range of \( \arctan \), which is \( -\dfrac{\pi}{2} < x < \dfrac{\pi}{2} \).
+
+\textbf{Why This Memorization Technique Works}
+
+Using trigonometric functions like \( \tan \) and \( \arctan \) helps solidify the concept of inverse functions because they map between angles and ratios of sides in a right triangle. The identities:
+
+\[
+f(f^{-1}(x)) = x \quad \text{and} \quad f^{-1}(f(x)) = x
+\]
+
+are visualized clearly with these functions. Thus, using the tangent and arctangent as concrete examples can make the general idea easier to grasp and remember.
+
+\begin{bluebox}
+why \(\dfrac{d}{dy} y(x(y))\) can yield the result \(\dfrac{dy}{dx} \dfrac{dx}{dy}\), especially the \(\dfrac{dy}{dx}\) of the result. And what is the functionality of the \(dy\)?
+\end{bluebox}
+
+The expression \( \dfrac{d}{dy} y(x(y)) \) involves \textbf{implicit differentiation}, and the appearance of \( \dfrac{dy}{dx} \) in the result is a consequence of applying the \textbf{chain rule}. Let's break it down in detail.
+
+\textbf{Step 1: Expression Breakdown}
+
+You have \( y = y(x(y)) \), meaning that \( y \) is expressed as a function of \( x \), and \( x \) itself is a function of \( y \). In other words, \( y(x(y)) \) is a \textbf{composite function} of \( y \).
+
+Now, let’s differentiate \( y(x(y)) \) with respect to \( y \). This requires applying the \textbf{chain rule} for differentiation.
+
+\textbf{Step 2: Applying the Chain Rule}
+
+The chain rule states that if you have a composite function \( f(g(y)) \), then the derivative of \( f(g(y)) \) with respect to \( y \) is:
+
+\[
+\dfrac{d}{dy} f(g(y)) = \dfrac{df}{dg} \cdot \dfrac{dg}{dy}
+\]
+
+In this case, \( f \) corresponds to the function \( y(x) \), and \( g(y) \) corresponds to \( x(y) \). So, applying the chain rule to \( y(x(y)) \):
+
+\[
+\dfrac{d}{dy} y(x(y)) = \dfrac{dy}{dx} \cdot \dfrac{dx}{dy}
+\]
+
+\textbf{Step 3: Interpreting the Derivatives}
+
+\begin{itemize}
+	\item 
+	\( \dfrac{dy}{dx} \) represents the derivative of the function \( y = y(x) \) with respect to \( x \). This expresses how \( y \) changes as \( x \) changes.
+	\item 
+	\( \dfrac{dx}{dy} \) represents the derivative of \( x = x(y) \) with respect to \( y \), showing how \( x \) changes with \( y \).
+\end{itemize}
+
+Thus, the chain rule tells us that to differentiate \( y(x(y)) \) with respect to \( y \), we must first differentiate \( y(x) \) with respect to \( x \) (giving \( \dfrac{dy}{dx} \)), and then multiply by \( \dfrac{dx}{dy} \) (the derivative of the inner function \( x(y) \)).
+
+\textbf{Step 4: The Functionality of \( dy \)}
+
+In this context, \( dy \) is part of the notation used in calculus to indicate the small change in the variable \( y \). Specifically, when you write \( \dfrac{dy}{dx} \), you are measuring the rate of change of \( y \) with respect to \( x \), i.e., how much \( y \) changes for a small change in \( x \).
+
+Similarly, \( \dfrac{dx}{dy} \) measures how much \( x \) changes for a small change in \( y \). These differential terms are fundamental in expressing how variables depend on each other in calculus.
+
+\textbf{Why Does \( \dfrac{dy}{dx} \) Appear?}
+
+The reason \( \dfrac{dy}{dx} \) appears in the result is that we are differentiating the composite function \( y(x(y)) \), and the chain rule requires us to first differentiate \( y(x) \) with respect to \( x \). Since \( y = y(x) \), its derivative with respect to \( x \) is \( \dfrac{dy}{dx} \). After that, the chain rule introduces \( \dfrac{dx}{dy} \) because we are ultimately differentiating with respect to \( y \).
+
+\textbf{Example to Illustrate:}
+
+Let’s use an example to see this in action. Suppose:
+
+\[
+y(x) = x^2 \quad \text{and} \quad x(y) = \sqrt{y}
+\]
+
+Now, let's compute \( \dfrac{d}{dy} y(x(y)) \). First, substitute \( x(y) \) into \( y(x) \):
+
+\[
+y(x(y)) = (\sqrt{y})^2 = y
+\]
+
+Now, differentiate this with respect to \( y \):
+
+\[
+\dfrac{d}{dy} y(x(y)) = \dfrac{d}{dy} y = 1
+\]
+
+Alternatively, applying the chain rule explicitly:
+
+1. \( \dfrac{dy}{dx} = 2x \) (since \( y = x^2 \)),
+
+2. \( \dfrac{dx}{dy} = \dfrac{1}{2\sqrt{y}} \) (since \( x = \sqrt{y} \)).
+
+Then:
+\[
+\dfrac{d}{dy} y(x(y)) = \dfrac{dy}{dx} \cdot \dfrac{dx}{dy} = (2x) \cdot \dfrac{1}{2\sqrt{y}} = 1
+\]
+
+This shows how the chain rule introduces \( \dfrac{dy}{dx} \) and \( \dfrac{dx}{dy} \) in the calculation and why it yields the correct result.
+
+\textbf{Summary}
+
+\begin{itemize}
+	\item 
+	\( \dfrac{d}{dy} y(x(y)) = \dfrac{dy}{dx} \cdot \dfrac{dx}{dy} \) is a result of the chain rule applied to the composite function \( y(x(y)) \).
+	\item 
+	\( \dfrac{dy}{dx} \) represents how \( y \) changes with \( x \), while \( \dfrac{dx}{dy} \) represents how \( x \) changes with \( y \).
+	\item
+	\( dy \) and \( dx \) represent small changes in the variables \( y \) and \( x \), respectively, and are essential components in expressing rates of change.
+\end{itemize}
+	
+\begin{bluebox}
+In the analysis of an example of finding the inflection point and concavity of a parametric equation, I saw this sentence: \(x{\prime}(t)=t^2+1>0, x(t)\) is a strictly monotonically increasing function of t. According to the law of inverse function differentiation, \(t{\prime}={\dfrac{1}{x{\prime}(t)}}>0\), so \(t(x)\) is also a strictly monotonically increasing function of \(x\).
+
+My intuition is that the two sentences "\(x(t)\) is a strictly monotonically increasing function of \(t\)" and "\(t(x)\) is also a strictly monotonically increasing function of \(x\)" contain very important and easily overlooked information. But in fact, I don't know, and I can't explain it clearly.
+\end{bluebox}
+
+You're right to sense that those two sentences contain deep and significant information about the behavior of the parametric equations and their inverse functions. Let’s break down the key ideas behind them and why they are important, especially in terms of monotonicity, the inverse function theorem, and how it relates to the concavity and inflection points in parametric equations.
+
+\textbf{1. Monotonicity and Strictly Increasing Functions}
+
+\textbf{Monotonicity} describes whether a function consistently increases or decreases over its domain.
+
+A \textbf{strictly monotonically increasing function} means that for every \( t_1 < t_2 \), the function value also increases, i.e., \( x(t_1) < x(t_2) \). There is no point where the function flattens or decreases.
+
+In the sentence:
+\[
+x'(t) = t^2 + 1 > 0
+\]
+The derivative of \( x(t) \), \( x'(t) \), is positive for all \( t \). This tells us that \( x(t) \) is always increasing as \( t \) increases. Since \( t^2 + 1 > 0 \) for all \( t \), \( x(t) \) never stops increasing, making it \textbf{strictly monotonically increasing}.
+
+\textbf{2. Inverse Function Theorem and Its Implications}
+
+The \textbf{inverse function theorem} tells us that if a function \( x(t) \) is continuously differentiable and its derivative is nonzero (specifically positive in this case), then its inverse function \( t(x) \) exists and is also continuously differentiable. More importantly, the sign of the derivative of the inverse function is the reciprocal of the original derivative.
+
+In the given case:
+- Since \( x'(t) = t^2 + 1 > 0 \), we can conclude that the inverse function \( t(x) \) exists and is differentiable for all \( t \).
+- By the inverse function theorem, the derivative of \( t(x) \), denoted \( t'(x) \), is:
+\[
+t'(x) = \dfrac{1}{x'(t)}
+\]
+Since \( x'(t) > 0 \), we know:
+\[
+t'(x) = \dfrac{1}{t^2 + 1} > 0
+\]
+This tells us that \( t(x) \) is also a \textbf{strictly monotonically increasing function} of \( x \).
+
+\textbf{3. Why This Is Significant}
+
+The important information that may be easily overlooked lies in the relationship between the monotonicity of \( x(t) \) and \( t(x) \). Understanding this relationship helps in several ways:
+
+\textbf{\textit{A. Behavior of Parametric Curves}}
+In parametric equations, if one variable (like \( x(t) \)) is strictly increasing with respect to the parameter \( t \), this means that there are no overlaps or retracings in the curve. The function moves smoothly in one direction (either left to right, or up and down, depending on whether \( x(t) \) or \( y(t) \) is increasing). Knowing that \( t(x) \) is also strictly increasing confirms that we can reparameterize the curve by \( x \), and it will remain well-behaved.
+
+\textbf{\textit{B. Inverse Function's Monotonicity}}
+The fact that \( t(x) \) is also strictly increasing is crucial for understanding the behavior of the inverse relationship. It ensures that, given any value of \( x \), there is a unique corresponding \( t \) value that increases smoothly as \( x \) increases. In other words, the inverse mapping from \( x \) back to \( t \) is just as "well-behaved" as the original function, without jumps or reversals.
+
+\textbf{\textit{C. Concavity and Inflection Points}}
+In analyzing the concavity or finding inflection points of a parametric curve, it’s essential to understand how the parameter \( t \) relates to the variable \( x \). The fact that both \( x(t) \) and \( t(x) \) are strictly increasing means that we can confidently compute second derivatives and analyze the curvature of the curve. If \( x(t) \) and \( t(x) \) were not strictly increasing, the curve could behave unpredictably, making it more challenging to analyze concavity and inflection points.
+
+\textbf{\textit{D. Global Behavior of the Curve}}
+Since \( x'(t) = t^2 + 1 > 0 \), this implies that \( x(t) \) is \textbf{globally} increasing. In many real-world scenarios, understanding the global behavior of a function is essential. The fact that both \( x(t) \) and its inverse \( t(x) \) are strictly increasing ensures that the curve does not loop back on itself or show any unexpected behavior, which would complicate the analysis.
+
+\textbf{4. The Functionality of \( t'(x) \)}
+
+The derivative \( t'(x) = \dfrac{1}{x'(t)} \) reflects the rate of change of \( t \) with respect to \( x \). This is important because:
+
+\begin{itemize}
+	\item 
+	It tells us how rapidly \( t \) changes as \( x \) changes.
+	\item 
+	The fact that \( t'(x) > 0 \) reinforces the fact that \( t(x) \) is monotonically increasing.
+	\item 
+	In some cases, knowing the magnitude of \( t'(x) \) helps in analyzing how "sensitive" the parameter \( t \) is to changes in \( x \), which can have implications for the shape of the parametric curve.
+\end{itemize}
+
+\textbf{Summary}
+
+The two sentences, "\( x(t) \) is a strictly monotonically increasing function of \( t \)" and "\( t(x) \) is also a strictly monotonically increasing function of \( x \)," are significant because they reveal that the function and its inverse both behave smoothly and predictably. This monotonicity guarantees that the parametric curve is well-behaved (no reversals or loops) and that both the forward and inverse mappings are "nice" functions, which is crucial for analyzing concavity, inflection points, and the overall structure of the curve.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%          Derivative
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Derivative}
+
+\section{The Chain Rule}
+
+\label{sec:chain_rule}
+
+The chain rule in calculus is a formula for finding the derivative of a composite function. If you have two functions, say \( f \) and \( g \), and their composition is defined by \( h(x) = f(g(x)) \), then the chain rule helps you find the derivative of \( h(x) \) with respect to \( x \).
+
+\subsection{The Formula}
+
+If \( h(x) = f(g(x)) \), then the derivative of \( h \) with respect to \( x \) is given by:
+\[
+h'(x) = f'(g(x)) \cdot g'(x)
+\]
+
+In words, this means that to differentiate a composite function:
+
+1. Take the derivative of the outer function \( f \) with respect to its input \( g(x) \).
+
+2. Multiply this result by the derivative of the inner function \( g(x) \).
+
+\textbf{Why It Works}
+
+The chain rule works by recognizing that a change in \( x \) first affects the inner function \( g(x) \), which then affects the outer function \( f \). The derivative is a way to measure how much one variable changes in response to another, so the chain rule accounts for how changes in \( x \) cascade through the composition of functions.
+
+\textbf{Example}
+
+Consider the function \( h(x) = (3x^2 + 2)^4 \). To differentiate this using the chain rule:
+
+1. Let \( u = 3x^2 + 2 \), so \( h(x) = u^4 \).
+
+2. The derivative of \( h \) with respect to \( u \) is \( \dfrac{dh}{du} = 4u^3 \).
+
+3. The derivative of \( u \) with respect to \( x \) is \( \dfrac{du}{dx} = 6x \).
+
+4. By the chain rule:
+
+\[
+h'(x) = \dfrac{dh}{du} \cdot \dfrac{du}{dx} = 4(3x^2 + 2)^3 \cdot 6x = 24x(3x^2 + 2)^3
+\]
+
+The chain rule simplifies differentiation when functions are nested, making it one of the most important rules in calculus for working with complex functions.
+
+\subsection{Proof}
+
+The chain rule can be proven rigorously using the definition of the derivative. Here’s a sketch of the proof to demonstrate why it works:
+
+Recall that we want to differentiate a composite function \( h(x) = f(g(x)) \).
+
+\textit{\textbf{Step 1: Use the definition of the derivative}}
+
+By the definition of the derivative, the derivative of \( h \) with respect to \( x \) is given by:
+
+\[
+h'(x) = \lim_{h \to 0} \dfrac{f(g(x + h)) - f(g(x))}{h}
+\]
+
+\textit{\textbf{Step 2: Introduce a substitution}}
+
+To proceed, let’s introduce a change of variables. Define:
+
+\[
+\Delta g = g(x + h) - g(x)
+\]
+
+As \( h \to 0 \), we have \( \Delta g \to 0 \) since \( g \) is assumed to be differentiable at \( x \).
+
+\textit{\textbf{Step 3: Rewrite the difference quotient}}
+
+We can now rewrite the difference quotient for \( h'(x) \) as:
+
+\[
+h'(x) = \lim_{h \to 0} \dfrac{f(g(x + h)) - f(g(x))}{h} = \lim_{h \to 0} \left( \dfrac{f(g(x + h)) - f(g(x))}{\Delta g} \cdot \dfrac{\Delta g}{h} \right)
+\]
+
+\textit{\textbf{Step 4: Split the limit}}
+
+Observe that we have two terms in the expression:
+
+1. The first term:
+
+   \[
+   \lim_{h \to 0} \dfrac{f(g(x + h)) - f(g(x))}{\Delta g}
+   \]
+   
+   This is the definition of the derivative of \( f \) with respect to its input, evaluated at \( g(x) \). Therefore, this limit becomes \( f'(g(x)) \).
+
+2. The second term:
+
+   \[
+   \lim_{h \to 0} \dfrac{\Delta g}{h}
+   \]
+   
+   This is the definition of the derivative of \( g \) with respect to \( x \), or \( g'(x) \).
+
+\textit{\textbf{Step 5: Combine the results}}
+
+Combining these two limits, we have:
+
+\[
+h'(x) = f'(g(x)) \cdot g'(x)
+\]
+
+\textbf{Conclusion}
+
+This proves the chain rule: the derivative of the composition \( f(g(x)) \) is the derivative of the outer function \( f \) evaluated at \( g(x) \), multiplied by the derivative of the inner function \( g \). This proof relies on the definition of the derivative and the idea that changes in \( g(x) \) propagate through to \( f(g(x)) \).
+
+\section{Derivative of Parametric Equations}
+
+To find the second-order derivative of \( y \) with respect to \( x \) for a parametric equation where \( y = y(t) \) and \( x = x(t) \), let's break down the process step by step.
+
+\subsection{Second-order derivative}
+
+Let's find the second-order derivative \( \dfrac{d^2y}{dx^2} \).
+
+\textit{\textbf{Step-by-step derivation}}:
+
+1. Start with the first derivative:
+
+   \[
+   \dfrac{dy}{dx} = \dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}}.
+   \]
+
+2. Differentiate \( \dfrac{dy}{dx} \) with respect to \( x \) to find the second derivative:
+
+   \[
+   \dfrac{d^2y}{dx^2} = \dfrac{d}{dx} \left( \dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}} \right).
+   \]
+
+3. Use the chain rule to differentiate with respect to \( x \). Since \( x \) is a function of \( t \), we have:
+
+   \[
+   \dfrac{d^2y}{dx^2} = \dfrac{d}{dt} \left( \dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}} \right) \cdot \dfrac{dt}{dx}.
+   \]
+
+4. Differentiate the expression inside the parentheses with respect to \( t \) using the quotient rule. For a function \( u(t) = \dfrac{dy}{dt} \) and \( v(t) = \dfrac{dx}{dt} \), the quotient rule gives:
+
+   \[
+   \dfrac{d}{dt} \left( \dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}} \right) = \dfrac{\dfrac{d}{dt} \left( \dfrac{dy}{dt} \right) \cdot \dfrac{dx}{dt} - \dfrac{dy}{dt} \cdot \dfrac{d}{dt} \left( \dfrac{dx}{dt} \right)}{\left( \dfrac{dx}{dt} \right)^2}.
+   \]
+
+5. Simplifying this expression:
+
+   \[
+   \dfrac{d}{dt} \left( \dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}} \right) = \dfrac{\dfrac{d^2y}{dt^2} \cdot \dfrac{dx}{dt} - \dfrac{dy}{dt} \cdot \dfrac{d^2x}{dt^2}}{\left( \dfrac{dx}{dt} \right)^2}.
+   \]
+
+6. Multiply by \( \dfrac{dt}{dx} \) to find \( \dfrac{d^2y}{dx^2} \):
+
+   \[
+   \dfrac{d^2y}{dx^2} = \left( \dfrac{\dfrac{d^2y}{dt^2} \cdot \dfrac{dx}{dt} - \dfrac{dy}{dt} \cdot \dfrac{d^2x}{dt^2}}{\left( \dfrac{dx}{dt} \right)^2} \right) \cdot \dfrac{dt}{dx}.
+   \]
+
+7. Since \( \dfrac{dt}{dx} = \dfrac{1}{\dfrac{dx}{dt}} \), we substitute this:
+
+   \[
+   \dfrac{d^2y}{dx^2} = \dfrac{\dfrac{d^2y}{dt^2} \cdot \dfrac{dx}{dt} - \dfrac{dy}{dt} \cdot \dfrac{d^2x}{dt^2}}{\left( \dfrac{dx}{dt} \right)^3}.
+   \]
+
+\textbf{Explanation of the formula}
+
+- The second-order derivative \( \dfrac{d^2y}{dx^2} \) measures how the rate of change of \( y \) with respect to \( x \) is changing.
+
+- The term \( \dfrac{d y^{\prime}}{dx} \) in your expression represents differentiating the first derivative \( \dfrac{dy}{dx} \) with respect to \( x \), which matches our definition of the second-order derivative \( \dfrac{d^2y}{dx^2} \).
+
+\textbf{Why \( \dfrac{d^2y}{dx^2} = \dfrac{d y^{\prime}}{dx} \)?}
+
+Here, \( y' = \dfrac{dy}{dx} \). Therefore, when you differentiate \( y' \) with respect to \( x \), you obtain the second-order derivative:
+
+  \[
+  \dfrac{d}{dx} \left( \dfrac{dy}{dx} \right) = \dfrac{d^2y}{dx^2}.
+  \]
+
+This notation simply emphasizes that the second-order derivative is the derivative of the first derivative with respect to \( x \).
+
+\chapter{Differential}
+
+\section{Differentiability}
+
+\textbf{Differentiability} of a function at a point refers to the existence of a derivative at that point. In simpler terms, a function is differentiable at a particular point if it has a well-defined tangent (i.e., the function has a defined slope) at that point. A function that is differentiable at every point in its domain is called a differentiable function.
+
+\textbf{1. Definition of Differentiability:}
+
+A function \( f(x) \) is said to be differentiable at \( x = a \) if the following limit exists:
+
+\[
+f'(a) = \lim_{h \to 0} \dfrac{f(a + h) - f(a)}{h}
+\]
+
+This limit, if it exists, gives the slope of the tangent to the function at the point \( (a, f(a)) \).
+
+\textbf{2. How to Verify Differentiability:}
+
+To determine whether a function \( f(x) \) is differentiable at a point \( x = a \), follow these steps:
+
+i. \textbf{Check Continuity}:
+
+A function must be continuous at \( x = a \) to be differentiable there. If the function is not continuous at \( x = a \), it is automatically not differentiable at that point.
+
+ii. \textbf{Calculate the Derivative}:
+
+Compute the left-hand derivative (LHD):
+   
+     \[
+     f'_-(a) = \lim_{h \to 0^-} \dfrac{f(a + h) - f(a)}{h}
+     \]
+     
+Compute the right-hand derivative (RHD):
+   
+     \[
+     f'_+(a) = \lim_{h \to 0^+} \dfrac{f(a + h) - f(a)}{h}
+     \]
+
+iii. \textbf{Compare the Derivatives}:
+
+If \( f'_-(a) = f'_+(a) \) and both are finite, then \( f(x) \) is differentiable at \( x = a \).
+   
+If \( f'_-(a) \neq f'_+(a) \) or either of the derivatives does not exist, then \( f(x) \) is not differentiable at \( x = a \).
+
+\textbf{3. Visual Clue:}
+
+- Geometrically, a function is differentiable at a point if its graph has a smooth tangent line at that point (no sharp corners, discontinuities, or vertical tangents).
+
+\textbf{Example:}
+
+Consider the absolute value function \( f(x) = |x| \) at \( x = 0 \):
+
+- \( f'_-(0) = \lim_{h \to 0^-} \dfrac{|0 + h| - |0|}{h} = \lim_{h \to 0^-} \dfrac{-h}{h} = -1 \)
+
+- \( f'_+(0) = \lim_{h \to 0^+} \dfrac{|0 + h| - |0|}{h} = \lim_{h \to 0^+} \dfrac{h}{h} = 1 \)
+
+Since the left-hand derivative is not equal to the right-hand derivative, \( f(x) = |x| \) is not differentiable at \( x = 0 \).
+
+\begin{light_gray_box}
+Will there be a situation where the left derivative exists and is equal to the right derivative, but the derivative at that point is not equal to the left and right derivatives or does not exist?
+\end{light_gray_box}
+
+No, such a situation cannot exist. If the left-hand derivative (LHD) and the right-hand derivative (RHD) both exist and are equal at a point \( x = a \), then the derivative of the function at \( x = a \) also exists and is equal to this common value.
+
+\textbf{Why?}
+
+- \textbf{Definition of Differentiability:} The derivative at \( x = a \) is defined as the common value of the LHD and RHD if and only if they exist and are equal:
+
+  \[
+  f'(a) = \lim_{h \to 0^-} \dfrac{f(a + h) - f(a)}{h} = \lim_{h \to 0^+} \dfrac{f(a + h) - f(a)}{h}
+  \]
+  
+  If both limits exist and are equal, then \( f'(a) \) exists and is equal to that common value.
+
+- \textbf{No Exceptions:} There is no situation where LHD and RHD both exist and are equal but the derivative does not exist or differs from the common value of LHD and RHD. Differentiability at \( x = a \) inherently means the function has a well-defined derivative at that point, represented by the common value of the LHD and RHD.
+
+\textbf{Conclusion:}
+
+In summary, if the LHD and RHD exist and are equal, the derivative exists at that point and is equal to the same value. There is no situation where the derivative "fails to exist" under these conditions.
+
+\chapter{Taylor's Formula}
+
+\section{Overview}
+
+\textbf{Taylor's Formula} has a rich history within mathematics, and its development represents a significant milestone in mathematical analysis and approximation theory. Here is an overview of Taylor's formula from three perspectives: historical context, mathematical development, and the perspective of Brook Taylor himself.
+
+1. \textbf{Historical Context}
+
+The concept of approximating functions with polynomials can be traced back to ancient mathematics. The roots of polynomial approximation date back to Greek mathematicians such as Archimedes, who explored curves and areas under curves. However, it wasn't until the rise of calculus in the 17th and 18th centuries that a more formal understanding emerged. 
+
+The idea gained traction as mathematicians sought to approximate functions that could not be easily calculated or described by elementary functions. During this time, Sir Isaac Newton and Gottfried Wilhelm Leibniz developed calculus, providing a solid mathematical foundation upon which series expansions could flourish. Taylor's work emerged from this vibrant period of mathematical discovery.
+
+2. \textbf{Development of Mathematics}
+
+The mathematical formulation known as \textbf{Taylor's formula} was first introduced in 1715 by \textbf{Brook Taylor}, an English mathematician. It offers a way to approximate smooth functions using an infinite sum of terms based on the function’s derivatives at a single point. In essence, Taylor's formula approximates a function \( f(x) \) near a point \( a \) by its derivatives evaluated at that point:
+
+\[
+f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f'''(a)}{3!}(x - a)^3 + \cdots
+\]
+
+This representation is powerful for approximating complex functions and has led to profound developments across mathematical fields such as analysis, differential equations, and numerical methods.
+
+Though Taylor is credited with the formula, it was later refined and popularized by other mathematicians. Notably, Joseph-Louis Lagrange played a key role in formalizing and broadening its use, and Augustin-Louis Cauchy laid down rigorous convergence conditions for the series.
+
+3. \textbf{Taylor's Personal Perspective}
+
+Brook Taylor, a key figure in the development of calculus, had a keen interest in the mathematical behavior of functions and their changes. His motivation for developing what would become known as Taylor's series was driven by a broader interest in interpolation and approximation—problems central to mathematics and physics of his time. 
+
+Taylor’s work was largely rooted in trying to better understand how functions behaved near specific points. In this context, his series formula served as a tool to capture a function's local behavior in terms of derivatives. Although Taylor’s broader contributions to mathematics went largely unrecognized during his lifetime, this formula became one of the cornerstones of calculus. It reflected his desire to create a systematic way of expressing changes and provided a bridge between algebraic methods and geometric intuition.
+
+\textbf{Summary}
+
+Taylor’s formula is not only a significant theoretical advancement but also a practical tool for approximation. It bridges different mathematical concepts and has influenced countless applications and theories in mathematics, engineering, physics, and beyond. Historically, it represents a step in the journey of calculus and mathematical analysis during a transformative era, while also reflecting Brook Taylor's pursuit of capturing the nuances of change and behavior in mathematical functions.
+
+\section{The Development of Taylor Formula}
+
+\textbf{Brook Taylor’s development of the Taylor formula} arose from his broader interest in the mathematical analysis of changes and approximation of functions. The formula itself was introduced in 1715 in his book *"Methodus Incrementorum Directa et Inversa"* (The Direct and Indirect Method of Increments), marking a significant milestone in the history of calculus and mathematical series. Here’s a closer look at how Taylor came to formulate his famous series and the context surrounding his work:
+
+\textbf{1. Influence of Calculus and Previous Mathematical Work}
+
+- \textbf{The Calculus Revolution}: Taylor worked during a time when calculus was still a relatively new field, having been formalized by Isaac Newton and Gottfried Wilhelm Leibniz in the late 17th century. The emerging field of calculus sought to understand and describe motion, change, and areas under curves through differentiation and integration. These foundational ideas influenced Taylor’s thinking as he sought to generalize methods of approximation for functions.
+
+- \textbf{Series Expansions}: Prior to Taylor, mathematicians such as Isaac Newton had used infinite series expansions to approximate functions, including methods resembling modern power series. For example, Newton had developed a form of binomial series and applied power series to approximate solutions to algebraic equations. James Gregory and others had also made strides in the expansion of functions into series. Taylor built on this body of knowledge by formulating a more generalized approach to series approximations based on derivatives.
+\textbf{2. Incremental Approach and Mathematical Increments}
+
+- \textbf{Method of Increments}: Taylor’s book focused on analyzing and representing functions by examining their changes, or increments, over small intervals. This approach aligned with the new differential calculus of the time. Taylor’s key insight was to approximate a function using an infinite sum of terms derived from its derivatives, which describe the rates of change at a particular point.
+
+- \textbf{Functional Expansions}: He recognized that any sufficiently differentiable function could be expressed as a sum of terms involving its derivatives at a specific point. This was a novel way of generalizing the behavior of functions, extending beyond simple geometric or algebraic approaches. His formula captured not only the value of a function at a given point but also its behavior around that point by incorporating higher-order derivatives.
+
+\textbf{3. The Development of the Formula}
+
+- \textbf{Formalization of the Series}: The formula Taylor developed is now written in the form:  
+
+\[
+  f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f'''(a)}{3!}(x - a)^3 + \cdots
+\]
+  
+  This expression allows the approximation of any function \( f(x) \) near a point \( a \) by a polynomial of degree \( n \). Each term in the series represents a successively higher-order derivative, capturing more of the function’s local behavior.
+
+- \textbf{Contributions to Differential Calculus}: Taylor’s work provided a systematic method to approximate functions locally, a crucial tool in differential calculus and mathematical analysis. It offered a concrete approach to understanding how functions change and how their values can be estimated using polynomial approximations.
+
+\textbf{4. Theoretical Motivation and Practical Applications}
+
+- \textbf{Broad Interest in Approximation and Motion}: Taylor’s interest in using derivatives to describe the changing values of functions aligned with contemporary needs to understand motion, forces, and other phenomena described by calculus. His formula gave mathematicians and scientists a precise method to approximate and predict the behavior of functions near a given point.
+
+- \textbf{Practical Implications}: Although his work was not widely recognized during his lifetime, it would later become a foundational tool in mathematics. Subsequent mathematicians such as Joseph-Louis Lagrange and Augustin-Louis Cauchy would build upon and refine Taylor’s ideas, making his formula a cornerstone of mathematical analysis.
+
+\textbf{5. Summary of How Taylor Came Up with the Formula}
+
+- \textbf{Building on Existing Knowledge}: Taylor’s work was rooted in the development of calculus and previous series expansions explored by mathematicians such as Newton and Gregory.
+
+- \textbf{Focus on Functional Changes}: He approached the problem by examining small changes or increments in functions and systematically incorporating derivatives to represent those changes.
+
+- \textbf{Generalization and Abstraction}: Taylor’s generalization of expressing a function as an infinite series of derivatives at a point provided a powerful mathematical framework for approximating functions.
+Taylor’s formula is a testament to his analytical insight and creativity in approaching problems of change and approximation, marking a major step forward in the mathematical understanding of functions and their behavior.
+
+\section{Process of Constructing}
+
+The construction of \textbf{Taylor’s formula} can be understood through a step-by-step mathematical approach that uses differentiation, integration, and polynomial approximation. Here’s a structured outline of how the formula is derived:
+
+\textbf{Step-by-Step Construction of Taylor's Formula}
+
+1. \textbf{Goal: Approximating a Function Near a Point \( a \)}
+
+- Consider a function \( f(x) \) that is differentiable up to order \( n \) in the neighborhood of a point \( a \). We aim to approximate the function \( f(x) \) near this point using a polynomial expansion.
+
+2. \textbf{Start with the Value at the Point \( a \)}
+
+- The simplest approximation of \( f(x) \) near \( x = a \) is just the constant function:
+
+     \[
+     f(x) \approx f(a).
+     \]
+     
+- This is a zero-degree approximation, which does not capture any information about how \( f(x) \) changes as \( x \) moves away from \( a \).
+
+3. \textbf{Incorporating the First Derivative (Linear Approximation)}
+
+- To capture the change in \( f(x) \) around \( a \), we can include a linear term based on the first derivative:
+
+     \[
+     f(x) \approx f(a) + f'(a)(x - a).
+     \]
+     
+- Here, \( f'(a) \) represents the slope of \( f(x) \) at \( x = a \), and \( (x - a) \) is the distance from \( x \) to \( a \). This linear approximation provides a tangent line that best approximates \( f(x) \) near \( a \).
+
+4. \textbf{Adding Higher-Order Derivatives (Quadratic and Beyond)}
+
+- To improve the approximation, we add higher-order terms involving the derivatives of \( f(x) \) at \( a \). The next term is based on the second derivative:
+     
+     \[
+     f(x) \approx f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2.
+     \]
+     
+- The term \(\frac{f''(a)}{2!}\) is a second-order coefficient that scales the quadratic term \((x - a)^2\) by the curvature of the function at \( x = a \).
+
+5. \textbf{Generalizing to Higher Orders}
+
+- By continuing this process, we incorporate higher-order derivatives, yielding the \textbf{Taylor series} expansion around the point \( a \):
+     
+     \[
+     f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f'''(a)}{3!}(x - a)^3 + \cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x).
+     \]
+     
+- Here, the general term is:
+
+     \[
+     \frac{f^{(k)}(a)}{k!}(x - a)^k,
+     \]
+     
+where \( f^{(k)}(a) \) denotes the \( k \)-th derivative of \( f(x) \) evaluated at \( x = a \), and \( k! \) is the factorial of \( k \), serving as a normalization factor.
+
+6. \textbf{The Remainder Term \( R_n(x) \)}
+
+- The remainder term \( R_n(x) \) represents the error introduced by truncating the Taylor series at the \( n \)-th term. There are multiple forms for expressing the remainder, but one common expression (using the \textbf{Lagrange form}) is given by:
+     \[
+     R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1},
+     \]
+     
+where \( \xi \) is some point in the interval between \( a \) and \( x \). This remainder term provides a way to quantify the error in the approximation and describes how closely the Taylor polynomial approximates \( f(x) \).
+
+7. \textbf{Summary of the Taylor Series Formula}
+- Putting it all together, the Taylor series formula for approximating a function \( f(x) \) near the point \( a \) is given by:
+
+     \[
+     f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k + R_n(x).
+     \]
+
+\textbf{Conceptual Explanation of the Construction}
+
+- The construction of Taylor’s formula relies on using derivatives to represent the change and curvature of the function around a point.
+
+- Each term in the expansion represents a polynomial that more accurately reflects the function’s behavior near the point \( a \).
+
+- As more terms are added, the approximation becomes more accurate, converging to the actual function under certain conditions on \( f(x) \) and its derivatives.
+
+\textbf{Applications of the Construction}
+
+- Taylor’s formula is used extensively in numerical approximation, physics (e.g., series expansions of functions describing motion), and engineering.- The remainder term allows for understanding the accuracy and convergence of the approximation in practical applications.
+
+\begin{bluebox}
+Since Taylor's formula approximates the value of function \(f(x)\) near point a by taking the derivative at that point, why not just calculate \(f(a)\)?
+\end{bluebox}
+
+This is an insightful question and it touches on a fundamental aspect of why \textbf{Taylor's formula} is used to approximate functions. While calculating \( f(a) \) gives the exact value of the function at a specific point \( a \), Taylor’s formula serves a broader purpose that goes beyond evaluating the function at a single point. Here’s why simply calculating \( f(a) \) is not sufficient for many problems, and why Taylor's formula is valuable:
+
+\textbf{1. Local Approximation of the Function Near \( a \)}
+
+- \textbf{Beyond a Single Point}: Calculating \( f(a) \) only tells us the value of the function at that exact point, but it gives no information about how the function behaves around \( a \). Taylor's formula, on the other hand, approximates the function near \( a \) by including terms that describe how the function changes (using derivatives).
+
+- \textbf{Behavior of the Function}: The derivatives of \( f(x) \) provide information about the function’s rate of change, curvature, and higher-order behavior near \( a \). Taylor’s series expansion incorporates these derivatives to construct a polynomial that better represents the function’s behavior close to \( a \).
+
+\textbf{2. Applications in Approximation and Prediction}
+
+- \textbf{Approximating Values Near \( a \)}: If we are interested in the value of \( f(x) \) for \( x \) close to \( a \), we can use Taylor’s formula to approximate it. For example, if we know the value of \( f(a) \) and the derivatives of \( f \) at \( a \), we can estimate \( f(x) \) without needing to know its exact value at every point near \( a \). This is especially useful when the exact form of \( f(x) \) is complex or difficult to evaluate directly.
+
+- \textbf{Simplifying Complex Functions}: Taylor series expansions allow us to replace complex functions with simpler polynomial approximations, which are easier to work with computationally. This is widely used in fields like physics, engineering, and numerical analysis to model functions and solve differential equations.
+
+\textbf{3. Analyzing Function Behavior with Derivatives}
+
+- \textbf{First Derivative (Slope)}: The first derivative, \( f'(a) \), tells us the slope of the function at \( a \), indicating whether the function is increasing, decreasing, or constant. This gives insight into how \( f(x) \) changes near \( a \).
+
+- \textbf{Second Derivative (Curvature)}: The second derivative, \( f''(a) \), describes the curvature or concavity of the function. By including this term, we can approximate the function with a parabola that matches the curvature at \( a \), giving a more accurate local representation.
+
+- \textbf{Higher-Order Derivatives}: Higher-order derivatives allow for increasingly accurate approximations by incorporating more detailed information about how the function changes near \( a \).
+
+\textbf{4. Predictive Power and Convergence}
+
+- \textbf{Estimating Unknown Values}: In many applications, we want to estimate the value of \( f(x) \) for \( x \) near \( a \) without directly calculating it. For example, in physics, we may use Taylor’s formula to predict the position of a particle over a small time interval based on its current position, velocity, and acceleration (which correspond to the first few derivatives of the position function).
+
+- \textbf{Series Convergence}: If the Taylor series converges to \( f(x) \), it provides an exact representation of the function in the limit as the number of terms increases. Even with a finite number of terms, it often gives an excellent approximation.
+
+\textbf{5. Illustrative Example: Exponential Function}
+
+- Consider the exponential function \( f(x) = e^x \). Evaluating \( f(a) \) at some point \( a \) only gives \( e^a \), the value at that point. However, the Taylor expansion around \( a = 0 \) (Maclaurin series) is given by:
+
+\[
+  e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\]
+  
+  This series not only captures the value at \( x = 0 \) but also provides a powerful tool for approximating \( e^x \) for values of \( x \) close to zero, revealing how \( e^x \) behaves in a neighborhood around zero.
+
+\textbf{Conclusion}
+
+While calculating \( f(a) \) gives the value of the function at a single point, \textbf{Taylor’s formula} offers a way to approximate the function near that point by using derivatives. This allows us to understand how the function behaves locally, make predictions, and simplify complex expressions using polynomial approximations. It is an essential tool in mathematical analysis, physics, engineering, and many areas where function behavior needs to be approximated or analyzed.
+
+\begin{bluebox}
+For \(f(x)=e^x\), the second-degree Taylor polynomial of \(f(x)\) at \(a=1\) is \( f(x) = e + e(x-1) + \frac{e}{2} (x-1)^2 \). Is this correct?
+\end{bluebox}
+
+Let's verify the second-degree Taylor polynomial for \( f(x) = e^x \) centered at \( a = 1 \).
+
+\textbf{1. Recall the Taylor Series Formula}
+
+The Taylor series expansion of a function \( f(x) \) around a point \( a \) is given by:
+
+\[
+f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \cdots
+\]
+
+
+\textbf{2. Apply the Formula for \( f(x) = e^x \) Centered at \( a = 1 \)}
+
+- \( f(x) = e^x \)
+
+- \( f'(x) = e^x \) (the derivative of \( e^x \) is \( e^x \))
+
+- \( f''(x) = e^x \) (the second derivative is also \( e^x \))
+Now, evaluate the function and its derivatives at \( a = 1 \):
+
+
+- \( f(1) = e^1 = e \)
+
+- \( f'(1) = e^1 = e \)
+
+- \( f''(1) = e^1 = e \)
+
+\textbf{3. Construct the Second-Degree Taylor Polynomial}
+
+The second-degree Taylor polynomial is given by:
+\[
+f(x) \approx f(1) + f'(1)(x - 1) + \frac{f''(1)}{2!}(x - 1)^2
+\]
+Substituting the values:
+\[
+f(x) \approx e + e(x - 1) + \frac{e}{2}(x - 1)^2
+\]
+
+\textbf{Conclusion}
+
+Your expression for the second-degree Taylor polynomial:
+\[
+f(x) = e + e(x - 1) + \frac{e}{2}(x - 1)^2
+\]
+is \textbf{correct}! This polynomial approximates \( e^x \) near \( x = 1 \).
+
+\begin{bluebox}
+What puzzles me is that, since the Taylor polynomial of \(f(x)\) at \(a=2\), that is, \(x=2\), has been confirmed, what is the meaning of \(x\) in \( f(x) = e + e(x-1) + \frac{e}{2} (x-1)^2 \)?
+\end{bluebox}
+
+The variable \( x \) in the Taylor polynomial \( f(x) = e + e(x - 1) + \frac{e}{2}(x - 1)^2 \) represents any value near the expansion point \( a = 1 \). Here is a more detailed explanation of what \( x \) means in this context and how it is used:
+
+\textbf{1. Role of \( x \) in the Taylor Polynomial}
+
+- When you construct a Taylor polynomial around a point \( a = 1 \), you are creating an approximation of the function \( f(x) = e^x \) for values of \( x \) close to 1.
+
+- The polynomial provides an approximate value of the function \( f(x) \) in terms of the distance from \( a = 1 \). The term \( (x - 1) \) indicates how far \( x \) is from the center of the expansion.
+
+\textbf{2. Meaning of \( x \)}
+
+- The variable \( x \) represents the input value of the function \( f(x) \) that you want to approximate using the Taylor polynomial.
+
+- For example, if you want to approximate \( f(1.1) \), you substitute \( x = 1.1 \) into the polynomial:  
+
+\[
+  f(1.1) \approx e + e(1.1 - 1) + \frac{e}{2}(1.1 - 1)^2
+\]
+
+- Essentially, \( x \) is a "placeholder" for any value you want to plug in to approximate \( f(x) \) near \( a = 1 \).
+
+\textbf{3. Why Use \( x \) Instead of a Specific Number?}
+
+
+- The Taylor polynomial is meant to provide a general approximation for \( f(x) \) near the point \( a = 1 \), not just for a single specific value.
+
+- By keeping \( x \) as a variable, you have a formula that can approximate the function for any input \( x \) near 1, giving a broader utility and flexibility than if you were to evaluate it at just one particular point.
+
+\textbf{Summary}
+
+- \( x \) in the Taylor polynomial represents the input variable you are using to approximate the function near the expansion point \( a = 1 \).- The polynomial shows how the function behaves locally around \( a = 1 \) and allows you to approximate \( f(x) \) for any nearby \( x \) by substituting different values of \( x \) into the polynomial.
+
+\begin{bluebox}
+Through your answer, I finally understood the meaning of Taylor's formula, especially through the example you provided about the function f(1.1). Taylor's formula provides a formula for obtaining an approximate value for a function, and how close it is depends on the value of x. Thank you very much for your answer and patience.
+\end{bluebox}
+
+You're very welcome! I'm glad to hear that my explanation and example helped clarify the meaning and utility of Taylor's formula for you. You are absolutely correct: Taylor’s formula gives a powerful way to approximate a function near a specific point, and the accuracy of the approximation depends on how close \( x \) is to the expansion point and how many terms are included.
+
+Thank you for your thoughtful questions—it was a pleasure to help guide you through this concept. If you ever have more questions or need clarification on anything else, don't hesitate to reach out. Happy learning!
+
+\section{Maclaurin Formula and the Peano Remainder}
+
+\begin{bluebox}
+What is the order in which the Maclaurin formula and the Peano remainder appeared? What are their formulas? What problems do they solve?
+\end{bluebox}
+
+The \textbf{Maclaurin formula} and the \textbf{Peano remainder} appeared at different times in the development of calculus and analysis, serving as critical tools in the approximation of functions using series expansions. Here’s a detailed overview of the order in which they emerged, their formulas, and the problems they addressed:
+
+\textbf{1. Historical Order of Appearance:}
+
+- \textbf{Maclaurin Series (1729)}: The Maclaurin series is a special case of the Taylor series, named after Scottish mathematician \textbf{Colin Maclaurin}. He published the series in his book *"Treatise of Fluxions"* (1742), although he had worked on it much earlier. It can be considered a Taylor series expansion centered specifically at \( a = 0 \).
+
+- \textbf{Peano Remainder (Late 19th Century)}: The Peano form of the remainder appeared later and was introduced by \textbf{Giuseppe Peano}, an Italian mathematician, in the late 19th century. It provides a more refined expression for the remainder term in a Taylor expansion using a different approach than earlier forms, offering an alternate perspective for error estimation.
+
+\textbf{2. Formulas:}
+
+- \textbf{Maclaurin Series Formula:}  The Maclaurin series is given by:
+  \[
+  f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots + \frac{f^{(n)}(0)}{n!}x^n + R_n(x)
+  \]
+  
+  where \( R_n(x) \) represents the remainder term after \( n \) terms. The Maclaurin series is essentially a Taylor series expanded around \( x = 0 \).
+
+- \textbf{Peano Remainder:}  In the Taylor series expansion of a function \( f \) around a point \( a \), the Peano remainder form of the Taylor expansion up to order \( n \) is given by:
+
+  \[
+  f(x) = P_n(x) + R_n(x),
+  \]
+  
+  where \( P_n(x) \) is the Taylor polynomial of degree \( n \) and \( R_n(x) \) is the remainder term expressed as:
+  
+  \[
+  R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1} \quad \text{for some } \xi \text{ in } (a, x).
+  \]
+  
+  The key difference with Peano’s form of the remainder is that it emphasizes that there exists a point \( \xi \) in the interval between \( a \) and \( x \) such that the error term depends on the \((n+1)\)-th derivative at this point.
+
+\textbf{3. Problems They Solve:}
+
+- \textbf{Maclaurin Series:}  The Maclaurin series is useful for approximating functions near the origin (\( x = 0 \)) using polynomials. It simplifies Taylor series expansions when the expansion point \( a \) is zero and is commonly used for expansions of elementary functions such as exponential, logarithmic, trigonometric, and hyperbolic functions. This series helps in creating polynomial approximations and aids in computational methods, especially for evaluating complex functions using simpler polynomial expressions.
+
+- \textbf{Peano Remainder:}  The Peano form of the remainder provides a way to quantify the error in a Taylor series approximation. This form of the remainder is important for understanding how accurately a Taylor polynomial approximates a function, particularly for providing error bounds. It refines earlier formulations by offering a precise description of the remainder’s dependence on higher-order derivatives and their behavior within the interval.
+
+\textbf{Summary:}
+
+- \textbf{Maclaurin Series} simplifies Taylor series centered at zero and finds extensive use in function approximation around that point.
+
+- \textbf{Peano Remainder} focuses on capturing the behavior of the error term more rigorously, offering detailed insight into approximation accuracy and ensuring better convergence analysis when using Taylor polynomials.
+
+\begin{bluebox}
+The Maclaurin formula and the Peano remainder are just slightly extended on the basis of Taylor's formula, and the names of the formulas are created in their names. Does this seem to be a way of seeking fame? Does the academic community have any objections to this practice? In addition, why didn't Taylor himself perfect the so-called Maclaurin formula and the Peano remainder based on the Taylor formula?
+\end{bluebox}
+
+The naming of mathematical formulas and concepts after specific individuals, such as the \textbf{Maclaurin formula} and the \textbf{Peano remainder}, has historically been common practice in the academic community, though not without occasional debate. Here’s a detailed response to the concerns about whether this reflects a quest for fame, how the academic community perceives this naming tradition, and why Brook Taylor himself did not extend his own formula in the ways attributed to Maclaurin and Peano.
+
+\textbf{1. Naming and Recognition in Mathematics: Fame or Utility?}
+
+The attribution of mathematical concepts to specific individuals often reflects their contribution to the formalization, popularization, or significant extension of an idea, rather than pure self-promotion or seeking of fame. Here are a few reasons why this practice has persisted:
+
+- \textbf{Historical Context and Attribution}: Many mathematical results are named after individuals who made significant contributions to their development, not necessarily those who discovered the ideas first. Naming conventions often serve to recognize those who rigorously proved, popularized, or substantially extended earlier work, and this can vary from one result to another.
+
+- \textbf{Communication and Legacy}: Naming a formula after someone can make it easier to reference and recall within the mathematical community. Over time, the name becomes part of the historical narrative and provides context about who worked on different aspects of a theory.
+
+- \textbf{Broadening and Refining Existing Work}: For example, \textbf{Colin Maclaurin} extended the Taylor series for a particular case (centered at zero), and his systematic exploration and application in mathematical physics and geometry helped to popularize its usage. Similarly, \textbf{Giuseppe Peano} provided a refined view of the remainder term in Taylor expansions, which had practical and theoretical implications for error estimation. While these are extensions, they added clarity and insight that warranted their recognition.
+
+\textbf{2. Objections from the Academic Community}
+
+In general, the academic community accepts naming conventions for mathematical formulas, series, or methods when they reflect genuine contributions to theory. However, there can be controversies or criticisms, particularly when:
+
+- \textbf{The Attribution Is Perceived as Unwarranted}: If the contribution is viewed as minor or derivative without much added value, some may feel that naming it after an individual inflates their legacy.
+
+- \textbf{Overlapping Contributions}: Mathematical discoveries often occur simultaneously in different parts of the world, so debates can arise about whom to credit. For example, the \textbf{"priority disputes"} between Newton and Leibniz over calculus created a significant historical debate.
+
+- \textbf{National Pride and Recognition}: In some cases, naming conventions reflect historical or national pride, which may lead to differing perspectives on who deserves the recognition. 
+Overall, objections in the academic community typically focus on fairness in crediting contributions rather than personal ambition for fame. The focus remains on recognizing genuine advances, whether large or incremental.
+
+\textbf{3. Why Didn’t Taylor Himself Extend the Maclaurin Formula and the Peano Remainder?}
+
+- \textbf{Taylor’s Focus}: \textbf{Brook Taylor} was primarily focused on the general formulation of his series for the approximation of functions around any point \( a \). His interest lay in providing a systematic expansion of functions using their derivatives, and his work was already considered a major milestone in calculus. The extensions made by Maclaurin and Peano were refinements or specializations of the general form he provided.
+
+- \textbf{Historical Development and Timing}: Mathematics evolves over time, and later mathematicians often build on the work of their predecessors. Maclaurin and Peano lived in different eras from Taylor and had different mathematical contexts, tools, and objectives available to them. Taylor’s work laid the groundwork for future mathematicians to explore specialized cases, extensions, and refinements.
+
+- \textbf{Maclaurin’s Work}: By centering the series at zero, Maclaurin explored specific cases that had practical relevance and expanded their applicability, especially in mathematical physics and geometry. Taylor may not have focused on this specific case, as his interests were broader.
+
+- \textbf{Peano’s Remainder}: Peano came much later (19th century) and introduced a more precise way of describing the remainder term in a Taylor series. This refinement likely benefited from the evolution of mathematical analysis and greater rigor that developed after Taylor's time.
+
+\textbf{Summary}
+
+The naming of formulas after Maclaurin and Peano is not about seeking fame but rather reflects a tradition of recognizing contributions that extend, refine, or popularize existing ideas. The academic community generally accepts such naming when it represents substantial work or when the mathematician in question makes their mark through broader dissemination. Brook Taylor himself did not extend his series in these specific ways likely because his interests lay elsewhere, and later mathematicians had the context and mathematical tools necessary to explore these special cases or refinements.
+
+\chapter{Mean Value Theorems}
+
+\section{Rolle's Theorem, LMVT and CMVT}
+
+This section aims to explore key concepts in calculus, focusing on the fundamental theorems that \textit{govern} the behavior of functions. We will begin by discussing the conditions and implications of Rolle's Theorem, which sets the stage for understanding how continuous and differentiable functions behave on closed intervals. Following that, we will delve into Lagrange's Mean Value Theorem, highlighting its \textit{relationship} between average and instantaneous rates of change. Lastly, we will examine Cauchy's Mean Value Theorem, which extends these ideas to \textit{compare} the behavior of two functions. Through these discussions, we aim to provide a comprehensive overview of these essential principles in calculus.
+ 
+\subsection{Conceptual Ideas These Theorems}
+
+\begin{itemize}
+	\item 
+	\textbf{Rolle’s Theorem}: Given that \( f(a) = f(b) \) and assuming continuity on \([a, b]\) and differentiability on \((a, b)\), Rolle's theorem guarantees a point \( c \in (a, b) \) where \( f'(c) = 0 \). This result shows that if a function starts and ends at the same value on a continuous interval, then at some point in between, it must reach a peak or trough (a horizontal tangent).
+	\item 
+	\textbf{Lagrange’s Mean Value Theorem (LMVT)}: This theorem \textit{generalizes} Rolle’s theorem by stating that, for any continuous function over \([a, b]\) that is differentiable on \((a, b)\), there exists a point \( c \in (a, b) \) where \( f'(c) = \dfrac{f(b) - f(a)}{b - a} \). This result essentially means that there’s at least one point in the interval where \uline{the instantaneous rate of change equals the average rate of change across the interval}.
+	\item
+	\textbf{Cauchy’s Mean Value Theorem (CMVT)}: Cauchy’s theorem further extends LMVT to two functions, stating that if \( f(x) \) and \( g(x) \) are continuous on \([a, b]\) and differentiable on \((a, b)\), there exists a point \( c \in (a, b) \) where \(\dfrac{f'(c)}{g'(c)} = \dfrac{f(b) - f(a)}{g(b) - g(a)}\), provided \( g(x) \neq 0 \) on \((a, b)\). This builds on LMVT to compare the rates of change of two functions relative to each other, establishing a proportional relationship between them at some point in the interval.
+\end{itemize}
+
+\subsection{Concerning the Intervals}
+
+\begin{bluebox}
+Rolle's theorem, Lagrange's mean value theorem and Cauchy's mean value theorem have the same point in terms of range limitation, that is, \(f(x)\) is continuous on the closed interval \([a,b]\) and differentiable on the open interval \((a,b)\). Why is this the case? Why do these three theorems all require the range of \(x\)? What kind of ideas are contained in them?
+\end{bluebox}
+
+The requirement that \( f(x) \) be continuous on the closed interval \([a, b]\) and differentiable on the open interval \((a, b)\) in Rolle's Theorem, Lagrange's Mean Value Theorem (LMVT), and Cauchy's Mean Value Theorem (CMVT) reflects both the nature of derivatives and the logic of these theorems. This requirement allows the theorems to guarantee the existence of a point \( c \in (a, b) \) where a specific derivative condition is \textit{satisfied}, enabling key insights into the function’s behavior over the interval.
+
+Here's why each of these requirements matters and the ideas they encapsulate:
+
+
+
+\begin{itemize}[label=\textbullet]
+\item
+\textbf{Continuity on the Closed Interval \([a, b]\)}
+
+	\begin{itemize}[label=\(\circ\), left=1.5em]
+		\item 
+		\textbf{Importance}: Continuity on \([a, b]\) ensures there are no breaks, jumps, or infinite discontinuities in the function over the entire interval, including at the endpoints \( a \) and \( b \). This continuity is essential for the function to \uline{attain} maximum and minimum values over \([a, b]\) due to the \textbf{Extreme Value Theorem}.
+		\item 
+		\textbf{Reason for Requirement}: For Rolle's and Lagrange’s theorems to conclude that there exists some point \( c \in (a, b) \) with specific properties, the function must be “well-behaved” at the endpoints, allowing for a smooth transition across the interval. In other words, continuity across \([a, b]\) \uline{ensures that the slope or rate of change can be assessed over the entire interval}.
+	\end{itemize}
+\item 
+\textbf{Differentiability on the Open Interval \((a, b)\)}
+	\begin{itemize}[label=\(\circ\), left=1.5em]
+		\item 
+		\textbf{Importance}: Differentiability on \((a, b)\) implies that \( f(x) \) has a defined slope (or tangent line) at every point within the interval. This allows the calculation of instantaneous rates of change, which are central to mean value theorems.
+		\item
+		\textbf{Reason for Requirement}: Differentiability provides the smoothness needed to apply the concept of the derivative. If the function is differentiable over \((a, b)\), then \uline{it does not have sharp turns or corners in this interval}, \uline{ensuring that a tangent slope can be continuously defined and that certain slope-related conditions can be met}.
+	\end{itemize}
+\end{itemize}
+
+\textbf{Why These Conditions are Necessary}
+
+The continuity and differentiability conditions ensure the smooth behavior needed to identify a point where certain average or instantaneous rates of change conditions are met. \uline{Without continuity} on \([a, b]\), the function could have jumps or discontinuities that would disrupt the argument. \uline{Without differentiability} on \((a, b)\), sharp turns or undefined slopes could prevent the existence of a point \( c \) with the desired properties. Together, these conditions provide a stable foundation for guaranteeing that specific points satisfying the theorems’ conclusions exist.
+
+In essence, these theorems capture the relationship between average and instantaneous behavior in a controlled interval, relying on continuity and differentiability as the underlying structure.
+
+\subsection{Provement of Theorems}
+
+\subsubsection{Provement of Rolle's Theorem}
+
+\textbf{Statement}: If \( f \) is continuous on \([a, b]\), differentiable on \((a, b)\), and \( f(a) = f(b) \), then there exists at least one point \( c \in (a, b) \) such that \( f'(c) = 0 \).
+
+\textbf{Proof}:
+1. \textbf{Continuity on \([a, b]\)} and the \textbf{Extreme Value Theorem} imply that \( f \) attains a maximum and a minimum on \([a, b]\).
+
+2. Since \( f(a) = f(b) \), both maximum and minimum values must occur at some point \( x = c \) in \([a, b]\).
+
+3. \textbf{Case 1}: If \( c = a \) or \( c = b \), then the maximum or minimum occurs at the endpoints. Consider the other endpoint where the extremum is not achieved (if any).
+
+4. \textbf{Case 2}: If \( c \in (a, b) \), then:
+- Since \( f(x) \) has a local maximum or minimum at \( c \), and \( f \) is differentiable at \( c \), it follows that \( f'(c) = 0 \).
+
+5. This completes the proof, as we’ve shown there exists at least one \( c \in (a, b) \) where \( f'(c) = 0 \).
+
+\subsubsection{Provement of Lagrange’s Mean Value Theorem (LMVT)}
+
+\textbf{Statement}: If \( f \) is continuous on \([a, b]\) and differentiable on \((a, b)\), then there exists at least one point \( c \in (a, b) \) such that
+\[
+f'(c) = \dfrac{f(b) - f(a)}{b - a}.
+\]
+
+\textbf{Proof}:
+
+1. \textbf{Define a function that meets Rolle's theorem conditions}: Consider the function \( g(x) = f(x) - \left( \dfrac{f(b) - f(a)}{b - a} \right)(x - a) \).
+- This function \( g(x) \) represents the difference between \( f(x) \) and the line joining \( (a, f(a)) \) and \( (b, f(b)) \), effectively creating a function with \( g(a) = g(b) \).
+
+2. \textbf{Check the conditions of Rolle’s Theorem}:
+
+\begin{itemize}
+	\item 
+	\( g \) is continuous on \([a, b]\) and differentiable on \((a, b)\) because \( f \) is.
+	\item 
+	\( g(a) = f(a) - f(a) = 0 \) and \( g(b) = f(b) - f(b) = 0 \).
+\end{itemize}
+
+3. \textbf{Apply Rolle's Theorem}: Since \( g(a) = g(b) = 0 \), Rolle’s theorem implies there exists \( c \in (a, b) \) such that \( g'(c) = 0 \).
+
+4. \textbf{Compute \( g'(x) \)}:
+
+\( g'(x) = f'(x) - \dfrac{f(b) - f(a)}{b - a} \).
+
+5. \textbf{Set \( g'(c) = 0 \)}: This yields \( f'(c) = \dfrac{f(b) - f(a)}{b - a} \), which is the desired result.
+
+\subsubsection{Provement of Cauchy’s Mean Value Theorem (CMVT)}
+
+\textbf{Statement}: If \( f \) and \( g \) are continuous on \([a, b]\) and differentiable on \((a, b)\), and if \( g'(x) \neq 0 \) for \( x \in (a, b) \), then there exists a point \( c \in (a, b) \) such that
+\[
+\dfrac{f'(c)}{g'(c)} = \dfrac{f(b) - f(a)}{g(b) - g(a)}.
+\]
+
+\textbf{Proof}:
+
+1. \textbf{Define a function inspired by LMVT}: Consider the function \( h(x) = f(x) - \lambda g(x) \), where \( \lambda = \dfrac{f(b) - f(a)}{g(b) - g(a)} \).
+- This choice of \( \lambda \) ensures that \( h(a) = f(a) - \lambda g(a) \) and \( h(b) = f(b) - \lambda g(b) \) are equal, so \( h(a) = h(b) \).
+
+2. \textbf{Check the conditions of Rolle’s Theorem}:
+
+\begin{itemize}
+	\item 
+	\( h \) is continuous on \([a, b]\) and differentiable on \((a, b)\), as both \( f \) and \( g \) are.
+	\item 
+	\( h(a) = h(b) \) by construction.
+\end{itemize}
+
+3. \textbf{Apply Rolle’s Theorem}: Since \( h(a) = h(b) \), Rolle’s theorem implies there exists \( c \in (a, b) \) such that \( h'(c) = 0 \).
+
+4. \textbf{Compute \( h'(x) \)}:
+
+\( h'(x) = f'(x) - \lambda g'(x) \).
+
+5. \textbf{Set \( h'(c) = 0 \)}: This gives \( f'(c) = \lambda g'(c) \).
+
+6. \textbf{Substitute \( \lambda \)}: Since \( \lambda = \dfrac{f(b) - f(a)}{g(b) - g(a)} \), we find that
+\[
+\dfrac{f'(c)}{g'(c)} = \dfrac{f(b) - f(a)}{g(b) - g(a)}.
+\]
+
+This completes the proof of Cauchy’s Mean Value Theorem.
+
+\subsubsection{Detailed Proof of Rolle's Theorem}
+
+\begin{light_gray_box}
+If a function \( f \) is continuous on a closed interval \([a, b]\), differentiable on the open interval \((a, b)\), and satisfies \( f(a) = f(b) \), then there exists at least one point \( c \in (a, b) \) such that \( f'(c) = 0 \).
+\end{light_gray_box}
+
+\textbf{Proof of Rolle's Theorem}
+
+To prove this, we will use the Extreme Value Theorem and properties of differentiability. The proof will proceed in a few steps.
+
+\textbf{Step 1: Check Preconditions}
+
+Let \( f \) be a function that satisfies:
+
+1. \textbf{Continuity on \([a, b]\)}: \( f \) is continuous on the closed interval \([a, b]\).
+
+2. \textbf{Differentiability on \((a, b)\)}: \( f \) is differentiable on the open interval \((a, b)\).
+
+3. \textbf{Equal Endpoint Values}: \( f(a) = f(b) \).
+
+Our goal is to show that there exists a point \( c \in (a, b) \) such that \( f'(c) = 0 \).
+
+\textbf{Step 2: Apply the Extreme Value Theorem}
+
+Since \( f \) is continuous on the closed interval \([a, b]\), by the \textbf{Extreme Value Theorem}, \( f \) must attain both a maximum and a minimum value on \([a, b]\). 
+
+Let:
+
+\begin{itemize}
+	\item 
+	\( M = f(x_{\text{max}}) \) denote the maximum value of \( f \) on \([a, b]\) at some point \( x_{\text{max}} \in [a, b] \).
+	\item 
+	\( m = f(x_{\text{min}}) \) denote the minimum value of \( f \) on \([a, b]\) at some point \( x_{\text{min}} \in [a, b] \).
+\end{itemize}
+
+Since \( f(a) = f(b) \), both of these endpoint values are equal to each other, so \( f(a) = f(b) = k \), for some constant \( k \). Thus, \( f \) does not vary in value at the endpoints.
+
+\textbf{Step 3: Consider Cases for Maximum and Minimum Points}
+
+We have two main cases to consider for the location of the maximum and minimum points:
+
+\begin{itemize}
+	\item 
+	1. \textbf{Case 1}: \( x_{\text{max}} \) and \( x_{\text{min}} \) both lie inside the open interval \((a, b)\).
+	\item 
+	2. \textbf{Case 2}: Either \( x_{\text{max}} \) or \( x_{\text{min}} \) (or both) is at the endpoints, i.e., \( x_{\text{max}} = a \) or \( x_{\text{min}} = a \), and/or \( x_{\text{max}} = b \) or \( x_{\text{min}} = b \).
+\end{itemize}
+
+We will analyze each case separately.
+
+\noindent\hrulefill
+
+\textbf{Case 1: Maximum or Minimum in the Interior of the Interval}
+
+Suppose \( f \) attains either its maximum or minimum at a point \( c \in (a, b) \). Then:
+
+\begin{itemize}
+	\item 
+	\( f(c) \geqslant f(x) \) for all \( x \in [a, b] \), if \( c \) is a maximum point.
+	\item 
+	\( f(c) \leqslant f(x) \) for all \( x \in [a, b] \), if \( c \) is a minimum point.
+\end{itemize}
+
+Since \( f \) is differentiable at \( c \) (as \( c \in (a, b) \)), we can apply \textbf{Fermat's Theorem}, which states that if a function has a local maximum or minimum at an interior point and is differentiable at that point, then the derivative at that point must be zero.
+
+Thus, we conclude that:
+\[
+f'(c) = 0.
+\]
+
+This proves Rolle's Theorem in this case, as we have found a point \( c \in (a, b) \) where \( f'(c) = 0 \).
+
+\noindent\hrulefill
+
+\textbf{Case 2: Maximum and Minimum at the Endpoints}
+
+Suppose \( f \) attains both its maximum and minimum values only at the endpoints \( a \) and \( b \). Since \( f(a) = f(b) = k \), the function \( f \) is constant on \([a, b]\).
+
+If \( f \) is constant on \([a, b]\), then \( f'(x) = 0 \) for all \( x \in (a, b) \). In particular, we can choose any point \( c \in (a, b) \) and find that \( f'(c) = 0 \).
+
+Therefore, in this case as well, there exists a point \( c \in (a, b) \) where \( f'(c) = 0 \).
+
+\noindent\hrulefill
+
+\textbf{Conclusion}
+
+We have shown that:
+
+\begin{itemize}
+	\item 
+	If \( f \) attains its maximum or minimum at an interior point of \((a, b)\), then the derivative at that point is zero.
+	\item 
+	If \( f \) attains its maximum and minimum only at the endpoints, then \( f \) is constant on \([a, b]\), implying \( f'(c) = 0 \) for any \( c \in (a, b) \).
+\end{itemize}
+
+Thus, in either case, there exists a point \( c \in (a, b) \) such that \( f'(c) = 0 \), completing the proof of \textbf{Rolle's Theorem}.
+
+\subsubsection{Detailed Proof of Lagrange’s Mean Value Theorem}
+
+The \textbf{Lagrange's Mean Value Theorem (LMVT)}, which is also known simply as the \textbf{Mean Value Theorem}. This theorem generalizes Rolle’s Theorem by allowing the values at the endpoints of the interval to differ.
+
+\textbf{Statement of Lagrange’s Mean Value Theorem}
+
+Let \( f \) be a function that satisfies:
+
+1. \textbf{Continuity on the closed interval \([a, b]\)}: \( f \) is continuous on \([a, b]\).
+
+2. \textbf{Differentiability on the open interval \((a, b)\)}: \( f \) is differentiable on \((a, b)\).
+
+Then, there exists at least one point \( c \in (a, b) \) such that
+\[
+f'(c) = \dfrac{f(b) - f(a)}{b - a}.
+\]
+
+The expression \(\dfrac{f(b) - f(a)}{b - a}\) represents the average rate of change of \( f \) over the interval \([a, b]\), and LMVT guarantees the existence of a point \( c \in (a, b)\) where the instantaneous rate of change (the derivative) equals this average rate of change.
+
+\textbf{Proof of the Mean Value Theorem}
+
+To prove this theorem, we will use \textbf{Rolle's Theorem}.
+
+\textbf{Step 1}: Define an Auxiliary Function \( g(x) \)
+
+We start by defining an auxiliary function \( g(x) \) based on \( f(x) \), which will allow us to apply Rolle's Theorem.
+
+Define:
+\[
+g(x) = f(x) - \left( \dfrac{f(b) - f(a)}{b - a} \right) (x - a).
+\]
+
+The function \( g(x) \) is constructed to have the same values at \( x = a \) and \( x = b \). This will set up the conditions for Rolle's Theorem.
+
+\textbf{Step 2}: Verify Continuity and Differentiability of \( g(x) \)
+
+Since \( f \) is continuous on \([a, b]\) and differentiable on \((a, b)\), \( g(x) \) will inherit these properties:
+
+\begin{itemize}
+	\item 
+	\textbf{Continuity on \([a, b]\)}: Because \( f \) is continuous on \([a, b]\), and the linear function \(\dfrac{f(b) - f(a)}{b - a} \cdot (x - a)\) is continuous on \([a, b]\), their difference \( g(x) \) is also continuous on \([a, b]\).
+	\item
+	\textbf{Differentiability on \((a, b)\)}: Similarly, \( g(x) \) is differentiable on \((a, b)\) because both \( f(x) \) and the linear term \(\dfrac{f(b) - f(a)}{b - a} \cdot (x - a)\) are differentiable on \((a, b)\).
+\end{itemize}
+
+Thus, \( g(x) \) is continuous on \([a, b]\) and differentiable on \((a, b)\).
+
+\textbf{Step 3}: Evaluate \( g(a) \) and \( g(b) \)
+
+Now let’s evaluate \( g(x) \) at the endpoints \( x = a \) and \( x = b \):
+
+\begin{itemize}
+	\item
+	At \( x = a \):
+	\[
+	g(a) = f(a) - \left( \dfrac{f(b) - f(a)}{b - a} \right) (a - a) = f(a).
+	\]
+	\item
+	At \( x = b \):
+	\[
+	g(b) = f(b) - \left( \dfrac{f(b) - f(a)}{b - a} \right) (b - a) = f(b) - (f(b) - f(a)) = f(a).
+	\]	
+\end{itemize}
+
+
+
+Thus, we see that
+\[
+g(a) = g(b).
+\]
+This means that \( g(x) \) satisfies the conditions of Rolle's Theorem on the interval \([a, b]\) because it is continuous on \([a, b]\), differentiable on \((a, b)\), and \( g(a) = g(b) \).
+
+\textbf{Step 4}: Apply Rolle's Theorem to \( g(x) \)
+
+By Rolle's Theorem, since \( g(x) \) is continuous on \([a, b]\), differentiable on \((a, b)\), and \( g(a) = g(b) \), there must exist some point \( c \in (a, b) \) such that \( g'(c) = 0 \).
+
+\textbf{Step 5}: Differentiate \( g(x) \) and Solve for \( c \)
+
+Now, let’s find \( g'(x) \):
+\[
+g(x) = f(x) - \left( \dfrac{f(b) - f(a)}{b - a} \right) (x - a).
+\]
+Differentiating \( g(x) \) with respect to \( x \), we get
+\[
+g'(x) = f'(x) - \dfrac{f(b) - f(a)}{b - a}.
+\]
+
+By Rolle's Theorem, there exists a point \( c \in (a, b) \) such that \( g'(c) = 0 \). Thus,
+\[
+f'(c) - \dfrac{f(b) - f(a)}{b - a} = 0.
+\]
+Solving for \( f'(c) \), we get
+\[
+f'(c) = \dfrac{f(b) - f(a)}{b - a}.
+\]
+
+\textbf{Conclusion}
+
+We have shown that there exists a point \( c \in (a, b) \) such that
+\[
+f'(c) = \dfrac{f(b) - f(a)}{b - a}.
+\]
+
+This completes the proof of the \textbf{Lagrange's Mean Value Theorem}.
+
+
+
+
+\subsection{Review}
+
+Here's a brief review of Rolle's Theorem, Lagrange's Mean Value Theorem (LMVT), and Cauchy's Mean Value Theorem (CMVT), including their statements, conditions, and significance.
+
+\subsubsection{Rolle's Theorem}
+
+\textbf{Statement}: If \( f \) is continuous on the closed interval \([a, b]\) and differentiable on the open interval \((a, b)\), and if \( f(a) = f(b) \), then there exists at least one point \( c \in (a, b) \) such that \( f'(c) = 0 \).
+
+\hfill
+
+\textbf{Conditions}:
+
+\begin{itemize}
+	\item 
+	\( f \) must be continuous on \([a, b]\).
+	\item 
+	\( f \) must be differentiable on \((a, b)\).
+	\item 
+	\( f(a) \) must equal \( f(b) \).
+\end{itemize}
+
+\textbf{Significance}: Rolle's Theorem indicates that if a function has the same value at both ends of an interval, it must have a point in between where the tangent is horizontal (slope = 0). This concept is foundational for understanding how functions behave and is a stepping stone to more general results like the Mean Value Theorem.
+
+\subsubsection{Lagrange's Mean Value Theorem (LMVT)}
+
+\textbf{Statement}: If \( f \) is continuous on \([a, b]\) and differentiable on \((a, b)\), then there exists at least one point \( c \in (a, b) \) such that 
+\[
+f'(c) = \dfrac{f(b) - f(a)}{b - a}.
+\]
+
+\textbf{Conditions}:
+
+\begin{itemize}
+	\item 
+	\( f \) must be continuous on \([a, b]\).
+	\item 
+	\( f \) must be differentiable on \((a, b)\).
+\end{itemize}
+
+\textbf{Significance}: LMVT generalizes Rolle's Theorem by relating the average rate of change of the function over the interval \([a, b]\) to the instantaneous rate of change at some point within the interval. It emphasizes the relationship between the behavior of a function and its derivative, providing a basis for many applications in optimization and physics.
+
+\subsubsection{Cauchy's Mean Value Theorem (CMVT)}
+
+\textbf{Statement}: If \( f \) and \( g \) are continuous on \([a, b]\) and differentiable on \((a, b)\), and if \( g'(x) \neq 0 \) for all \( x \in (a, b) \), then there exists a point \( c \in (a, b) \) such that
+\[
+\dfrac{f'(c)}{g'(c)} = \dfrac{f(b) - f(a)}{g(b) - g(a)}.
+\]
+
+\textbf{Conditions}:
+
+\begin{itemize}
+	\item 
+	\( f \) and \( g \) must both be continuous on \([a, b]\).
+	\item 
+	\( f \) and \( g \) must both be differentiable on \((a, b)\).
+	\item 
+	\( g'(x) \) must not be zero on \((a, b)\).
+\end{itemize}
+
+
+\textbf{Significance}: CMVT extends LMVT to the relationship between two functions. It states that if both functions satisfy the continuity and differentiability conditions, there exists a point where the ratio of their derivatives equals the ratio of the change in their values over the interval. This theorem is particularly useful in cases where one needs to compare the rates of change of different quantities.
+
+\subsubsection{Summary}
+
+\begin{itemize}
+	\item
+	\textbf{Rolle's Theorem} provides insight into the behavior of functions that return to the same value at two points
+	\item
+	\textbf{LMVT} links average and instantaneous rates of change for a single function, broadening the application of Rolle's result.
+	\item 
+	\textbf{CMVT} compares two functions and their rates of change, adding a layer of complexity and utility for functions that interact with each other.	
+\end{itemize}
+
+Together, these theorems form a cornerstone of calculus, connecting the concepts of continuity, differentiability, and the behavior of functions in a meaningful way.
+
+\chapter{Existence Theorems}
+
+\section{Extreme Value Theorem}
+
+The \textbf{Extreme Value Theorem} is a fundamental result in calculus and real analysis that describes the behavior of continuous functions over closed intervals. Here's the precise statement of the theorem and an explanation of its significance and proof outline.
+
+\hfill
+
+Here is an example Illustrating the Extreme Value Theorem:
+	
+Consider \( f(x) = x^2 \) on \([-1, 2]\).
+	
+\begin{itemize}
+	\item 
+	This function is continuous on the closed interval \([-1, 2]\).
+	\item 
+	The maximum value occurs at \( x = 2 \), where \( f(2) = 4 \).
+	\item 
+	The minimum value occurs at \( x = 0 \), where \( f(0) = 0 \).
+\end{itemize}
+
+In this example, we see that both maximum and minimum values are indeed attained, confirming the Extreme Value Theorem's statement.
+
+\subsection{Statement}
+
+If \( f \) is continuous on a closed interval \([a, b]\), then \( f \) attains both a maximum and a minimum value on that interval. In other words, there exist points \( c \) and \( d \) in \([a, b]\) such that
+\[
+f(c) \geqslant f(x) \quad \text{and} \quad f(d) \leqslant f(x) \quad \text{for all } x \in [a, b].
+\]
+Here:
+\begin{itemize}
+	\item 
+	\( f(c) \) is called the \textbf{maximum} or \textbf{supremum} of \( f \) on \([a, b]\).
+	\item 
+	\( f(d) \) is called the \textbf{minimum} or \textbf{infimum} of \( f \) on \([a, b]\).
+\end{itemize}
+
+\subsection{Importance}
+
+The Extreme Value Theorem is foundational because it guarantees that any continuous function on a closed and bounded interval will reach its highest and lowest points within that interval. This property is crucial for analysis and applications:
+
+\begin{itemize}
+	\item 
+	\textbf{Real-world applications}: Many real-world scenarios involve finding maximum and minimum values, such as optimizing profit, minimizing cost, or determining peak performance.
+	\item 
+	\textbf{Mathematical applications}: The theorem is essential for proving other results, like the Mean Value Theorem and the Intermediate Value Theorem, because it ensures the existence of limits and points of extreme behavior for continuous functions.
+\end{itemize}	
+
+\subsection{Conditions}
+
+Why the Conditions are Important? The Extreme Value Theorem relies on the function being continuous and defined over a closed, bounded interval. Here’s why each of these conditions is necessary:
+
+\begin{itemize}
+	\item 
+	\textbf{Continuity}: If \( f \) is not continuous, \uline{it could "jump" or go to infinity}, missing maximum or minimum values. For instance, a discontinuous function like \( f(x) = \dfrac{1}{x - a} \) on \((a, b]\) does not attain a maximum or minimum at \( a \), as it approaches infinity near \( a \).
+	\item 
+	\textbf{Closed Interval \([a, b]\)}: An open interval \((a, b)\) does not include its endpoints, so the function might approach but not reach its extreme values at those points. For example, \( f(x) = x \) on \((0, 1)\) does not attain a maximum or minimum \uline{because it can get infinitely close to \( 1 \) and \( 0 \) without actually reaching them}.
+	\item
+	\textbf{Boundedness}: If an interval is not bounded, such as \((-\infty, \infty)\), a continuous function \uline{might have no upper or lower bounds}, like \( f(x) = x \) on \((-\infty, \infty)\), which has no maximum or minimum since it can increase or decrease without limit.
+\end{itemize}
+
+\subsection{Outline Proof}
+
+A rigorous proof of the Extreme Value Theorem typically involves compactness arguments, but here’s an outline using basic concepts:
+
+\begin{enumerate}
+	\item 
+	\textbf{Define the Set of Values}: Let \( S = \{ f(x) \mid x \in [a, b] \} \) be the set of all function values on \([a, b]\).
+	\item 
+	\textbf{Boundedness of \( S \)}: Since \( f \) is continuous on the closed interval \([a, b]\), \( S \) is bounded. Therefore, \( S \) has both an upper bound (for maximum) and a lower bound (for minimum).
+	\item 
+	\textbf{Existence of Supremum and Infimum}: By the \textbf{Completeness Property of Real Numbers} (which states that every non-empty set of real numbers that is bounded above has a least upper bound, or supremum), \( S \) has a supremum (least upper bound) and an infimum (greatest lower bound).
+	\textbf{Attainment of Supremum and Infimum}:
+	\begin{itemize}
+		\item 
+		Because \( f \) is continuous, it will "reach" these bounds at some points in \([a, b]\).
+		\item 
+		Suppose \( M = \sup S \) and \( m = \inf S \).
+		\item 
+		By continuity, there exists \( c \in [a, b] \) such that \( f(c) = M \) and \( d \in [a, b] \) such that \( f(d) = m \).
+	\end{itemize}
+\end{enumerate}
+
+Thus, \( f \) attains both its maximum and minimum values on \([a, b]\), completing the proof.
+
+
+\subsection{Comprehensive Proof}
+
+If \( f \) is continuous on a closed interval \([a, b]\), then \( f \) attains both a maximum and a minimum value on that interval. In other words, there exist points \( c \) and \( d \) in \([a, b]\) such that
+\[
+f(c) \geqslant f(x) \quad \text{and} \quad f(d) \leqslant f(x) \quad \text{for all } x \in [a, b].
+\]
+
+\textbf{Proof of the Extreme Value Theorem}
+
+To prove this theorem rigorously, we will use properties of continuous functions on closed, bounded intervals.
+
+\textbf{Step 1}: Define the Set of Values of \( f \)
+
+Let \( S = \{ f(x) \mid x \in [a, b] \} \) be the set of all values that \( f \) takes on the interval \([a, b]\). This set \( S \) represents the range of \( f \) over \([a, b]\).
+
+\textbf{Step 2}: Show that \( S \) is Bounded
+
+Since \( f \) is continuous on the closed interval \([a, b]\), we claim that \( S \) is bounded, meaning that there exist real numbers \( M \) and \( m \) such that
+\[
+m \leqslant f(x) \leqslant M \quad \text{for all } x \in [a, b].
+\]
+
+To see why \( S \) is bounded, we can use the \textbf{Heine–Borel Theorem}, which states that any continuous function on a closed, bounded interval \([a, b]\) is bounded. Thus, the set of function values \( S \) must be bounded.
+
+\textbf{Step 3}: Existence of Supremum and Infimum
+
+Since \( S \subset \mathbb{R} \) is non-empty and bounded, we can apply the \textbf{Completeness Property of Real Numbers} (or the \textbf{Supremum Property}), which states that every non-empty set of real numbers that is bounded above has a least upper bound (supremum), and every non-empty set that is bounded below has a greatest lower bound (infimum).
+
+Let:
+\begin{itemize}
+	\item 
+	\( M = \sup S \), the least upper bound of \( S \).
+	\item 
+	\( m = \inf S \), the greatest lower bound of \( S \).
+\end{itemize}
+
+By definition of supremum and infimum:
+
+1. \( M \geqslant f(x) \) for all \( x \in [a, b] \), and for any \(\epsilon > 0\), there exists some \( x \in [a, b] \) such that \( M - \epsilon < f(x) \leqslant M \).
+
+2. \( m \leqslant f(x) \) for all \( x \in [a, b] \), and for any \(\epsilon > 0\), there exists some \( x \in [a, b] \) such that \( m \leqslant f(x) < m + \epsilon \).
+
+Thus, \( M \) and \( m \) are potential candidates for the maximum and minimum values of \( f \) on \([a, b]\), respectively. Now, we must show that \( f \) actually attains these values, i.e., that there exist points \( c, d \in [a, b] \) such that \( f(c) = M \) and \( f(d) = m \).
+
+\textbf{Step 4}: Attainment of the Maximum Value \( M \)
+
+We need to show that there exists a point \( c \in [a, b] \) such that \( f(c) = M \).
+
+To prove this, consider a \textbf{sequence \( \{x_n\} \subset [a, b] \)} such that \( f(x_n) \to M \) as \( n \to \infty \). Such a sequence exists by the definition of the supremum \( M \), as there will always be points \( x_n \) in \([a, b]\) that get arbitrarily close to \( M \) in terms of function values.
+
+Since \([a, b]\) is a closed and bounded interval, the sequence \( \{x_n\} \subset [a, b] \) has a \textbf{convergent subsequence} by the \textbf{Bolzano-Weierstrass Theorem}. Let this subsequence be \( \{x_{n_k}\} \), and let it converge to some point \( c \in [a, b] \).
+
+\textbf{Step 5}: Continuity Implies \( f(x_{n_k}) \to f(c) \)
+
+Since \( f \) is continuous on \([a, b]\), we can use the continuity of \( f \) at \( c \) to say that
+\[
+f(x_{n_k}) \to f(c) \quad \text{as } n_k \to \infty.
+\]
+But we also know that \( f(x_{n_k}) \to M \) as \( n_k \to \infty \) (by our choice of the sequence in Step 4). Therefore,
+\[
+f(c) = M.
+\]
+
+Thus, we have found a point \( c \in [a, b] \) such that \( f(c) = M \), which shows that \( f \) attains its maximum value on \([a, b]\).
+
+\textbf{Step 6}: Attainment of the Minimum Value \( m \)
+
+Similarly, to show that \( f \) attains its minimum value on \([a, b]\), consider a sequence \( \{y_n\} \subset [a, b] \) such that \( f(y_n) \to m \) as \( n \to \infty \). Again, by the Bolzano-Weierstrass Theorem, the sequence \( \{y_n\} \) has a convergent subsequence \( \{y_{n_k}\} \) that converges to some point \( d \in [a, b] \).
+
+By the continuity of \( f \) at \( d \), we have
+\[
+f(y_{n_k}) \to f(d) \quad \text{as } n_k \to \infty.
+\]
+Since \( f(y_{n_k}) \to m \), it follows that
+\[
+f(d) = m.
+\]
+
+Therefore, there exists a point \( d \in [a, b] \) such that \( f(d) = m \), meaning that \( f \) attains its minimum value on \([a, b]\).
+
+\textbf{Conclusion}
+
+We have shown that:
+
+\begin{itemize}
+	\item 
+	There exists \( c \in [a, b] \) such that \( f(c) = M = \sup S \).
+	\item 
+	There exists \( d \in [a, b] \) such that \( f(d) = m = \inf S \).
+\end{itemize}
+
+Thus, the function \( f \) attains both its maximum and minimum values on \([a, b]\), completing the proof of the \textbf{Extreme Value Theorem}.
+
+\section{Fermat's Theorem}
+
+\textbf{Statement of Fermat's Theorem}
+
+Let \( f \) be a function defined on an open interval \( I \), and let \( c \in I \) be an interior point. Suppose that \( f \) has a local maximum or a local minimum at \( c \) and that \( f \) is differentiable at \( c \). Then,
+\[
+f'(c) = 0.
+\]
+
+\textbf{Proof of Fermat's Theorem}
+
+To prove this theorem, we will consider both cases, where \( f(c) \) is a local maximum and where \( f(c) \) is a local minimum.
+
+\textbf{Step 1}: Set Up the Hypotheses
+
+Let \( f \) be a function defined on an open interval \( I \) such that \( f \) is differentiable at an interior point \( c \in I \). We assume that \( f \) has a local maximum or minimum at \( c \). This means that there exists a small neighborhood around \( c \) (say, \( (c - \delta, c + \delta) \subset I \) for some \( \delta > 0 \)) such that:
+
+\begin{itemize}
+	\item 
+	\textbf{If \( c \) is a local maximum}, then \( f(c) \geqslant f(x) \) for all \( x \) in the neighborhood \( (c - \delta, c + \delta) \).
+	\item 
+	\textbf{If \( c \) is a local minimum}, then \( f(c) \leqslant f(x) \) for all \( x \) in the neighborhood \( (c - \delta, c + \delta) \).
+\end{itemize}
+
+Our goal is to show that if \( f \) is differentiable at \( c \), then \( f'(c) = 0 \).
+
+\textbf{Step 2}: Consider the Difference Quotients for \( f'(c) \)
+
+Since \( f \) is differentiable at \( c \), the derivative \( f'(c) \) exists and can be computed as:
+\[
+f'(c) = \lim_{h \to 0} \dfrac{f(c + h) - f(c)}{h}.
+\]
+
+To evaluate this limit, let’s examine the behavior of \( \dfrac{f(c + h) - f(c)}{h} \) as \( h \to 0 \) from both positive and negative directions.
+
+\textbf{Step 3}: Analyze the Case of a Local Maximum at \( c \)
+
+Suppose \( f \) has a local maximum at \( c \). Then \( f(c) \geqslant f(x) \) for all \( x \) in a neighborhood around \( c \).
+
+\textbf{For \( h > 0 \)}:
+
+\begin{itemize}
+	\item 
+	When \( h > 0 \), we are considering points \( x = c + h \) slightly to the right of \( c \).
+	\item 
+	Since \( f(c) \) is a local maximum, we have \( f(c) \geqslant f(c + h) \).
+	\item 
+	Therefore, \( f(c + h) - f(c) \leqslant 0 \), which implies that
+	\[
+	\dfrac{f(c + h) - f(c)}{h} \leqslant 0.
+	\]
+\end{itemize}
+
+\textbf{For \( h < 0 \)}:
+
+\begin{itemize}
+	\item 
+	When \( h < 0 \), we are considering points \( x = c + h \) slightly to the left of \( c \).
+	\item 
+	Since \( f(c) \) is a local maximum, we have \( f(c) \geqslant f(c + h) \).
+	\item 
+	Therefore, \( f(c + h) - f(c) \leqslant 0 \), which implies that
+	\[
+	\dfrac{f(c + h) - f(c)}{h} \geqslant 0
+	\]
+	(because \( h \) is negative, dividing by \( h \) reverses the inequality).
+\end{itemize}
+
+\textbf{Step 4}: Conclude for the Local Maximum Case
+
+We have established that:
+
+\begin{itemize}
+	\item 
+	As \( h \to 0^+ \) (from the right), \( \dfrac{f(c + h) - f(c)}{h} \leqslant 0 \).
+	\item 
+	As \( h \to 0^- \) (from the left), \( \dfrac{f(c + h) - f(c)}{h} \geqslant 0 \).
+\end{itemize}
+
+Since the limit defining \( f'(c) \) must be the same from both the left and the right (for \( f \) to be differentiable at \( c \)), the only possible value for \( f'(c) \) that satisfies both inequalities is
+\[
+f'(c) = 0.
+\]
+
+\textbf{Step 5}: Analyze the Case of a Local Minimum at \( c \)
+
+Now, suppose \( f \) has a local minimum at \( c \). Then \( f(c) \leqslant f(x) \) for all \( x \) in a neighborhood around \( c \).
+
+\textbf{For \( h > 0 \)}:
+
+\begin{itemize}
+	\item 
+	When \( h > 0 \), we are considering points \( x = c + h \) slightly to the right of \( c \).
+	\item 
+	Since \( f(c) \) is a local minimum, we have \( f(c) \leqslant f(c + h) \).
+	\item 
+	Therefore, \( f(c + h) - f(c) \geqslant 0 \), which implies that
+	\[
+	\dfrac{f(c + h) - f(c)}{h} \geqslant 0.
+	\]	
+\end{itemize}
+
+\textbf{For \( h < 0 \)}:
+
+\begin{itemize}
+	\item 
+	When \( h < 0 \), we are considering points \( x = c + h \) slightly to the left of \( c \).
+	\item 
+	Since \( f(c) \) is a local minimum, we have \( f(c) \leqslant f(c + h) \).
+	\item 
+	Therefore, \( f(c + h) - f(c) \geqslant 0 \), which implies that
+	\[
+	\dfrac{f(c + h) - f(c)}{h} \leqslant 0.
+	\]
+\end{itemize}
+
+\textbf{Step 6}: Conclude for the Local Minimum Case
+
+In this case, we have:
+
+\begin{itemize}
+	\item 
+	As \( h \to 0^+ \) (from the right), \( \dfrac{f(c + h) - f(c)}{h} \geqslant 0 \).
+	\item 
+	As \( h \to 0^- \) (from the left), \( \dfrac{f(c + h) - f(c)}{h} \leqslant 0 \).
+\end{itemize}
+
+As in the case of a local maximum, the only way for these conditions to hold simultaneously is if
+\[
+f'(c) = 0.
+\]
+
+\textbf{Conclusion}
+
+We have shown that in both cases — whether \( f(c) \) is a local maximum or a local minimum — the differentiability of \( f \) at \( c \) forces \( f'(c) = 0 \).
+
+This completes the proof of \textbf{Fermat’s Theorem}.
+
+\chapter{Improper Integral}
+
+\section{Calculation}
+
+\(\int \frac{1}{\sqrt{x-x^2}}dx\) % [139] p264 t5
+
+To evaluate the integral
+
+\[
+I = \int \frac{1}{\sqrt{x - x^2}} , dx,
+\]
+
+we notice that \(x - x^2 = x(1 - x)\). This suggests substituting \(x\) in terms of a trigonometric function to simplify the square root.
+
+\textbf{Method 1 Step-by-Step Solution:}
+
+\textbf{1. Substitution:}
+
+Let:
+\[
+x = \sin^2\theta \quad \text{(or equivalently, } x = 1 - \cos^2\theta\text{)}.
+\]
+
+Then:
+\[
+dx = 2\sin\theta \cos\theta , d\theta.
+\]
+
+The term \(x(1 - x)\) becomes:
+\[
+x(1 - x) = \sin^2\theta(1 - \sin^2\theta) = \sin^2\theta \cos^2\theta.
+\]
+
+Thus:
+\[
+\sqrt{x - x^2} = \sqrt{\sin^2\theta \cos^2\theta} = \sin\theta \cos\theta.
+\]
+
+\textbf{2. Simplifying the Integral:}
+
+Substituting these into the integral:
+\[
+I = \int \frac{1}{\sqrt{x - x^2}} , dx = \int \frac{1}{\sin\theta \cos\theta} \cdot 2\sin\theta \cos\theta , d\theta.
+\]
+
+The \(\sin\theta \cos\theta\) terms cancel:
+\[
+I = \int 2 , d\theta = 2\theta + C.
+\]
+
+\textbf{3. Back-Substitute:}
+
+From the substitution \(x = \sin^2\theta\), we know:
+\[
+\sin\theta = \sqrt{x} \quad \text{and} \quad \theta = \arcsin(\sqrt{x}).
+\]
+
+Thus, the integral becomes:
+\[
+I = 2\arcsin(\sqrt{x}) + C.
+\]
+
+\textbf{Final Answer:}
+
+\[
+\int \frac{1}{\sqrt{x - x^2}} , dx = 2\arcsin(\sqrt{x}) + C.
+\]
+
+\textbf{Method 2:}
+
+Transforming \( x - x^2 \) into a difference of squares is another effective method. Let’s go through it step by step:
+
+We start with:
+\[
+x - x^2 = -\left(x^2 - x\right).
+\]
+
+Complete the square inside the parentheses:
+\[
+x^2 - x = \left(x - \frac{1}{2}\right)^2 - \frac{1}{4}.
+\]
+
+Thus:
+\[
+x - x^2 = -\left[\left(x - \frac{1}{2}\right)^2 - \frac{1}{4}\right] = \frac{1}{4} - \left(x - \frac{1}{2}\right)^2.
+\]
+
+This rewrites \( x - x^2 \) as:
+\[
+x - x^2 = \frac{1}{4} - \left(x - \frac{1}{2}\right)^2.
+\]
+
+\textbf{Simplify the Integral:}
+
+The integral now becomes:
+\[
+I = \int \frac{1}{\sqrt{x - x^2}} , dx = \int \frac{1}{\sqrt{\frac{1}{4} - \left(x - \frac{1}{2}\right)^2}} , dx.
+\]
+
+Let:
+\[
+u = x - \frac{1}{2}, \quad \text{so} \quad x = u + \frac{1}{2} \quad \text{and} \quad dx = du.
+\]
+
+Substituting this into the integral:
+\[
+I = \int \frac{1}{\sqrt{\frac{1}{4} - u^2}} , du.
+\]
+
+\textbf{Recognize the Standard Form:}
+
+This is the standard integral for an arcsine:
+\[
+\int \frac{1}{\sqrt{a^2 - u^2}} , du = \arcsin\left(\frac{u}{a}\right) + C.
+\]
+
+Here, \( a = \frac{1}{2} \). Therefore:
+\[
+I = \arcsin\left(\frac{u}{\frac{1}{2}}\right) + C = \arcsin(2u) + C.
+\]
+
+\textbf{Back-Substitute:}
+
+Since \( u = x - \frac{1}{2} \), we have:
+\[
+I = \arcsin\left(2\left(x - \frac{1}{2}\right)\right) + C = \arcsin(2x - 1) + C.
+\]
+
+\textbf{Final Answer:}
+
+\[
+\int \frac{1}{\sqrt{x - x^2}} , dx = \arcsin(2x - 1) + C.
+\]
+
+\chapter{Define Integral}
+
+\section{Finding limits}
+
+Given the limit
+
+\[
+\lim_{n\to \infty} \left[ \dfrac{n}{(n+1)^2} + \dfrac{n}{(n+2)^2}+ \dots + \dfrac{n}{(n+n)^2} \right],
+\]
+
+we can proceed as follows:
+
+1. Rewrite the terms in a more general form:
+   \[
+   \sum_{k=1}^n \dfrac{n}{(n+k)^2}.
+   \]
+
+2. Factor out \(n\) and rewrite each term:
+
+   rewrite each term in a form that allows \( n^2 \) to be factored from the denominator:
+   \[
+   \sum_{k=1}^n \dfrac{n}{n^2 \left(1 + \dfrac{k}{n}\right)^2}=\sum_{k=1}^n \dfrac{1}{\left(1 + \dfrac{k}{n}\right)^2}.
+   \]
+   
+   
+
+3. Observe that the sum resembles a Riemann sum. Set \(x = \dfrac{k}{n}\) where \(x\) ranges from \(\dfrac{1}{n}\) to 1 as \(k\) goes from 1 to \(n\). The term \(\dfrac{1}{n}\) represents the width of each subinterval. Thus, we can write:
+   \[
+   \sum_{k=1}^n \dfrac{1}{\left(1 + \dfrac{k}{n}\right)^2} \cdot \dfrac{1}{n}.
+   \]
+
+4. Taking the limit as \(n \to \infty\), the sum becomes a definite integral:
+   \[
+   \lim_{n \to \infty} \sum_{k=1}^n \dfrac{1}{\left(1 + \dfrac{k}{n}\right)^2} \cdot \dfrac{1}{n} = \int_0^1 \dfrac{1}{(1 + x)^2} \, dx.
+   \]
+
+5. Evaluate the integral:
+   \[
+   \int_0^1 \dfrac{1}{(1 + x)^2} \, dx.
+   \]
+
+   Let \(u = 1 + x\), then \(du = dx\) and when \(x = 0\), \(u = 1\), and when \(x = 1\), \(u = 2\). The integral becomes:
+   \[
+   \int_1^2 \dfrac{1}{u^2} \, du.
+   \]
+
+6. Compute the antiderivative:
+   \[
+   \int_1^2 u^{-2} \, du = \left[ -u^{-1} \right]_1^2 = -\dfrac{1}{2} + \dfrac{1}{1} = \dfrac{1}{2}.
+   \]
+
+Thus, the value of the limit is:
+
+\[
+\lim_{n\to \infty} \left[ \dfrac{n}{(n+1)^2} + \dfrac{n}{(n+2)^2}+ \dots + \dfrac{n}{(n+n)^2} \right] = \dfrac{1}{2}.
+\]
+
+\begin{bluebox}
+Talk about the situation of the superscript of \(\Sigma\) is \(2n\).
+\end{bluebox}
+
+When constructing a definite integral from a sum where the upper limit of summation is \(2n\) (or any other variable limit), the process still follows the same principles as constructing a Riemann sum. The main difference is adjusting the width of each subinterval and the range of integration to account for the new upper limit. Here’s how it works:
+
+1. \textbf{Interpret the Sum:}
+
+   Suppose you have a sum like
+   
+   \[
+   \sum_{k=1}^{2n} f\left(\dfrac{k}{2n}\right) \cdot \dfrac{1}{2n}.
+   \]
+   
+   Here, the sum has \(2n\) subintervals, and each term represents the value of a function \(f\) evaluated at a point \(\dfrac{k}{2n}\), multiplied by the width of the subinterval \(\dfrac{1}{2n}\).
+
+2. \textbf{Width of Subintervals:}
+
+   Notice that the width of each subinterval is \(\dfrac{1}{2n}\) rather than \(\dfrac{1}{n}\), reflecting the fact that the total interval is divided into \(2n\) parts.
+
+3. \textbf{Variable Change for the Integral:}
+
+   In the limit as \(n \to \infty\), the points \(\dfrac{k}{2n}\) become densely packed in the interval \([0, 1]\). To capture this in a definite integral, let’s introduce a variable \(x\) defined as:
+   
+   \[
+   x = \dfrac{k}{2n}.
+   \]
+   
+   As \(k\) runs from 1 to \(2n\), \(x\) runs from \(\dfrac{1}{2n}\) to 1.
+
+4. \textbf{Rewrite the Sum:}
+
+   The sum becomes:
+   
+   \[
+   \sum_{k=1}^{2n} f\left(\dfrac{k}{2n}\right) \cdot \dfrac{1}{2n} = \sum_{k=1}^{2n} f(x_k) \cdot \Delta x,
+   \]
+   
+   where \(\Delta x = \dfrac{1}{2n}\).
+
+5. \textbf{Transition to the Definite Integral:}
+
+   Taking the limit as \(n \to \infty\) transforms this sum into a definite integral:
+   
+   \[
+   \lim_{n \to \infty} \sum_{k=1}^{2n} f\left(\dfrac{k}{2n}\right) \cdot \dfrac{1}{2n} = \int_0^1 f(x) \, dx.
+   \]
+   
+   Here, \([0, 1]\) is the interval of integration, and \(f(x)\) is the function being integrated.
+
+\textbf{Key Points:}
+
+- The main difference with an upper limit of \(2n\) is that each subinterval has width \(\dfrac{1}{2n}\) instead of \(\dfrac{1}{n}\).
+
+- The sum represents a partition of the interval \([0, 1]\) into \(2n\) subintervals, and as \(n \to \infty\), this approaches the definite integral of the function over \([0, 1]\).
+
+This approach generalizes to any upper limit of the form \(cn\), where the width of each subinterval would be \(\dfrac{1}{cn}\), and the corresponding Riemann sum would converge to an integral over the interval \([0, 1]\) as \(n \to \infty\).
+
+\begin{bluebox}
+Therefore, the upper and lower limits of the integral (0, 1) are independent of n.
+\end{bluebox}
+
+Yes, that's correct! In the process of defining a definite integral from a Riemann sum, the upper and lower limits of the integral typically become independent of \(n\). Here’s why:
+
+1. \textbf{Interval of Integration:}
+
+   When we transition from a sum with an upper bound like \(2n\) (or any variable limit based on \(n\)) to a definite integral, we use a transformation (e.g., \(x = \dfrac{k}{2n}\)) that maps the summation index \(k\) onto a fixed interval, usually \([0, 1]\).
+
+2. \textbf{Limit Independence:}
+
+   As \(n \to \infty\), the partition becomes infinitely fine, and the sum over the discrete points transforms into a continuous integral over a fixed interval \([0, 1]\). The limits of integration are determined by the range of the transformed variable \(x\) (which runs from \(\dfrac{1}{2n}\) to 1 in this example) and do not depend on the particular value of \(n\). In the limit, this range becomes exactly \([0, 1]\).
+
+3. \textbf{Key Insight:}
+
+   The values 0 and 1 in the limits of integration reflect the range of the continuous variable after rescaling and normalizing the summation index. This makes the limits of the integral independent of \(n\), even though the original sum was defined with an upper bound related to \(n\).
+
+\textbf{Example Clarification:}
+
+If we have a sum
+
+\[
+\sum_{k=1}^{2n} f\left(\dfrac{k}{2n}\right) \cdot \dfrac{1}{2n},
+\]
+
+as \(n\) increases, the interval over which the summation spans becomes a continuous interval \([0, 1]\) in the integral:
+
+\[
+\int_0^1 f(x) \, dx.
+\]
+
+So, the limits of the definite integral \([0, 1]\) are indeed independent of \(n\), arising naturally from the transformation of the sum to an integral. This independence reflects the fact that we are describing a continuous process over a fixed interval as \(n\) becomes large.
+
+\begin{bluebox}
+For the integral from 0 to 1, can the subscript k of sigma only start strictly from 1? Can it start from 0?
+\end{bluebox}
+
+Great question! For constructing a definite integral from a sum, the subscript \(k\) of the summation does not strictly have to start from 1; it can also start from 0 or any other value, as long as the sum correctly represents the intended partitioning of the interval. The key idea is to properly account for all subintervals, regardless of where the indexing begins. Here’s a more detailed explanation:
+
+\textbf{Starting the Sum from 0}
+
+If the sum starts from \(k = 0\) rather than \(k = 1\), we can still construct the same definite integral. The process is essentially the same, with the only difference being the starting index. Here’s how it works:
+
+1. \textbf{Riemann Sum Form:}
+
+   Suppose you have a sum of the form:
+   
+   \[
+   \sum_{k=0}^{n-1} f\left(\dfrac{k}{n}\right) \cdot \dfrac{1}{n}.
+   \]
+   
+   Here, the index \(k\) starts from 0 and goes up to \(n-1\). This sum still approximates the integral over the interval \([0, 1]\) as \(n\) becomes large.
+
+2. \textbf{Interval Partitioning:}
+
+- The subinterval width is still \(\Delta x = \dfrac{1}{n}\).
+- The evaluation points are given by \(x_k = \dfrac{k}{n}\) for \(k = 0, 1, 2, \ldots, n-1\).
+
+3. \textbf{Transition to the Definite Integral:}
+
+   In the limit as \(n \to \infty\), the sum becomes:
+   
+   \[
+   \lim_{n \to \infty} \sum_{k=0}^{n-1} f\left(\dfrac{k}{n}\right) \cdot \dfrac{1}{n} = \int_0^1 f(x) \, dx.
+   \]
+
+\textbf{Comparison to Starting at 1}
+
+When the summation starts at \(k = 1\), the sum looks like:
+
+\[
+\sum_{k=1}^{n} f\left(\dfrac{k}{n}\right) \cdot \dfrac{1}{n}.
+\]
+
+In this case, the evaluation points are \(x_k = \dfrac{k}{n}\) for \(k = 1, 2, \ldots, n\). In the limit as \(n \to \infty\), this also converges to:
+
+\[
+\int_0^1 f(x) \, dx.
+\]
+
+\textbf{Why Both Work}
+
+- The difference between starting the sum at \(k = 0\) or \(k = 1\) is just a shift in the indexing of the partition points. As \(n\) grows large, this shift becomes negligible because the subintervals become infinitely small.
+- Both cases cover the entire interval \([0, 1]\) as the sum spans all relevant points within the partitioned interval.
+
+\textbf{Practical Implication}
+
+You can start the index of summation at 0, 1, or any other point that makes sense for your particular problem, as long as it correctly partitions the interval and covers the entire range of integration. The choice of the starting index does not change the resulting integral; it only affects how the individual terms are indexed within the sum.
+
+\begin{bluebox}
+What if the upper and lower limits of the integral are not between 0 and 1? How can we convert it into the form of limit?
+\end{bluebox}
+
+
+
+\chapter{Integrals with Variable Limits}
+
+\section{Fundamental Theorem of Calculus}
+
+The \textbf{Fundamental Theorem of Calculus (FTC)} is often divided into two parts, each with distinct but complementary roles that link differentiation and integration. Here's an explanation of what each part means:
+
+\subsection{Fundamental Theorem of Calculus (Part 1)}
+
+\textbf{Statement:}
+
+If \( f \) is a continuous function on the interval \([a, b]\) and we define a function \( F \) as:
+
+\[
+F(x) = \int_{a}^{x} f(t) \, dt,
+\]
+
+for \( x \) in \([a, b]\), then \( F \) is differentiable on \((a, b)\), and its derivative is:
+
+\[
+F'(x) = f(x).
+\]
+
+\textbf{Interpretation:}
+
+- This part states that if we define a new function \( F(x) \) by accumulating the values of a continuous function \( f(t) \) from a fixed lower limit \( a \) to a variable upper limit \( x \), then the derivative of \( F(x) \) at any point \( x \) is simply the value of the original function \( f(x) \) at that point.
+
+- Essentially, \textbf{integration and differentiation are inverse processes}. Differentiating an accumulation function gives back the original integrand.
+
+\subsection{Fundamental Theorem of Calculus (Part 2)}
+
+\textbf{Statement:}
+
+If \( f \) is a continuous function on \([a, b]\) and \( F \) is any antiderivative of \( f \) on \([a, b]\) (meaning \( F'(x) = f(x) \) for all \( x \in [a, b]\)), then:
+
+\[
+\int_{a}^{b} f(x) \, dx = F(b) - F(a).
+\]
+
+\textbf{Interpretation:}
+
+- This part tells us how to evaluate a definite integral of a function \( f(x) \) over an interval \([a, b]\). It states that the value of the integral is the difference between the values of an antiderivative \( F \) evaluated at the upper and lower limits \( b \) and \( a \).
+
+- It provides a powerful computational tool to find the exact value of definite integrals using antiderivatives.
+
+\textbf{Key Differences Between Part 1 and Part 2}
+
+\begin{itemize}
+\item
+\textbf{Part 1} connects differentiation with integration by saying that the derivative of the integral function \( \int_{a}^{x} f(t) \, dt \) is the original function \( f(x) \).
+
+\item
+\textbf{Part 2} provides a way to compute the value of a definite integral using an antiderivative.
+\end{itemize}
+
+\textbf{Summary}
+
+\begin{itemize}
+\item
+\textbf{Part 1:} Describes how integration (as an accumulation function) relates to differentiation.
+
+\item
+\textbf{Part 2:} Provides a method for calculating definite integrals using antiderivatives.
+\end{itemize}
+
+
+
+Together, these two parts form the cornerstone of calculus, showing how differentiation and integration are intimately related and providing tools for evaluating both definite and indefinite integrals.
+
+\subsection{Proof Using Lagrange's Mean Value Theorem}
+
+The Fundamental Theorem of Calculus (FTC) can be understood and even proved using \textbf{Lagrange's Mean Value Theorem (LMVT)}. This connection provides an insightful way to see how differentiation and integration are fundamentally linked.
+
+To prove this, we can use \textbf{Lagrange's Mean Value Theorem} (LMVT) from differential calculus, which states that if a function \( g(x) \) is continuous on \([a, b]\) and differentiable on \((a, b)\), then there exists a point \( c \in (a, b) \) such that:
+
+\[
+g'(c) = \dfrac{g(b) - g(a)}{b - a}.
+\]
+
+\textit{\textbf{Step-by-Step Proof:}}
+
+1. \textbf{Consider the Increment of \( F(x) \):}
+
+   Let \( x \) be a point in the interval \([a, b]\). We want to show that the derivative of \( F(x) \) is equal to \( f(x) \).
+
+   Consider a small increment \( h > 0 \) such that \( x + h \) is also in \([a, b]\). Then, we can write:
+
+   \[
+   F(x + h) = \int_{a}^{x + h} f(t) \, dt.
+   \]
+
+   Using the definition of \( F(x) \), we have:
+
+   \[
+   F(x + h) - F(x) = \int_{a}^{x + h} f(t) \, dt - \int_{a}^{x} f(t) \, dt = \int_{x}^{x + h} f(t) \, dt.
+   \]
+
+2. \textbf{Apply the Mean Value Theorem for Integrals:}
+
+   Since \( f(t) \) is continuous on \([x, x + h]\), by the Mean Value Theorem for integrals, there exists a point \( c \in [x, x + h] \) such that:
+
+   \[
+   \int_{x}^{x + h} f(t) \, dt = f(c) \cdot (x + h - x) = f(c) \cdot h.
+   \]
+
+3. \textbf{Rewrite the Difference Quotient:}
+
+   We can now express the difference quotient for the derivative of \( F \) as:
+
+   \[
+   \dfrac{F(x + h) - F(x)}{h} = \dfrac{\int_{x}^{x + h} f(t) \, dt}{h} = \dfrac{f(c) \cdot h}{h} = f(c).
+   \]
+
+4. \textbf{Take the Limit as \( h \to 0 \):}
+
+   As \( h \) approaches \( 0 \), the point \( c \) (which is in the interval \([x, x + h]\)) also approaches \( x \). Since \( f \) is continuous at \( x \), we have:
+
+   \[
+   \lim_{h \to 0} f(c) = f(x).
+   \]
+
+   Therefore:
+
+   \[
+   \lim_{h \to 0} \dfrac{F(x + h) - F(x)}{h} = f(x).
+   \]
+
+\textbf{Conclusion}:
+
+This shows that:
+
+\[
+F'(x) = f(x).
+\]
+
+\textbf{Why Lagrange's Mean Value Theorem is Useful}
+
+- The proof hinges on expressing the change in the integral as a product of the function value at some point and the width of the interval.
+
+- LMVT ensures the existence of a point \( c \) within the interval where the function value \( f(c) \) represents the "average" behavior of \( f(t) \) over the interval \([x, x + h]\).
+
+- Taking the limit as \( h \) goes to zero establishes that the derivative of the accumulation function \( F(x) \) is precisely the value of the integrand at the point \( x \).
+
+This approach elegantly demonstrates how differentiation (finding the rate of change) and integration (accumulating values) are inverse processes, tying together two fundamental operations in calculus.
+
+\section{derivative of variable integral}
+
+\subsection{Upper Limit is a Function of \texorpdfstring{\(x\)}{x}}
+
+Let's go over the detailed content regarding the derivative of an integral where the upper limit is a function of \( x \) and the lower limit is a constant. This is a fundamental concept in calculus, specifically in the context of the Fundamental Theorem of Calculus and its application to integrals with variable limits.
+
+---
+
+\textbf{1. Setup of the Problem}
+
+Consider an integral of the form:
+\[
+F(x) = \int_{a}^{h(x)} f(t) \, dt,
+\]
+
+where:
+
+- \( a \) is a constant lower limit of integration.
+
+- \( h(x) \) is a differentiable function of \( x \) representing the upper limit of integration.
+
+- \( f(t) \) is a continuous function of \( t \).
+
+\textbf{2. Goal}
+
+We want to find the derivative of \( F(x) \) with respect to \( x \):
+
+\[
+\dfrac{d}{dx} F(x) = \dfrac{d}{dx} \left( \int_{a}^{h(x)} f(t) \, dt \right).
+\]
+
+\textbf{3. Using the Fundamental Theorem of Calculus and the Chain Rule}
+
+To differentiate this integral, we can apply the \textbf{Fundamental Theorem of Calculus} in combination with the \textbf{Chain Rule} for differentiation. For more on the chain rule, see page \pageref{sec:chain_rule}). The theorem states that if:
+
+\[
+F(u) = \int_{a}^{u} f(t) \, dt,
+\]
+
+then the derivative with respect to \( u \) is given by:
+
+\[
+\dfrac{d}{du} F(u) = f(u).
+\]
+
+However, in our case, the upper limit is not just a variable but a function of \( x \), namely \( h(x) \). To account for this, we need to use the \textbf{Chain Rule} to differentiate with respect to \( x \).
+
+\textbf{4. Differentiation Process}
+
+1. \textbf{Apply the Fundamental Theorem of Calculus:}
+
+   When we differentiate \( F(x) \) with respect to \( x \), the derivative of the integral with respect to the upper limit \( h(x) \) gives:
+   
+   \[
+   \dfrac{d}{dx} \left( \int_{a}^{h(x)} f(t) \, dt \right) = f(h(x)).
+   \]
+
+   This is because the Fundamental Theorem tells us that the derivative of an integral evaluated at the upper limit is the integrand evaluated at that upper limit.
+
+2. \textbf{Apply the Chain Rule:}
+
+   Since the upper limit is a function of \( x \), we need to multiply by the derivative of the upper limit:
+   \[
+   \dfrac{d}{dx} \left( \int_{a}^{h(x)} f(t) \, dt \right) = f(h(x)) \cdot \dfrac{dh(x)}{dx}.
+   \]
+
+\textbf{5. Putting It All Together}
+
+The derivative of the function \( F(x) \) is therefore:
+
+\[
+\dfrac{d}{dx} \int_{a}^{h(x)} f(t) \, dt = f(h(x)) \cdot \dfrac{dh(x)}{dx}.
+\]
+
+\textbf{6. Example for Illustration}
+
+To make this concrete, let's go through an example.
+
+Find the derivative of the function:
+
+\[
+F(x) = \int_{0}^{x^2} e^{t^3} \, dt.
+\]
+
+\textbf{Solution:}
+
+1. \textbf{Identify the components:}
+
+- \( a = 0 \) (constant lower limit)
+
+- \( h(x) = x^2 \) (upper limit as a function of \( x \))
+
+- \( f(t) = e^{t^3} \) (integrand)
+
+2. \textbf{Apply the formula:}
+
+   Using the derivative rule, we have:
+
+   \[
+   \dfrac{d}{dx} \int_{0}^{x^2} e^{t^3} \, dt = e^{(x^2)^3} \cdot \dfrac{d}{dx}(x^2).
+   \]
+
+3. \textbf{Simplify the expression:}
+
+- \( (x^2)^3 = x^6 \), so:
+     \[
+     e^{(x^2)^3} = e^{x^6}.
+     \]
+
+- The derivative of \( x^2 \) with respect to \( x \) is \( 2x \).
+
+   Therefore, the derivative is:
+
+   \[
+   \dfrac{d}{dx} \int_{0}^{x^2} e^{t^3} \, dt = e^{x^6} \cdot 2x.
+   \]
+
+\textbf{Final Result:}
+
+\[
+\dfrac{d}{dx} \int_{0}^{x^2} e^{t^3} \, dt = 2x \cdot e^{x^6}.
+\]
+
+---
+
+\textbf{7. Key Takeaways}
+
+- When differentiating an integral where the upper limit is a function of \( x \) and the lower limit is constant, evaluate the integrand at the upper limit and multiply by the derivative of the upper limit.
+
+- The process relies on the \textbf{Fundamental Theorem of Calculus} combined with the \textbf{Chain Rule} to account for the fact that the upper limit itself is a function of \( x \).
+
+This method provides a powerful way to differentiate integrals with variable limits, making it essential in calculus and applications involving accumulation functions.
+
+
+
+% break
+
+
+
+\textbf{Example}:
+
+To find the derivative of the function 
+\[
+F(x) = \int_0^{x^2}(e^{t^3} - 1) \, dt
+\]
+with respect to \(x\), we can use the Fundamental Theorem of Calculus combined with the Chain Rule. Here is the step-by-step process:
+
+1. \textbf{Consider the derivative of the integral with respect to the upper limit:}
+
+   According to the Fundamental Theorem of Calculus, if
+   \[
+   F(u) = \int_a^u f(t) \, dt,
+   \]
+   then
+   \[
+   \dfrac{d}{du} F(u) = f(u).
+   \]
+   Here, our function is:
+   \[
+   F(x) = \int_0^{x^2} (e^{t^3} - 1) \, dt.
+   \]
+   So, if we differentiate with respect to the upper limit \(x^2\), we get:
+   \[
+   \dfrac{d}{dx} \left( \int_0^{x^2} (e^{t^3} - 1) \, dt \right) = (e^{(x^2)^3} - 1) \cdot \dfrac{d}{dx}(x^2).
+   \]
+
+2. \textbf{Substitute \(x^2\) as the upper limit:}
+
+   Since \((x^2)^3 = x^6\), the expression becomes:
+   \[
+   e^{(x^2)^3} - 1 = e^{x^6} - 1.
+   \]
+
+3. \textbf{Apply the Chain Rule:}
+
+   The derivative of \(x^2\) with respect to \(x\) is \(2x\). Therefore:
+   \[
+   \dfrac{d}{dx} \left( \int_0^{x^2} (e^{t^3} - 1) \, dt \right) = (e^{x^6} - 1) \cdot 2x.
+   \]
+
+\textbf{Final result:}
+\[
+\dfrac{d}{dx} \int_0^{x^2}(e^{t^3} - 1)dt = 2x \cdot (e^{x^6} - 1).
+\]
+
+\subsection{Both Upper and Lower Limits are Functions of \texorpdfstring{\(x\)}{x}}
+
+
+   When you have an integral of the form:
+   \[
+   \int_{g(x)}^{h(x)} f(t) \, dt,
+   \]
+   where both the upper limit \(h(x)\) and the lower limit \(g(x)\) are functions of \(x\), differentiating the integral involves applying the Leibniz rule for differentiation under the integral sign:
+   \[
+   \dfrac{d}{dx} \left( \int_{g(x)}^{h(x)} f(t) \, dt \right) = f(h(x)) \cdot \dfrac{dh(x)}{dx} - f(g(x)) \cdot \dfrac{dg(x)}{dx}.
+   \]
+   
+\textbf{Challenges:}
+   
+\begin{itemize}
+\item
+You need to evaluate the integrand at both limits.
+\item
+You must correctly apply the chain rule for both derivatives of \(h(x)\) and \(g(x)\).
+\item
+Handling complex functions of \(x\) for \(h(x)\) and \(g(x)\) adds complexity.
+\end{itemize}
+
+\textbf{Example}:
+
+Consider the function:
+\[
+F(x) = \int_{x^2}^{x^3} \sin(t) \, dt.
+\]
+
+\textbf{Goal}:
+
+Find \(\dfrac{d}{dx} F(x)\).
+
+\textbf{Solution}:
+
+To differentiate this function, we'll use the \textbf{Leibniz rule} for differentiation with respect to the variable limits. According to the rule:
+\[
+\dfrac{d}{dx} \left( \int_{g(x)}^{h(x)} f(t) \, dt \right) = f(h(x)) \cdot \dfrac{d}{dx}h(x) - f(g(x)) \cdot \dfrac{d}{dx}g(x).
+\]
+Here, we have:
+
+\begin{itemize}
+\item
+\(g(x) = x^2\) (lower limit)
+\item
+\(h(x) = x^3\) (upper limit)
+\item
+\(f(t) = \sin(t)\).
+\end{itemize}
+
+\textbf{Step-by-Step Differentiation}:
+
+1. \textbf{Evaluate the integrand at the upper limit \(h(x) = x^3\):}
+   \[
+   f(h(x)) = \sin(x^3).
+   \]
+   The derivative of the upper limit is:
+   \[
+   \dfrac{d}{dx}h(x) = \dfrac{d}{dx}(x^3) = 3x^2.
+   \]
+
+2. \textbf{Evaluate the integrand at the lower limit \(g(x) = x^2\):}
+   \[
+   f(g(x)) = \sin(x^2).
+   \]
+   The derivative of the lower limit is:
+   \[
+   \dfrac{d}{dx}g(x) = \dfrac{d}{dx}(x^2) = 2x.
+   \]
+
+3. \textbf{Apply the formula:}
+   \[
+   \dfrac{d}{dx} F(x) = \sin(x^3) \cdot 3x^2 - \sin(x^2) \cdot 2x.
+   \]
+
+\textbf{Final Result}:
+
+\[
+\dfrac{d}{dx} \int_{x^2}^{x^3} \sin(t) \, dt = 3x^2 \cdot \sin(x^3) - 2x \cdot \sin(x^2).
+\]
+
+This example illustrates the differentiation of an integral with both upper and lower limits as functions of \(x\), involving evaluation at both limits and the corresponding derivatives of the limits themselves.
+
+\subsection{Complex Integrand}
+
+When the integrand contains both the variable of integration \(t\) and the differentiation variable \(x\), it creates a more challenging differentiation scenario. This situation often arises in integrals of the form:
+
+\[
+F(x) = \int_{g(x)}^{h(x)} f(x, t) \, dt,
+\]
+
+where the integrand \(f(x, t)\) is a function of both \(x\) and \(t\). In such cases, differentiating with respect to \(x\) requires applying both the \textbf{Leibniz rule} for differentiation with variable limits and the \textbf{partial derivative} with respect to \(x\).
+
+\textbf{Example}:
+
+Consider the function:
+
+\[
+F(x) = \int_{x}^{x^2} x t^2 \, dt.
+\]
+
+\textbf{Goal}:
+
+Find \(\dfrac{d}{dx} F(x)\).
+
+\textbf{Solution}:
+
+1. \textbf{Apply the Leibniz Rule for Differentiation:}
+
+   The derivative is given by:
+   \[
+   \dfrac{d}{dx} \left( \int_{g(x)}^{h(x)} f(x, t) \, dt \right) = f(x, h(x)) \cdot \dfrac{d}{dx}h(x) - f(x, g(x)) \cdot \dfrac{d}{dx}g(x) + \int_{g(x)}^{h(x)} \dfrac{\partial}{\partial x} f(x, t) \, dt.
+   \]
+
+   Here:
+
+- \(g(x) = x\) (lower limit)
+
+- \(h(x) = x^2\) (upper limit)
+
+- \(f(x, t) = xt^2\).
+
+2. \textbf{Evaluate the Integrand at the Upper Limit \(h(x) = x^2\):}
+
+   \[
+   f(x, h(x)) = f(x, x^2) = x(x^2)^2 = x \cdot x^4 = x^5.
+   \]
+
+   The derivative of the upper limit is:
+
+   \[
+   \dfrac{d}{dx} h(x) = \dfrac{d}{dx}(x^2) = 2x.
+   \]
+
+3. \textbf{Evaluate the Integrand at the Lower Limit \(g(x) = x\):}
+
+   \[
+   f(x, g(x)) = f(x, x) = x \cdot x^2 = x^3.
+   \]
+
+   The derivative of the lower limit is:
+
+   \[
+   \dfrac{d}{dx} g(x) = \dfrac{d}{dx}(x) = 1.
+   \]
+
+4. \textbf{Take the Partial Derivative of the Integrand:}
+
+   The partial derivative of \(f(x, t) = xt^2\) with respect to \(x\) is:
+
+   \[
+   \dfrac{\partial}{\partial x}(xt^2) = t^2.
+   \]
+
+5. \textbf{Combine All Terms:}
+
+   Substitute the values into the differentiation rule:
+
+   \[
+   \dfrac{d}{dx} F(x) = x^5 \cdot 2x - x^3 \cdot 1 + \int_{x}^{x^2} t^2 \, dt.
+   \]
+
+   Simplifying the terms:
+
+   \[
+   \dfrac{d}{dx} F(x) = 2x^6 - x^3 + \int_{x}^{x^2} t^2 \, dt.
+   \]
+
+6. \textbf{Evaluate the Remaining Integral:}
+
+   To evaluate the integral \(\int_{x}^{x^2} t^2 \, dt\):
+
+   \[
+   \int_{x}^{x^2} t^2 \, dt = \left[ \dfrac{t^3}{3} \right]_{x}^{x^2} = \dfrac{(x^2)^3}{3} - \dfrac{x^3}{3} = \dfrac{x^6}{3} - \dfrac{x^3}{3}.
+   \]
+
+7. \textbf{Combine Everything:}
+
+   Finally:
+
+   \[
+   \dfrac{d}{dx} F(x) = 2x^6 - x^3 + \left( \dfrac{x^6}{3} - \dfrac{x^3}{3} \right).
+   \]
+
+   Simplifying:
+
+   \[
+   \dfrac{d}{dx} F(x) = \dfrac{6x^6 + x^6}{3} - \dfrac{3x^3 + x^3}{3} = \dfrac{7x^6}{3} - \dfrac{4x^3}{3}.
+   \]
+
+\textbf{Final Result}:
+
+\[
+\dfrac{d}{dx} \int_{x}^{x^2} xt^2 \, dt = \dfrac{7x^6}{3} - \dfrac{4x^3}{3}.
+\]
+
+\textbf{Difficulties}:
+
+- You need to handle differentiation with respect to both the upper and lower limits.
+
+- The integrand depends on \(x\), so you must take a partial derivative with respect to \(x\).
+
+- Combining terms and simplifying can be more involved due to the complexity of expressions.
+
+\subsubsection{The Necessity of Introducing Partial Derivatives}
+
+In cases where the integrand \( f(x, t) \) contains both \( x \) and \( t \), it is necessary to introduce partial derivatives with respect to \( x \) because the integrand is a function of two independent variables. This creates an important distinction in how we differentiate compared to when the integrand depends solely on \( t \).
+
+Here's a detailed explanation of why introducing partial derivatives is necessary:
+
+1. \textbf{Dependence of the Integrand on \( x \)}
+
+When we have an integral of the form:
+
+\[
+F(x) = \int_{g(x)}^{h(x)} f(x, t) \, dt,
+\]
+
+\( f(x, t) \) depends explicitly on \( x \) as well as on the variable of integration \( t \). This means that \( f(x, t) \) changes not only as \( t \) varies over the interval \([g(x), h(x)]\) but also as \( x \) changes. As a result, when we differentiate the integral \( F(x) \) with respect to \( x \), we must account for how \( f(x, t) \) itself changes as \( x \) changes.
+
+2. \textbf{Decomposing the Total Derivative}
+
+When differentiating \( F(x) \) with respect to \( x \), the total derivative is affected by:
+
+1. The change in the limits of integration (captured by applying the \textbf{Leibniz rule}).
+
+2. The direct effect of changing \( x \) within the integrand itself (captured by the \textbf{partial derivative} with respect to \( x \)).
+
+Thus, the total derivative of \( F(x) \) is given by:
+
+\[
+\dfrac{d}{dx} \left( \int_{g(x)}^{h(x)} f(x, t) \, dt \right) = f(x, h(x)) \cdot \dfrac{dh(x)}{dx} - f(x, g(x)) \cdot \dfrac{dg(x)}{dx} + \int_{g(x)}^{h(x)} \dfrac{\partial f(x, t)}{\partial x} \, dt.
+\]
+
+The first two terms arise from the change in limits, while the integral term accounts for the change of \( f(x, t) \) with respect to \( x \) \textbf{inside the integrand}.
+
+3. \textbf{The Role of Partial Derivatives}
+
+- Since \( f(x, t) \) depends on \( x \) and \( t \), differentiating it with respect to \( x \) while treating \( t \) as a fixed variable requires using the \textbf{partial derivative} \(\dfrac{\partial f(x, t)}{\partial x}\).
+
+- This partial derivative captures how \( f(x, t) \) changes as \( x \) changes independently of the variable \( t \).
+
+4. \textbf{Example Clarification}
+
+Consider the example:
+
+\[
+F(x) = \int_{x}^{x^2} x t^2 \, dt.
+\]
+
+Here, the integrand \( f(x, t) = xt^2 \) depends explicitly on \( x \). To find \(\dfrac{d}{dx} F(x)\), we differentiate as follows:
+
+- Use the \textbf{Leibniz rule} to handle the change in the limits.
+
+- Use the \textbf{partial derivative} \(\dfrac{\partial}{\partial x} (xt^2) = t^2\) to capture how \( f(x, t) \) changes with respect to \( x \) inside the integral.
+
+5. \textbf{Why it Matters}
+
+- Without including the partial derivative term, we would miss how the integrand itself changes due to variations in \( x \). This would lead to an incomplete and incorrect derivative.
+
+- The partial derivative accounts for the intrinsic dependence of the integrand on \( x \), ensuring that we capture all aspects of the change as \( x \) varies.
+
+In summary, the partial derivative with respect to \( x \) is necessary because it reflects how the integrand changes internally with respect to \( x \). This is a crucial part of differentiating such integrals correctly, as it ensures that every component of the change is captured.
+
+\chapter{Abnormal Integral}
+
+\section{Gaussian Integral}
+
+\[\int_0^\infty e^{-x^2} dx = \dfrac{\sqrt{\pi}}{2}\]
+
+\subsection{Proof}
+
+To prove that 
+
+\[
+\int_0^\infty e^{-x^2} \, dx = \dfrac{\sqrt{\pi}}{2},
+\]
+
+we can use the Gaussian integral approach. First, we will compute the integral over the entire real line, and then we will relate that to the integral from \(0\) to \(\infty\).
+
+\textbf{Step 1}: Evaluate the Gaussian integral
+
+We start by evaluating the integral 
+
+\[
+I = \int_{-\infty}^\infty e^{-x^2} \, dx.
+\]
+
+To compute this integral, we can use polar coordinates. Consider the square of the integral:
+
+\[
+I^2 = \left( \int_{-\infty}^\infty e^{-x^2} \, dx \right) \left( \int_{-\infty}^\infty e^{-y^2} \, dy \right) = \int_{-\infty}^\infty \int_{-\infty}^\infty e^{-(x^2 + y^2)} \, dx \, dy.
+\]
+
+\textbf{Step 2}: Switch to polar coordinates
+
+In polar coordinates, \(x^2 + y^2 = r^2\), and the area element \(dx \, dy\) becomes \(r \, dr \, d\theta\). Thus, we can rewrite the double integral as:
+
+\[
+I^2 = \int_0^{2\pi} \int_0^\infty e^{-r^2} r \, dr \, d\theta.
+\]
+
+\textbf{Step 3}: Evaluate the inner integral
+
+The inner integral is 
+
+\[
+\int_0^\infty e^{-r^2} r \, dr.
+\]
+
+To evaluate this integral, we use the substitution \(u = r^2\), which gives \(du = 2r \, dr\) or \(dr = \dfrac{du}{2\sqrt{u}}\). The limits remain the same (from \(0\) to \(\infty\)). Thus, we have:
+
+\[
+\int_0^\infty e^{-r^2} r \, dr = \dfrac{1}{2} \int_0^\infty e^{-u} \, du = \dfrac{1}{2}.
+\]
+
+\textbf{Step 4}: Combine results
+
+Now, substituting back into the integral for \(I^2\):
+
+\[
+I^2 = \int_0^{2\pi} d\theta \cdot \dfrac{1}{2} = 2\pi \cdot \dfrac{1}{2} = \pi.
+\]
+
+Thus, we find that 
+
+\[
+I^2 = \pi \quad \Rightarrow \quad I = \sqrt{\pi}.
+\]
+
+\textbf{Step 5}: Relate to the original integral
+
+Since the integral from \(-\infty\) to \(\infty\) is symmetric, we have:
+
+\[
+\int_0^\infty e^{-x^2} \, dx = \dfrac{1}{2} I = \dfrac{1}{2} \sqrt{\pi}.
+\]
+
+\textbf{Conclusion}
+
+Therefore, we conclude that 
+
+\[
+\int_0^\infty e^{-x^2} \, dx = \dfrac{\sqrt{\pi}}{2}.
+\] 
+
+This completes the proof.
+
+\subsection{Applications}
+
+The Gaussian integral, particularly the integral
+
+\[
+\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi},
+\]
+
+and related integrals like \(\int_{0}^{\infty} e^{-x^2} \, dx = \dfrac{\sqrt{\pi}}{2}\), are foundational in various fields of mathematics, physics, and engineering. Here are some key applications:
+
+\textbf{1. Probability and Statistics}
+
+\textbf{Normal Distribution}: The Gaussian integral is central to the normal distribution (or Gaussian distribution) in statistics. The probability density function (PDF) of the normal distribution is:
+
+\[
+f(x) = \dfrac{1}{\sqrt{2 \pi \sigma^2}} e^{-\dfrac{(x - \mu)^2}{2\sigma^2}}.
+\]
+The Gaussian integral ensures that this PDF integrates to 1, which is necessary for any probability distribution.
+
+\textbf{Error Function}: The error function, \(\operatorname{erf}(x)\), defined as:
+\[
+\operatorname{erf}(x) = \dfrac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \, dt,
+\]
+is closely related to the Gaussian integral and is widely used in statistics and probability to evaluate probabilities for normally distributed variables.
+
+\textbf{2. Quantum Mechanics}
+
+\textbf{Functions}: Gaussian functions often appear as solutions to the Schrödinger equation for systems like the quantum harmonic oscillator. The normalization of these wave functions involves the Gaussian integral.
+
+\textbf{Path Integrals}: In Feynman path integral formulations of quantum mechanics, Gaussian integrals appear frequently when evaluating propagators, particularly in systems with quadratic potentials.
+
+\textbf{3. Signal Processing and Communications}
+
+\textbf{Gaussian Noise}: Gaussian noise, which is prevalent in many real-world signal processing scenarios, is modeled by a Gaussian distribution. Understanding Gaussian integrals is essential to analyze and mitigate such noise in communications.
+
+\textbf{Fourier Transforms}: The Fourier transform of a Gaussian function is also Gaussian, and the Gaussian integral is used to prove this property. This is important in analyzing frequency components in signals.
+
+\textbf{4. Heat Equation and Diffusion Processes}
+
+\textbf{Fundamental Solution}: In solving the heat equation, the Gaussian function represents the fundamental solution. The Gaussian integral ensures proper normalization, describing how heat diffuses over time in a medium.
+\textbf{Brownian Motion}: In stochastic processes, particularly Brownian motion (random walk models), Gaussian integrals describe the probability density of a particle's position at a given time.
+
+\textbf{5. Electromagnetism and Optics}
+
+\textbf{Laser Beam Profiles}: The intensity distribution of many laser beams (such as Gaussian beams) follows a Gaussian profile. Gaussian integrals are used to calculate total beam power, energy distribution, and focal properties.
+
+\textbf{Diffraction Patterns}: Gaussian integrals play a role in calculating diffraction patterns, especially in optics where Gaussian-shaped apertures or sources are involved.
+
+\textbf{6. Machine Learning}
+
+\textbf{Gaussian Processes}: In machine learning, Gaussian processes are used for regression and classification tasks. They involve evaluating multivariate Gaussian distributions, which rely on Gaussian integrals.
+
+\textbf{Kernel Functions}: The Gaussian (or Radial Basis Function, RBF) kernel is a popular kernel function in machine learning algorithms, particularly in support vector machines (SVMs). Gaussian integrals are used in deriving and analyzing these kernels.
+
+\textbf{7. Random Matrix Theory}
+
+Gaussian integrals appear in random matrix theory when calculating eigenvalue distributions, particularly for Gaussian ensembles (e.g., the Gaussian Orthogonal Ensemble, Gaussian Unitary Ensemble, and Gaussian Symplectic Ensemble). These integrals are essential for understanding spectral properties of large random matrices, with applications in physics, finance, and data science.
+
+\textbf{8. Statistical Mechanics and Thermodynamics}
+
+In statistical mechanics, Gaussian integrals arise in the study of the Boltzmann factor \(e^{-\beta E}\), where \(E\) is the energy and \(\beta = 1/(k_B T)\). Partition functions for systems with quadratic energy terms involve Gaussian integrals.
+
+\textbf{Lattice Models}: In lattice models, such as the Ising model, integrals over Gaussian distributions are used in mean-field approximations and renormalization group calculations.
+
+In summary, Gaussian integrals are essential in analyzing, modeling, and solving problems across many domains, especially when dealing with Gaussian or normal distributions, harmonic systems, and heat or diffusion processes. Their importance extends from theoretical formulations to practical applications in technology and scientific computation.
+
+\section{p-Function}
+
+Understanding the convergence and divergence of improper integrals, such as \( p \)-functions, requires knowledge of certain fundamental principles and techniques. Here's a summary of the key points to help you:
+
+\textbf{1. Definition of \( p \)-Functions}
+
+The \( p \)-function refers to integrals of the form:
+
+\[
+\int_a^{\infty} \frac{1}{x^p} \, dx \quad \text{or} \quad \int_0^b \frac{1}{x^p} \, dx
+\]
+
+- **For \( \int_a^{\infty} \frac{1}{x^p} \, dx \):** Improper integral on an infinite interval.
+
+- **For \( \int_0^b \frac{1}{x^p} \, dx \):** Improper integral with a singularity at \( x = 0 \).
+
+
+\textbf{2. Convergence/Divergence of \( p \)-Functions}
+
+Case 1: \( \int_a^{\infty} \frac{1}{x^p} \, dx \)
+
+- **If \( p > 1 \):** The integral converges.
+
+- **If \( p \leq 1 \):** The integral diverges.
+
+**Reason:** Evaluate the antiderivative:
+\[
+\int \frac{1}{x^p} \, dx = \frac{x^{1-p}}{1-p} \quad (p \neq 1)
+\]
+
+- As \( x \to \infty \), \( x^{1-p} \to 0 \) for \( p > 1 \), ensuring convergence.
+
+- For \( p \leq 1 \), the denominator grows slower or at the same rate as \( x \), leading to divergence.
+
+
+Case 2: \( \int_0^b \frac{1}{x^p} \, dx \)
+
+- **If \( p < 1 \):** The integral converges.
+
+- **If \( p \geq 1 \):** The integral diverges.
+
+**Reason:** Again, evaluate the antiderivative:
+
+\[
+\int \frac{1}{x^p} \, dx = \frac{x^{1-p}}{1-p} \quad (p \neq 1)
+\]
+
+- As \( x \to 0^+ \), \( x^{1-p} \) approaches \( 0 \) for \( p < 1 \), ensuring convergence.
+
+- For \( p \geq 1 \), \( x^{1-p} \) grows infinitely large or diverges logarithmically (when \( p = 1 \)).
+
+\textbf{3. Practical Steps to Judge Convergence/Divergence}
+
+1. **Rewrite the integral limits (if necessary):**
+
+   - If given bounds include infinity or zero, rewrite the limits appropriately to highlight the improper nature.
+   
+2. **Compare to a known convergent/divergent integral:**
+
+   - Use the **comparison test** if direct evaluation is difficult:
+     
+     - If \( f(x) \leq g(x) \) and \( \int_a^{\infty} g(x) \, dx \) converges, so does \( \int_a^{\infty} f(x) \, dx \).
+     
+     - If \( f(x) \geq g(x) \) and \( \int_a^{\infty} g(x) \, dx \) diverges, so does \( \int_a^{\infty} f(x) \, dx \).
+
+3. **Simplify using dominant behavior for \( x \to \infty \) or \( x \to 0^+ \):**
+   - Focus on the most dominant term in \( f(x) \) near the problematic bounds.
+
+\textbf{4. Special Cases of \( p \)-Functions}
+
+**Case 1: \( \int_1^{\infty} \frac{1}{x \ln(x)^p} \, dx \):
+
+- **If \( p > 1 \):** The integral converges.
+
+- **If \( p \leq 1 \):** The integral diverges.
+  
+**Case 2: \( \int_0^1 x^p \ln(x) \, dx \):
+- Analyze using substitution methods or series expansions.
+
+\textbf{5. Summary Table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l}
+    
+        \hline
+        Integral  & Condition for Convergence \\ \hline
+        \( \int_a^{\infty} \dfrac{1}{x^p} \, dx \) & \( p > 1 \) \\ \hline
+        \( \int_a^{\infty} \dfrac{1}{x^p} \, dx \) & \( p < 1 \) \\ \hline
+        \( \int_1^{\infty} \dfrac{1}{x \ln(x)^p} \, dx \)  & \( p > 1 \)  \\ \hline
+    \end{tabular}
+    \caption{A simple example table}
+    \label{tab:example_table}
+\end{table}
+
+
+\textbf{6. Tools for Practice}
+
+1. **Direct Integration:** Verify results by calculating the antiderivative.
+
+2. **Comparison Test:** Compare with simpler \( p \)-functions for easier evaluation.
+
+3. **Graphing:** Visualize the function to intuitively understand convergence behavior.
+
+Let me know if you'd like examples or additional explanations for these concepts!
+
+\textbf{application}
+
+Yes, \( p \)-functions and the concepts surrounding their convergence and divergence have practical applications in business, particularly in fields involving \textbf{economics, finance, operations research, and analytics}. Below are some examples and contexts where \( p \)-functions are relevant:
+
+\textbf{1. Modeling Long-Tail Distributions}
+
+- In business, long-tail distributions (e.g., power laws) are common for modeling phenomena such as:  - \textbf{Customer spending:} A small percentage of customers contribute disproportionately to revenue.
+  - \textbf{Product sales:} A few products generate most of the sales, while many generate small amounts (e.g., the Pareto Principle or the 80/20 rule).
+  - \textbf{Online engagement:} Social media followers, website traffic, and video views often follow power-law distributions.
+
+
+- The \( p \)-function \( \frac{1}{x^p} \) can model the likelihood of these events, where \( p \) determines the rate of decay.
+
+\textbf{2. Risk Analysis and Investment Portfolios}
+
+- \textbf{Tail Risks:}    Financial returns, insurance claims, and market crashes often follow power-law distributions. The parameter \( p \) determines whether certain risks (extreme losses or gains) are "manageable":
+  - If \( p > 1 \), the expected value of returns is finite (convergence), which implies risks are quantifiable.
+  - If \( 0 < p \leq 1 \), risks can grow unbounded (divergence), requiring additional risk management strategies.
+  
+- \textbf{Wealth Distribution:}    The Pareto distribution (\( x^p \)) models wealth inequality. Understanding the divergence of the integral informs policy or business strategies targeting wealth redistribution.
+
+\textbf{3. Forecasting and Demand Planning}
+
+- \( p \)-functions can help model \textbf{demand decay} over time or space:  - \textbf{Market Saturation:} For example, the rate of adoption of a product over time may decay as \( \frac{1}{x^p} \), where \( p > 1 \) ensures saturation (a finite market size).
+  - \textbf{Inventory Optimization:} Divergent \( p \)-functions (e.g., \( 0 < p < 1 \)) may reflect the persistence of niche demands, informing strategies for long-tail inventory.
+
+\textbf{4. Cost-Benefit Analysis}
+
+- In business, the \textbf{marginal cost} or \textbf{marginal benefit} of an activity often decreases as more resources are invested. This decay can follow a \( p \)-function:  \[
+  \text{Marginal Benefit} \propto \frac{1}{x^p}.
+  \]
+
+
+- For \( p > 1 \), marginal benefits converge (decline sharply), helping businesses decide when additional investment is no longer worthwhile.
+
+\textbf{5. Internet and E-Commerce Applications}
+
+
+- \textbf{Click-through Rates and User Engagement:}    The probability of users clicking on content decreases with rank or position, often following a power-law decay like \( \frac{1}{x^p} \).
+
+
+- \textbf{Search Engine Optimization (SEO):}    Traffic from search results diminishes as a power-law function of rank, informing optimization strategies.
+
+\textbf{6. Revenue and Pricing Strategies}
+
+
+- \textbf{Dynamic Pricing Models:}    Demand elasticity can sometimes be modeled using \( p \)-functions, where \( p \) represents customer sensitivity to price changes.
+
+
+- \textbf{Revenue Forecasting:}    The decay in customer spending or lifetime value can be modeled using convergent or divergent power-law integrals, depending on customer behavior.
+
+---
+
+\textbf{7. Operations and Logistics}
+
+
+- \textbf{Queueing Theory:}    Power laws may describe service times, waiting times, or workloads, influencing how resources are allocated in call centers, warehouses, or transportation networks.
+
+
+- \textbf{Supply Chain Modeling:}    Power-law decay functions can represent the rate of defect occurrence, the time for demand to stabilize, or network delays.
+
+\textbf{Conclusion}
+
+While \( p \)-functions might seem theoretical, they have a wide range of practical applications in business analytics, strategy, and decision-making. They help model long-tail effects, optimize resource allocation, and manage risks effectively. Understanding whether certain \( p \)-functions converge or diverge can provide insight into the feasibility of strategies or the limits of particular business processes.
+
+\section{Practices}
+
+\subsection{Some Statements about Divergence and Convergence}
+
+If \( \int_0^{+\infty} f(x) dx\) divergent, \( \int_0^{+\infty} g(x) dx\) divergent, then \( \int_0^{+\infty} \left[ f(x)+g(x) \right] dx\) must be divergence.
+
+This statement is wrong.
+
+Explain:
+
+There are two functions: \( f(x)=\frac{1}{1+x^2} + \frac{1}{1+x} \), \(g(x)=\frac{1}{1+x^2} - \frac{1}{1+x} \).
+
+Both are divergent.
+
+But \(\int_0^{+\infty} (f(x)+g(x))dx = 2\int_0^{+\infty} \frac{1}{1+x^2}dx\) convergent.
+
+How to analyze that both \( \int_0^{+\infty} f(x) dx \) and \( \int_0^{+\infty}  g(x) dx \) are divergent?
+
+To analyze the divergence of the integrals \( \int_0^{+\infty} f(x) , dx \) and \( \int_0^{+\infty} g(x) , dx \), let's break it down step by step:
+
+\hrulefill
+
+\textbf{Understanding the Functions \( f(x) \) and \( g(x) \):}
+
+Given:
+\[
+f(x) = \frac{1}{1+x^2} + \frac{1}{1+x}, \quad g(x) = \frac{1}{1+x^2} - \frac{1}{1+x}.
+\]
+\begin{itemize}
+\item 
+The functions consist of terms \( \frac{1}{1+x^2} \) (decays faster) and \( \pm \frac{1}{1+x} \) (decays slower).
+
+\end{itemize}
+
+\hrulefill
+
+\textbf{Behavior of \( f(x) \) and \( g(x) \) as \( x \to +\infty \):}
+
+\begin{itemize}
+\item 
+For large \( x \), the dominant term in both functions is determined by \( \frac{1}{1+x} \), since it decays more slowly than \( \frac{1}{1+x^2} \):
+\begin{itemize}
+\item 
+\( \frac{1}{1+x^2} \sim \frac{1}{x^2} \), which decays faster than \( \frac{1}{x} \).
+
+\end{itemize}
+
+\end{itemize}
+
+Thus:
+\[
+f(x) \sim \frac{1}{1+x}, \quad g(x) \sim -\frac{1}{1+x}.
+\]
+
+\hrulefill
+
+\textbf{Analyzing the Integrals:}
+
+\textbf{(a) For \( \int_0^{+\infty} f(x) , dx \):}
+
+\begin{itemize}
+\item 
+Split the integral:
+\[
+\int_0^{+\infty} f(x) , dx = \int_0^{+\infty} \frac{1}{1+x^2} , dx + \int_0^{+\infty} \frac{1}{1+x} , dx.
+\]
+
+\end{itemize}
+\begin{enumerate}
+\item 
+The term \( \int_0^{+\infty} \frac{1}{1+x^2} , dx \) converges because \( \frac{1}{1+x^2} \) decays fast enough (comparable to \( \frac{1}{x^2} \)).
+\begin{itemize}
+\item 
+This integral evaluates to \( \frac{\pi}{2} \) using a standard result.
+
+\end{itemize}
+
+\item 
+The term \( \int_0^{+\infty} \frac{1}{1+x} , dx \) diverges because \( \frac{1}{1+x} \sim \frac{1}{x} \) for large \( x \), and \( \int_1^{+\infty} \frac{1}{x} , dx \) diverges logarithmically.
+
+\end{enumerate}
+
+Thus, \( \int_0^{+\infty} f(x) , dx \) diverges.
+
+\hrulefill
+
+\textbf{(b) For \( \int_0^{+\infty} g(x) , dx \):}
+
+\begin{itemize}
+\item 
+Split the integral:
+\[
+\int_0^{+\infty} g(x) , dx = \int_0^{+\infty} \frac{1}{1+x^2} , dx - \int_0^{+\infty} \frac{1}{1+x} , dx.
+\]
+
+\end{itemize}
+\begin{enumerate}
+\item 
+As before, \( \int_0^{+\infty} \frac{1}{1+x^2} , dx = \frac{\pi}{2} \) (convergent).
+
+\item 
+However, \( \int_0^{+\infty} \frac{1}{1+x} , dx \) diverges logarithmically.
+
+\end{enumerate}
+
+Thus, \( \int_0^{+\infty} g(x) , dx \) diverges due to the negative divergent term \( -\int_0^{+\infty} \frac{1}{1+x} , dx \).
+
+\hrulefill
+
+\textbf{Conclusion:}
+
+Both \( \int_0^{+\infty} f(x) , dx \) and \( \int_0^{+\infty} g(x) , dx \) diverge because the integral \( \int_0^{+\infty} \frac{1}{1+x} , dx \) dominates their behavior for large \( x \), and it diverges logarithmically.
+
+\hrulefill
+
+If \( \int_0^{+\infty} f(x) dx\) convergent, \( \int_0^{+\infty} g(x) dx\) divergent, then \( \int_0^{+\infty} \left[ f(x)\cdot g(x) \right] dx\) must be divergence.
+
+There are two functions: \( f(x)=\frac{1}{1+x^2} \), \(g(x)=\frac{1}{1+x} \).
+
+But \( \int_0^{+\infty} f(x)g(x) dx \) is convergent.
+
+There are two functions: \( f(x)=\frac{1}{1+x^2} \), \(g(x)=\frac{1}{1+x} \). How to analyze that \( \int_0^{+\infty} f(x)g(x) dx \) is divergent or convergent?
+
+To analyze whether the integral \( \int_0^{+\infty} f(x)g(x) , dx \) converges or diverges, let's examine the behavior of the integrand and test its convergence.
+
+\hrulefill
+
+\textbf{Step 1: Definitions and Asymptotic Behavior}
+
+Given the functions:
+\[
+f(x) = \frac{1}{1+x^2}, \quad g(x) = \frac{1}{1+x}.
+\]
+
+The product of these two functions is:
+\[
+f(x)g(x) = \frac{1}{(1+x^2)(1+x)}.
+\]
+
+\textbf{Asymptotic behavior for large \( x \):}
+\begin{itemize}
+\item 
+For \( x \to +\infty \):
+\begin{itemize}
+\item 
+\( f(x) = \frac{1}{1+x^2} \sim \frac{1}{x^2} \),
+
+\item 
+\( g(x) = \frac{1}{1+x} \sim \frac{1}{x} \).
+
+\item 
+Therefore, the product:
+\[
+f(x)g(x) \sim \frac{1}{x^2} \cdot \frac{1}{x} = \frac{1}{x^3}.
+\]
+
+\end{itemize}
+
+\end{itemize}
+
+\textbf{Behavior near \( x = 0 \):}
+\begin{itemize}
+\item 
+For \( x \to 0 \):
+\begin{itemize}
+\item 
+\( f(x) = \frac{1}{1+x^2} \to 1 \),
+
+\item 
+\( g(x) = \frac{1}{1+x} \to 1 \).
+
+\item 
+Therefore:
+\[
+f(x)g(x) \to 1 \quad \text{as } x \to 0.
+\]
+
+\end{itemize}
+
+\end{itemize}
+
+\hrulefill
+
+\textbf{Step 2: Integral Analysis}
+
+\textbf{(a) Near \( x = 0 \):}
+
+For small \( x \), \( f(x)g(x) \approx 1 \), and the integral:
+\[
+\int_0^\epsilon f(x)g(x) , dx
+\]
+is finite for any \( \epsilon > 0 \). Thus, there is no issue of divergence at the lower limit.
+
+\textbf{(b) For large \( x \):}
+
+For large \( x \), \( f(x)g(x) \sim \frac{1}{x^3} \). To test convergence, consider:
+\[
+\int_a^{+\infty} \frac{1}{x^3} , dx,
+\]
+where \( a > 0 \). The integral of \( \frac{1}{x^3} \) is:
+\[
+\int_a^{+\infty} \frac{1}{x^3} , dx = \left[ -\frac{1}{2x^2} \right]_a^{+\infty} = \frac{1}{2a^2}.
+\]
+This is finite.
+
+\hrulefill
+
+\textbf{Step 3: Conclusion}
+
+The integral \( \int_0^{+\infty} f(x)g(x) , dx \) converges because the integrand \( f(x)g(x) \) decays sufficiently fast (\( \sim \frac{1}{x^3} \)) for large \( x \), and there is no divergence at \( x = 0 \).
+
+
+\subsection{Involving Laplace Transform}
+
+Solve \(\int_0^{+\infty} \frac{e^{-ax}-e^{-bx}}{x} dx. (b>a>0)\)
+
+\subsubsection{Solution}
+
+To evaluate the improper integral
+
+\[
+I = \int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} , dx, \quad (b > a > 0),
+\]
+
+we can proceed using the \textbf{Laplace transform} and properties of the logarithmic integral function.
+
+\textbf{Step 1: Represent the difference}
+
+The term \(\frac{e^{-ax} - e^{-bx}}{x}\) can be split into two terms:
+
+\[
+I = \int_0^{+\infty} \frac{e^{-ax}}{x} , dx - \int_0^{+\infty} \frac{e^{-bx}}{x} , dx.
+\]
+
+\textbf{Step 2: Known result for logarithmic integrals}
+
+The integral
+
+\[
+\int_0^{+\infty} \frac{e^{-cx}}{x} , dx
+\]
+
+is divergent in a strict sense, but when considered in the \textbf{Cauchy principal value} or as a difference for \(b > a > 0\), it gives:
+
+\[
+\int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} , dx = \ln\left(\frac{b}{a}\right).
+\]
+
+\textbf{Final Result:}
+
+\[
+\int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} , dx = \ln\left(\frac{b}{a}\right), \quad b > a > 0.
+\]
+
+\subsubsection{Introduce Laplace Transform}
+
+\begin{bluebox}
+What is Laplace transform? How is Laplace transform used in this problem?
+\end{bluebox}
+
+\textbf{What is the Laplace Transform?}
+
+The \textbf{Laplace transform} is a mathematical operation that transforms a time-domain function \( f(t) \), typically defined for \( t \geq 0 \), into a complex frequency-domain function \( F(s) \). The Laplace transform is defined as:
+
+\[
+\mathcal{L}{f(t)}(s) = F(s) = \int_0^{+\infty} e^{-st} f(t) , dt,
+\]
+
+where:
+\begin{itemize}
+\item 
+\( s \) is a complex number (\( s = \sigma + i\omega \)),
+
+\item 
+\( e^{-st} \) acts as a kernel to "transform" \( f(t) \) into \( F(s) \).
+
+\end{itemize}
+
+The Laplace transform is widely used in engineering, physics, and mathematics because it simplifies operations like differentiation and convolution, turning them into algebraic manipulations in the \( s \)-domain.
+
+\hrulefill
+
+\textbf{How is the Laplace Transform Used in This Problem?}
+
+The given integral:
+
+\[
+I = \int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} , dx \quad (b > a > 0)
+\]
+
+can be analyzed using the Laplace transform in two key ways:
+
+\hrulefill
+
+\textbf{1. The Laplace Transform of a Constant Function}
+
+If we consider a related function \( f(x) = 1/x \), its Laplace transform is directly related to the natural logarithm. Specifically, the Laplace transform of \( \ln(x) \) is:
+
+\[
+\mathcal{L}{\ln(x)}(s) = -\frac{\ln(s)}{s}.
+\]
+
+By interpreting the integral as a logarithmic operation in the frequency domain, the difference between the exponential terms \( e^{-ax} \) and \( e^{-bx} \) results in a term proportional to \( \ln(b) - \ln(a) = \ln(b/a) \).
+
+\hrulefill
+
+\textbf{2. The Integral as a Laplace Transform of a Difference}
+
+The integrals:
+
+\[
+\int_0^{+\infty} \frac{e^{-ax}}{x} , dx \quad \text{and} \quad \int_0^{+\infty} \frac{e^{-bx}}{x} , dx
+\]
+
+are not convergent individually. However, their \textbf{difference} is meaningful. This difference can be interpreted in terms of the Laplace transform as removing divergence and isolating the meaningful part of the integral:
+
+\[
+\int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} , dx = \ln\left(\frac{b}{a}\right).
+\]
+
+This result arises because the Laplace transform of a difference in exponentials effectively captures the logarithmic behavior. By isolating the kernel \( 1/x \), the transform reveals the relationship between \( b \) and \( a \).
+
+\hrulefill
+
+\textbf{Summary}
+
+In this problem, the Laplace transform is not explicitly applied in a computational sense, but the interpretation of the given integral as a \textbf{difference of Laplace transforms} of terms like \( e^{-ax} \) leads to the logarithmic result:
+
+\[
+\int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} , dx = \ln\left(\frac{b}{a}\right).
+\]
+
+
+\subsubsection{Another Solution}
+
+\begin{bluebox}
+You can also use this method:  \(  \int_0^{+\infty} \frac{e^{-ax}-e^{-bx}}{x} dx = \int_0^{+\infty} \left(\int_a^b e^{-yx} dy \right) dx = \int_a^b \left( \int_0^{+\infty} e^{-yx} dx \right) dy = \int_a^b \frac{1}{y} dy = \ln{\frac{b}{a}} \)
+\end{bluebox}
+
+Yes, your method is an elegant and rigorous way to solve the integral. Here's a step-by-step explanation of how it works:
+
+We are tasked with evaluating:
+
+\[
+I = \int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} dx, \quad \text{where } b > a > 0.
+\]
+
+\textbf{Step 1: Represent the Difference as an Inner Integral}
+
+The term \( e^{-ax} - e^{-bx} \) can be rewritten using the property of definite integrals:
+
+\[
+e^{-ax} - e^{-bx} = \int_a^b e^{-yx} dy.
+\]
+
+Substituting this into the original integral:
+
+\[
+I = \int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} dx = \int_0^{+\infty} \left( \int_a^b e^{-yx} , dy \right) \frac{1}{x} dx.
+\]
+
+\hrulefill
+
+\textbf{Step 2: Change the Order of Integration}
+
+We can interchange the order of integration because the integrand \( e^{-yx} \) is non-negative and the limits are well-defined. Thus:
+
+\[
+I = \int_a^b \left( \int_0^{+\infty} \frac{e^{-yx}}{x} dx \right) dy.
+\]
+
+\hrulefill
+
+\textbf{Step 3: Evaluate the Inner Integral}
+
+The inner integral is:
+
+\[
+\int_0^{+\infty} e^{-yx} , dx.
+\]
+
+This is a standard integral for exponential decay and evaluates to:
+
+\[
+\int_0^{+\infty} e^{-yx} , dx = \frac{1}{y}, \quad \text{for } y > 0.
+\]
+
+Substituting this result into the outer integral:
+
+\[
+I = \int_a^b \frac{1}{y} , dy.
+\]
+
+\hrulefill
+
+\textbf{Step 4: Evaluate the Outer Integral}
+
+The integral of \( \frac{1}{y} \) is the natural logarithm:
+
+\[
+\int_a^b \frac{1}{y} , dy = \ln y \big|_a^b = \ln b - \ln a = \ln\left(\frac{b}{a}\right).
+\]
+
+\hrulefill
+
+\textbf{Final Result:}
+
+\[
+\int_0^{+\infty} \frac{e^{-ax} - e^{-bx}}{x} dx = \ln\left(\frac{b}{a}\right).
+\]
+
+This method beautifully illustrates the interplay between integration and logarithmic growth through a change of order of integration.
+
+\chapter{Double Integral}
+
+Given \(\int_1^{t^2} dx \int_{\sqrt{x}}^t \sin{\frac{x}{y}} dy\), find the \( f^{\prime} (\frac{\pi}{2})\).
+
+Let’s go through the problem-solving process step-by-step and clarify what is happening:
+
+1. \textbf{Given Function:}
+
+   You are given a function \(f(t)\) defined as:
+   \[
+   f(t) = \int_1^{t^2} dx \int_{\sqrt{x}}^t \sin{\frac{x}{y}} dy.
+   \]
+
+2. \textbf{Swapping the Order of Integration:}
+
+   - The double integral is over a region in the \((x, y)\)-plane.
+   
+   - Initially, \(x\) ranges from \(1\) to \(t^2\) and \(y\) ranges from \(\sqrt{x}\) to \(t\).
+   
+   - When we swap the order of integration, \(y\) becomes the outer variable ranging from \(1\) to \(t\), and \(x\) becomes the inner variable ranging from \(1\) to \(y^2\).
+
+   Therefore, after swapping, the function becomes:
+   
+   \[
+   f(t) = \int_1^t dy \int_1^{y^2} \sin{\frac{x}{y}} dx.
+   \]
+
+3. \textbf{Evaluating the Inner Integral:}
+
+   - Consider the inner integral:
+   
+     \[
+     \int_1^{y^2} \sin{\frac{x}{y}} dx.
+     \]
+     
+   - Since \(y\) is treated as a constant during this integration, let’s perform the integration with respect to \(x\):
+   
+     \[
+     \int_1^{y^2} \sin{\frac{x}{y}} dx = \left. -y \cos{\frac{x}{y}} \right|_{1}^{y^2}.
+     \]
+     
+   - Evaluating this expression:
+   
+     \[
+     -y \cos{\frac{y^2}{y}} + y \cos{\frac{1}{y}} = -y \cos{y} + y \cos{\frac{1}{y}}.
+     \]
+
+   Thus, the inner integral becomes \(y \cos{\frac{1}{y}} - y \cos{y}\).
+
+4. \textbf{Substituting Back into the Outer Integral:}
+
+   - Now, substitute the result into the outer integral:
+   
+     \[
+     f(t) = \int_1^t (y \cos{\frac{1}{y}} - y \cos{y}) dy.
+     \]
+
+5. \textbf{Finding the Derivative \(f'(t)\):}
+
+   - Differentiate \(f(t)\) with respect to \(t\):
+   
+     \[
+     f'(t) = \frac{d}{dt} \left( \int_1^t (y \cos{\frac{1}{y}} - y \cos{y}) dy \right).
+     \]
+     
+   - By the Fundamental Theorem of Calculus, we can simply evaluate the integrand at \(y = t\):
+   
+     \[
+     f'(t) = t \cos{\frac{1}{t}} - t \cos{t}.
+     \]
+
+6. \textbf{Evaluating at \(t = \frac{\pi}{2}\):}
+
+   - Finally, substitute \(t = \frac{\pi}{2}\) into the derivative:
+   
+     \[
+     f' \left( \frac{\pi}{2} \right) = \frac{\pi}{2} \cos{\left(\frac{1}{\frac{\pi}{2}}\right)} - \frac{\pi}{2} \cos{\left(\frac{\pi}{2}\right)}.
+     \]
+     
+   - Since \(\cos{\left(\frac{\pi}{2}\right)} = 0\) and \(\cos{\left(\frac{1}{\frac{\pi}{2}}\right)} = \cos{\left(\frac{2}{\pi}\right)}\), we get:
+   
+     \[
+     f' \left( \frac{\pi}{2} \right) = \frac{\pi}{2} \cos{\frac{2}{\pi}}.
+     \]
+
+\textbf{Summary:}
+
+- The order of integration was swapped correctly.
+
+- The inner integral was evaluated using basic integration techniques.
+
+- The derivative was taken using the Fundamental Theorem of Calculus.
+
+- Finally, the derivative was evaluated at \(t = \frac{\pi}{2}\) to obtain the result.
+
+\chapter{Differential Equation}
+
+\section{Reducible Differential Equations}
+
+\subsection{An Example}
+
+To solve \( f''(x) + \frac{1}{x} f'(x) = 0 \), we follow these steps:
+
+\subsubsection{1. Simplify the equation}
+
+The given equation is a second-order differential equation. Let's denote \( y = f'(x) \), so that \( f''(x) = y'(x) \). This reduces the equation to:
+\[
+y' + \frac{1}{x} y = 0
+\]
+
+\subsubsection{2. Solve the first-order equation}
+
+This is a first-order linear differential equation. We can solve it using the integrating factor method.
+
+\subsubsection{Integrating factor:}
+
+The integrating factor \( \mu(x) \) is given by:
+\[
+\mu(x) = e^{\int \frac{1}{x} , dx} = e^{\ln|x|} = |x|
+\]
+
+\subsubsection{Multiply through by the integrating factor:}
+
+\[
+|x| y' + |x| \cdot \frac{1}{x} y = 0 \implies (|x| y)' = 0
+\]
+
+\subsubsection{Integrate both sides:}
+
+\[
+|x| y = C_1 \quad \implies \quad y = \frac{C_1}{x}, \quad x > 0 \text{ or } x < 0
+\]
+
+Since \( y = f'(x) \), we now have:
+\[
+f'(x) = \frac{C_1}{x}
+\]
+
+\subsubsection{3. Solve for \( f(x) \):}
+
+Integrate \( f'(x) \):
+\[
+f(x) = \int \frac{C_1}{x} , dx = C_1 \ln|x| + C_2
+\]
+
+\subsubsection{Final Solution:}
+
+The general solution to the differential equation is:
+\[
+f(x) = C_1 \ln|x| + C_2
+\]
+
+where \( C_1 \) and \( C_2 \) are constants of integration.
+
+\end{document}

@@ -1,0 +1,302 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=1in} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+\newtcolorbox{qbox}{ % question box
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\newtcolorbox{light_gray_box}{
+colback=light_gray,
+colframe=light_gray,
+boxrule=0pt,
+leftrule=2pt,
+rightrule=2pt,
+toprule=2pt,
+bottomrule=2pt,
+sharp corners,
+}
+
+\usepackage{enumitem}
+
+
+\begin{document}
+	
+\title{Basis Calculus - Limit}
+\author{Sean}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Oblique Asymptote}
+
+\subsection{Derivation of Oblique Asymptote}
+
+\begin{qbox}
+For a univariate function \(f(x)\), the method to find its oblique asymptote is to first find the slope k, and then find the intercept b.
+
+Where \( k=\lim_{x\to \infty} \frac{f(x)}{x} \);
+
+\( b=\lim_{x\to \infty} (f(x)-kx) \).
+
+Please explain the principle.
+\end{qbox}
+
+The method of finding the oblique asymptote for a univariate function \( f(x) \) involves determining the line \( y = kx + b \) that approximates the function as \( x \to \infty \). Here's the principle behind it:
+
+\subsubsection{1. Definition of an Oblique Asymptote}
+
+An oblique (or slant) asymptote is a straight line \( y = kx + b \) that the graph of the function \( y = f(x) \) approaches as \( x \to \infty \) (or \( x \to -\infty \)). For the line to be an asymptote, the vertical distance between the function and the line, \( |f(x) - (kx + b)| \), must approach 0 as \( x \to \infty \).
+
+\subsubsection{2. Finding the Slope \( k \)}
+
+The slope \( k \) represents the rate at which \( f(x) \) grows relative to \( x \). As \( x \to \infty \), the slope \( k \) is determined by the dominant term in \( f(x) \). Mathematically,
+
+\[
+k = \lim_{x \to \infty} \frac{f(x)}{x}.
+\]
+
+This ratio essentially captures the average rate of change of \( f(x) \) relative to \( x \). If \( k \) exists as \( x \to \infty \), it defines the slope of the oblique asymptote.
+\begin{itemize}
+\item 
+If \( f(x) \) grows linearly with \( x \), \( k \) will be a finite value.
+
+\item 
+If \( f(x) \) grows faster than linearly (e.g., quadratically or exponentially), an oblique asymptote does not exist.
+
+\end{itemize}
+
+\subsubsection{3. Finding the Intercept \( b \)}
+
+Once \( k \) is known, the intercept \( b \) is determined to complete the equation of the line \( y = kx + b \). The intercept \( b \) is found as the "remainder" after accounting for the linear growth represented by \( kx \). Specifically,
+
+\[
+b = \lim_{x \to \infty} \left(f(x) - kx\right).
+\]
+
+This calculation ensures that the vertical difference between \( f(x) \) and the line \( y = kx + b \) vanishes as \( x \to \infty \), thereby making \( y = kx + b \) the asymptote.
+
+\subsubsection{4. Principle Behind the Method}
+
+The principle hinges on decomposing the function \( f(x) \) into two parts:
+
+\[
+f(x) = kx + \text{remainder}(x),
+\]
+
+where the "remainder" is the term \( f(x) - kx \), which must approach a constant \( b \) as \( x \to \infty \). This decomposition isolates the dominant linear growth (\( kx \)) and ensures that any deviations from the linear trend shrink as \( x \) increases.
+\begin{itemize}
+\item 
+The slope \( k \) captures the long-term trend of \( f(x) \) relative to \( x \).
+
+\item 
+The intercept \( b \) adjusts for the offset of \( f(x) \) from this linear trend.
+
+\end{itemize}
+
+In essence, this method provides a systematic way to identify the linear trend that \( f(x) \) follows as \( x \to \infty \).
+
+\begin{qbox}
+This ratio essentially captures the average rate of change of \( f(x) \) relative to \( x \). If \( k \) exists as \( x \to \infty \), it defines the slope of the oblique asymptote.
+
+This narration is abstract and opaque.
+\end{qbox}
+
+Let me explain this in a simpler and clearer way with an example.
+
+Imagine you have a function \( f(x) = 2x + 3 + \frac{1}{x} \). You want to find the oblique asymptote of this function, which is a line that the function \( f(x) \) gets very close to as \( x \to \infty \).
+
+\hrulefill
+
+\subsubsection{Step 1: Find the Slope \( k \)}
+
+The slope \( k \) of the asymptote is given by:
+
+\[
+k = \lim_{x \to \infty} \frac{f(x)}{x}.
+\]
+
+Let’s compute this for \( f(x) = 2x + 3 + \frac{1}{x} \):
+
+\[
+\frac{f(x)}{x} = \frac{2x + 3 + \frac{1}{x}}{x} = 2 + \frac{3}{x} + \frac{1}{x^2}.
+\]
+
+As \( x \to \infty \), the terms \( \frac{3}{x} \) and \( \frac{1}{x^2} \) approach 0. So:
+
+\[
+k = \lim_{x \to \infty} \left(2 + \frac{3}{x} + \frac{1}{x^2}\right) = 2.
+\]
+
+The slope \( k = 2 \) means the asymptote is a line with slope 2.
+
+\hrulefill
+
+\subsubsection{Step 2: Find the Intercept \( b \)}
+
+Now, we need the intercept \( b \). This is computed as:
+
+\[
+b = \lim_{x \to \infty} \left(f(x) - kx\right).
+\]
+
+Here, \( kx = 2x \). So:
+
+\[
+f(x) - kx = (2x + 3 + \frac{1}{x}) - 2x = 3 + \frac{1}{x}.
+\]
+
+As \( x \to \infty \), the term \( \frac{1}{x} \) approaches 0. Therefore:
+
+\[
+b = \lim_{x \to \infty} \left(3 + \frac{1}{x}\right) = 3.
+\]
+
+The intercept \( b = 3 \) means the asymptote crosses the \( y \)-axis at \( y = 3 \).
+
+\hrulefill
+
+\subsubsection{Final Result: The Oblique Asymptote}
+
+The oblique asymptote is the line:
+
+\[
+y = kx + b = 2x + 3.
+\]
+
+\hrulefill
+
+\subsubsection{Why This Method Works}
+\begin{itemize}
+\item 
+The slope \( k = \lim_{x \to \infty} \frac{f(x)}{x} \) tells us how steeply \( f(x) \) grows relative to \( x \).
+
+\item 
+Subtracting \( kx \) removes the dominant linear growth, leaving just the "remainder" \( f(x) - kx \), which simplifies to a constant \( b \).
+
+\end{itemize}
+
+As \( x \to \infty \), \( f(x) \) becomes almost identical to the line \( y = 2x + 3 \), which is why this line is the asymptote.
+
+\subsection{Two Statement}
+
+\begin{qbox}
+If a function has no horizontal asymptotes, then it has no oblique asymptotes.
+
+If a function has no vertical asymptotes, then it has no oblique asymptotes.
+\end{qbox}
+
+\subsubsection{The First Statement}
+
+\textbf{What this means}
+
+\begin{itemize}
+\item 
+A horizontal asymptote exists if \( \lim_{x \to \infty} f(x) \) or \( \lim_{x \to -\infty} f(x) \) is a finite constant.
+
+\item 
+An oblique asymptote exists if \( f(x) \) can be approximated by a line \( y = kx + b \) as \( x \to \infty \) or \( x \to -\infty \).
+
+\end{itemize}
+
+\textbf{Analysis}
+
+This statement is not true in general. A function can lack a horizontal asymptote but still have an oblique asymptote. Here’s why:
+\begin{itemize}
+\item 
+Horizontal asymptotes occur when \( f(x) \) approaches a constant as \( x \to \infty \).
+
+\item 
+Oblique asymptotes occur when \( f(x) \) grows linearly with \( x \).
+
+\end{itemize}
+
+For example:
+\begin{itemize}
+\item 
+\( f(x) = 2x + 3 + \frac{1}{x} \) has no horizontal asymptote because \( f(x) \to \infty \) as \( x \to \infty \).
+
+\item 
+However, \( f(x) \) has an oblique asymptote, \( y = 2x + 3 \), as shown in the earlier example.
+
+\end{itemize}
+
+Thus, the absence of a horizontal asymptote does not imply the absence of an oblique asymptote.
+
+\hrulefill
+
+\subsubsection{The Second Statement}
+
+\textbf{What this means}
+
+\begin{itemize}
+\item 
+A vertical asymptote exists when \( f(x) \to \pm \infty \) as \( x \to c \), where \( c \) is a specific finite value.
+
+\item 
+An oblique asymptote describes behavior as \( x \to \infty \) or \( x \to -\infty \).
+
+\end{itemize}
+
+\textbf{Analysis}
+
+This statement is also not true. A function can lack vertical asymptotes but still have an oblique asymptote. Here’s why:
+\begin{itemize}
+\item 
+Vertical asymptotes are related to the behavior of \( f(x) \) near certain finite \( x \)-values.
+
+\item 
+Oblique asymptotes describe the long-term (large \( |x| \)) behavior of \( f(x) \).
+
+\end{itemize}
+
+For example:
+\begin{itemize}
+\item 
+\( f(x) = 2x + 3 + \frac{1}{x} \) has no vertical asymptotes because it is defined for all real \( x \).
+
+\item 
+However, \( f(x) \) has an oblique asymptote, \( y = 2x + 3 \).
+
+\end{itemize}
+
+Thus, the absence of vertical asymptotes does not imply the absence of oblique asymptotes.
+
+\hrulefill
+
+\subsubsection{Conclusion}
+
+Both sentences are incorrect. Here's the corrected understanding:
+\begin{enumerate}
+\item 
+Horizontal asymptotes and oblique asymptotes are independent. A function can lack one but have the other.
+
+\item 
+Vertical asymptotes are unrelated to the existence of oblique asymptotes. A function can lack vertical asymptotes and still have oblique asymptotes.
+
+\end{enumerate}
+
+\end{document}

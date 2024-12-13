@@ -18,7 +18,7 @@
 \definecolor{light_gray}{RGB}{222, 222, 222}
 
 % problem box
-\newtcolorbox{pbox}{
+\newtcolorbox{bluebox}{
 	colback=light_blue,
 	colframe=light_blue,
 	boxrule=0pt,
@@ -41,13 +41,88 @@
 
 \newpage
 
+\chapter{Primary Math}
+
+\section{Inequality}
+
+\begin{bluebox}
+Why when \( x\geq 0\) , \( \frac{1}{1+x|\sin{x}|} \geq \frac{1}{1+x} \) ? % [139] p269 t3
+\end{bluebox}
+
+To understand why the inequality
+
+\[
+\frac{1}{1 + x|\sin x|} \geq \frac{1}{1 + x}
+\]
+
+holds for \( x \geq 0 \), let's analyze it step by step:
+
+\textbf{1. Rewrite the inequality}
+
+Rewriting the inequality:
+
+\[
+\frac{1}{1 + x|\sin x|} \geq \frac{1}{1 + x}
+\]
+
+Multiply through by \( (1 + x|\sin x|)(1 + x) \), which is positive for \( x \geq 0 \), so the direction of the inequality is preserved:
+
+\[
+1 + x \geq 1 + x|\sin x|
+\]
+
+\textbf{2. Simplify}
+
+Cancel the \( 1 \) on both sides:
+
+\[
+x \geq x|\sin x|
+\]
+
+Factor \( x \) (since \( x \geq 0 \)):
+
+\[
+x(1 - |\sin x|) \geq 0
+\]
+
+\textbf{3. Analyze \( 1 - |\sin x| \)}
+
+\begin{itemize}
+\item 
+The term \( |\sin x| \) satisfies \( 0 \leq |\sin x| \leq 1 \) for all \( x \).
+
+\item 
+Hence, \( 1 - |\sin x| \geq 0 \).
+
+\end{itemize}
+
+\textbf{4. Conclusion}
+
+\begin{itemize}
+\item 
+For \( x \geq 0 \), both \( x \) and \( 1 - |\sin x| \) are non-negative.
+
+\item 
+Thus, \( x(1 - |\sin x|) \geq 0 \), confirming the inequality holds.
+
+\end{itemize}
+
+\textbf{Why the inequality is strict}
+
+\begin{itemize}
+\item 
+If \( x > 0 \) and \( |\sin x| > 0 \), \( 1 + x|\sin x| > 1 + x \), making \( \frac{1}{1 + x|\sin x|} < \frac{1}{1 + x} \).
+
+\end{itemize}
+
+
 \chapter{Differential}
 
 \section{Derivative}
 
-\begin{pbox}
+\begin{bluebox}
 Why we can get \(f^{\prime}(0)=0\) from \(\lim_{x\to 0}\frac{f(x)}{x^2}=0\)?
-\end{pbox}
+\end{bluebox}
 
 To see why \( f'(0) = 0 \) follows from the given limit, let's carefully analyze the relationship between the limit \(\lim_{x \to 0} \frac{f(x)}{x^2} = 0\) and the definition of the derivative.
 
@@ -93,7 +168,7 @@ f'(0) = 0.
 
 \end{enumerate}
 
-\subsubsection{Intuition:}
+\textbf{Intuition:}
 
 The limit condition \(\lim_{x \to 0} \frac{f(x)}{x^2} = 0\) tells us that \( f(x) \) is much smaller than \( x^2 \) near 0. Because \( x \) grows much faster than \( f(x) \), the slope of \( f(x) \) at 0 (given by \( f'(0) \)) must also be 0.
 
@@ -252,5 +327,70 @@ plt.axis('equal')
 plt.show()
 \end{minted}
 
+\section{Integral Symmetry Property}
+
+\begin{bluebox}
+Why \( \int_a^b f(x) dx = \int_a^b f(a+b-x) dx \)?
+\end{bluebox}
+
+The equality
+
+\[
+\int_a^b f(x) , dx = \int_a^b f(a+b-x) , dx
+\]
+
+is a result of a \textbf{change of variables} in the integral. Here's a step-by-step explanation:
+
+\hrulefill
+
+\textbf{1. Substitution}
+
+Let \( u = a + b - x \). Then:
+\begin{itemize}
+\item 
+As \( x \) ranges from \( a \) to \( b \), \( u \) ranges from \( a + b - a = b \) to \( a + b - b = a \).
+
+\item 
+The differential \( dx \) becomes \( du = -dx \).
+
+\end{itemize}
+
+\hrulefill
+
+\textbf{2. Rewrite the Integral}
+
+Using the substitution, we can rewrite the integral \( \int_a^b f(x) , dx \) as:
+\[
+\int_a^b f(x) , dx = \int_b^a f(a + b - u) (-du).
+\]
+
+\hrulefill
+
+\textbf{3. Adjust the Limits}
+
+Switching the limits of integration (from \( b \) to \( a \) into \( a \) to \( b \)) introduces a negative sign:
+\[
+\int_b^a f(a + b - u) (-du) = \int_a^b f(a + b - u) , du.
+\]
+
+\hrulefill
+
+\textbf{4. Relabel \( u \) Back as \( x \)}
+
+Since \( u \) is just a dummy variable of integration, we can relabel \( u \) as \( x \):
+\[
+\int_a^b f(a + b - u) , du = \int_a^b f(a + b - x) , dx.
+\]
+
+Thus, we have:
+\[
+\int_a^b f(x) , dx = \int_a^b f(a + b - x) , dx.
+\]
+
+\hrulefill
+
+\textbf{Intuition}
+
+This equality reflects a symmetry property: the substitution essentially "flips" the function \( f(x) \) about the midpoint \( \frac{a+b}{2} \) of the interval \([a, b]\).
 
 \end{document}

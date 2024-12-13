@@ -1,0 +1,193 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=1in} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+\newtcolorbox{bluebox}{ % question box
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\newtcolorbox{light_gray_box}{
+colback=light_gray,
+colframe=light_gray,
+boxrule=0pt,
+leftrule=2pt,
+rightrule=2pt,
+toprule=2pt,
+bottomrule=2pt,
+sharp corners,
+}
+
+\usepackage{enumitem}
+
+
+\begin{document}
+	
+\title{Basis Calculus - Limit}
+\author{Sean}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Unamed}
+
+\subsection{2023.3}
+
+\begin{bluebox}
+Suppose the sequence \(\{x_n\}\), \(\{y_n\}\) satisfies \( x_1=y_1=\frac{1}{2} \), \( x_{n+1} = \sin{x_n} \), \( y_{n+1} = {y_n}^2\). When \(n\to \infty\), \(y_n\) is a higher-order infinitesimal of \(x_n\).
+
+Please explain.
+\end{bluebox}
+
+\textbf{Short Answer:}\newline
+As \(n \to \infty\), both \(x_n\) and \(y_n\) approach zero, but \(y_n\) does so much faster than \(x_n\). More precisely, \(\frac{y_n}{x_n} \to 0\), which means \(y_n\) is a higher-order infinitesimal compared to \(x_n\).
+
+\textbf{Detailed Explanation:}
+\begin{enumerate}
+\item 
+\textbf{Definitions and Initial Conditions}:\newline
+We have two sequences defined as follows:
+\[
+x_1 = y_1 = \tfrac{1}{2}, \quad x_{n+1} = \sin(x_n), \quad y_{n+1} = (y_n)^2.
+\]
+Clearly, both sequences are positive and decreasing. Since \(\sin(x) < x\) for all \(x > 0\), and since \(y_{n+1} = (y_n)^2\) keeps squaring a number less than 1, both \(x_n\) and \(y_n\) converge to 0 as \(n \to \infty\).
+
+\item 
+\textbf{Asymptotic Behavior of \(x_n\)}:\newline
+For small arguments, \(\sin(x) \approx x - \frac{x^3}{6}\). When \(x_n\) is very small, we have:
+\[
+x_{n+1} = \sin(x_n) \approx x_n - \frac{x_n^3}{6}.
+\]
+This implies
+\[
+x_n - x_{n+1} \approx \frac{x_n^3}{6}.
+\]
+The convergence of \(x_n \to 0\) is thus governed by a cubic nonlinearity. Such iterations are known to have very slow convergence rates. In fact, we can approximate its behavior by a continuous analogy (treating \(n\) as continuous and \(x_n\) as a function \(x(n)\)):
+\[
+\frac{dx}{dn} \approx -\frac{x^3}{6}.
+\]
+Separating variables and integrating:
+\[
+\int \frac{dx}{x^3} = \int -\frac{1}{6} dn \implies -\frac{1}{2x^2} = -\frac{n}{6} + C.
+\]
+As \(n\) becomes large, this roughly suggests:
+\[
+\frac{1}{x_n^2} \sim \frac{n}{3} \implies x_n \sim \sqrt{\frac{3}{n}}.
+\]
+
+Thus \(x_n\) shrinks to zero on the order of \(\frac{1}{\sqrt{n}}\). While this is an informal approximation, it suffices to show that \(x_n\) goes to zero quite slowly.
+
+\item 
+\textbf{Asymptotic Behavior of \(y_n\)}:\newline
+Consider the sequence \(y_{n+1} = (y_n)^2\) with \(y_1=\tfrac{1}{2}\). Iterating:
+\[
+y_2 = (y_1)^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4}, \quad
+y_3 = (y_2)^2 = \left(\frac{1}{4}\right)^2 = \frac{1}{16}, \quad
+y_4 = (y_3)^2 = \frac{1}{256}, \ldots
+\]
+
+In general,
+\[
+y_n = \left(\frac{1}{2}\right)^{2^{n-1}}.
+\]
+
+This is an extremely fast convergence to zero—\textbf{double-exponential decay}. Each iteration squares the previous term, causing \(y_n\) to collapse toward zero at a rate far exceeding any polynomial or even exponential decay.
+
+\item 
+\textbf{Higher-Order Infinitesimal}:\newline
+A “higher-order infinitesimal” means that when comparing two sequences \(x_n \to 0\) and \(y_n \to 0\), if \(\frac{y_n}{x_n} \to 0\), then \(y_n\) vanishes more rapidly. In other words, relative to \(x_n\), the sequence \(y_n\) is “smaller” at the limit:
+\[
+\lim_{n \to \infty} \frac{y_n}{x_n} = 0.
+\]
+
+Since \(x_n\) decays roughly like \(1/\sqrt{n}\), and \(y_n\) decays like \((1/2)^{2^{n-1}}\), we have:
+\[
+\frac{y_n}{x_n} \sim \frac{\text{double-exponentially small}}{\sqrt{n}^{-1}} \to 0.
+\]
+
+\item 
+\textbf{Conclusion}:\newline
+Both \(x_n\) and \(y_n\) tend to zero, but \(y_n\) does so at a dramatically faster rate. Thus, \(y_n\) is considered a higher-order infinitesimal compared to \(x_n\).
+
+\end{enumerate}
+
+\textbf{Side Note}
+
+The step \(\frac{dx}{dn} \approx -\frac{x^3}{6}\) is an informal approximation that helps us understand the long-term behavior of the sequence. Here's how it comes about:
+\begin{enumerate}
+\item 
+\textbf{Starting from the Iteration Formula:}\newline
+We have \( x_{n+1} = \sin(x_n) \). For small \(x_n\), we can use the Taylor expansion of \(\sin(x)\):
+\[
+\sin(x) \approx x - \frac{x^3}{6}.
+\]
+
+Thus, when \(x_n\) is close to zero,
+\[
+x_{n+1} \approx x_n - \frac{x_n^3}{6}.
+\]
+
+\item 
+\textbf{Rewriting the Iteration as a Difference:}\newline
+The difference between successive terms is
+\[
+x_{n+1} - x_n \approx -\frac{x_n^3}{6}.
+\]
+
+\item 
+\textbf{From a Difference Equation to a Differential Equation:}\newline
+When \(n\) is large and \(x_n\) changes slowly, we can think of \(x_n\) as a function of a continuous variable \(n\), say \(x(n)\). In that case, the difference \(x_{n+1} - x_n\) is like a discrete approximation of the derivative \(\frac{dx}{dn}\). Specifically,
+\[
+x_{n+1} - x_n \approx \frac{dx}{dn}.
+\]
+
+Combining this with the previous approximation, we get:
+\[
+\frac{dx}{dn} \approx -\frac{x^3}{6}.
+\]
+
+\item 
+\textbf{Why Do This?}\newline
+We know the sequence definition is inherently discrete. However, analyzing the continuous approximation \(\frac{dx}{dn} \approx -\frac{x^3}{6}\) gives us a clearer insight into how quickly \(x_n\) approaches zero. Once we solve this approximate differential equation, we get an asymptotic form for \(x_n\), which we can compare to other sequences.
+
+\end{enumerate}
+
+\textbf{In summary:}
+
+\begin{itemize}
+\item 
+We started with the difference equation from the iteration definition.
+
+\item 
+We used a Taylor expansion to simplify \(\sin(x_n)\).
+
+\item 
+We replaced the discrete step \(x_{n+1}-x_n\) by a continuous derivative \(\frac{dx}{dn}\) to gain insight.
+
+\end{itemize}
+
+This method is a common technique in analyzing the behavior of sequences for large \(n\), and while it's not a rigorous proof in itself, it provides a good approximation of how \(x_n\) behaves asymptotically.
+
+\end{document}

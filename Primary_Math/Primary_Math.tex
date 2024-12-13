@@ -1,0 +1,338 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath}  % For math formulas
+\usepackage{amssymb}  % For additional math symbols
+\usepackage{amsfonts} % For more math fonts
+\usepackage{geometry} % For adjusting page margins
+\setcounter{secnumdepth}{2} % Allow numbering to depth 3 (subsubsection)
+\geometry{margin=1in} % 1 inch margins
+\usepackage{hyperref} % For hyperlinks within the document
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{light_blue}{RGB}{200, 240, 255} % Customize the shade as desired
+\definecolor{light_gray}{RGB}{222, 222, 222}
+
+\newtcolorbox{bluebox}{ % question box
+	colback=light_blue,
+	colframe=light_blue,
+	boxrule=0pt,
+	leftrule=2pt,
+	rightrule=2pt,
+	toprule=2pt,
+	bottomrule=2pt,
+	sharp corners,
+}
+
+\newtcolorbox{light_gray_box}{
+colback=light_gray,
+colframe=light_gray,
+boxrule=0pt,
+leftrule=2pt,
+rightrule=2pt,
+toprule=2pt,
+bottomrule=2pt,
+sharp corners,
+}
+
+\usepackage{enumitem}
+
+
+\begin{document}
+	
+\title{Basis Calculus - Limit}
+\author{Sean}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Algebra}
+
+\section{Minus}
+
+\subsection{Real number in Sqrt}
+
+My teacher calculated \( \lim_{x\to +\infty} \sqrt{4+\frac{1}{x}} \) into 2. Did he do it right?
+
+Yes, your teacher calculated the limit correctly. Let's break it down step by step to understand why:
+
+\[
+\lim\_{x\to +\infty} \sqrt{4+\frac{1}{x}}
+\]
+
+\begin{enumerate}
+\item 
+\textbf{Analyze the Expression Inside the Square Root:}
+
+As \( x \) approaches \( +\infty \), the term \( \frac{1}{x} \) becomes very small and approaches 0. So,
+
+\[
+4 + \frac{1}{x} \approx 4 + 0 = 4
+\]
+
+\item 
+\textbf{Take the Square Root:}
+
+\[
+\sqrt{4 + \frac{1}{x}} \approx \sqrt{4} = 2
+\]
+
+\item 
+\textbf{Conclusion:}
+
+Therefore,
+
+\[
+\lim\_{x\to +\infty} \sqrt{4+\frac{1}{x}} = 2
+\]
+
+\end{enumerate}
+
+Your teacher correctly evaluated the limit as \textbf{2}.
+
+Why the result is not +2 and -2?
+
+That's a great question! It's important to understand why the limit is \textbf{\( +2 \)} and not \textbf{\( \pm 2 \)}. Let's delve into the details:
+
+\subsubsection{Understanding the Square Root Function}
+\begin{enumerate}
+\item 
+\textbf{Principal Square Root:}
+\begin{itemize}
+\item 
+In mathematics, the square root symbol \textbf{\( \sqrt{\cdot} \)} denotes the \textbf{principal (non-negative)} square root of a number.
+
+\item 
+This means that \textbf{\( \sqrt{a} \)} is defined to be the \textbf{non-negative} number that, when squared, equals \textbf{\( a \)}.
+
+\end{itemize}
+
+\[
+\sqrt{a} = \text{the non-negative number } b \text{ such that } b^2 = a
+\]
+\begin{itemize}
+\item 
+For example, \textbf{\( \sqrt{4} = 2 \)}, not \textbf{\( -2 \)}, even though \textbf{\( (-2)^2 = 4 \)}.
+
+\end{itemize}
+
+\item 
+\textbf{Why Not \( \pm \)?}
+\begin{itemize}
+\item 
+While it's true that both \textbf{\( +2 \)} and \textbf{\( -2 \)} are square roots of \textbf{4}, the notation \textbf{\( \sqrt{4} \)} specifically refers to the \textbf{principal (positive)} square root, which is \textbf{\( +2 \)}.
+
+\item 
+If both roots are needed, they are typically expressed as \textbf{\( \pm\sqrt{4} = \pm 2 \)}.
+
+\end{itemize}
+
+\end{enumerate}
+
+\subsubsection{Applying This to the Limit}
+
+Consider the limit your teacher calculated:
+
+\[
+\lim\_{x \to +\infty} \sqrt{4 + \frac{1}{x}}
+\]
+
+\begin{enumerate}
+\item 
+\textbf{Simplifying Inside the Square Root:}
+\begin{itemize}
+\item 
+As \textbf{\( x \to +\infty \)}, \textbf{\( \frac{1}{x} \to 0 \)}.
+
+\item 
+So, \textbf{\( 4 + \frac{1}{x} \to 4 \)}.
+
+\end{itemize}
+
+\item 
+\textbf{Taking the Square Root:}
+\begin{itemize}
+\item 
+\textbf{\( \sqrt{4 + \frac{1}{x}} \to \sqrt{4} \)}.
+
+\item 
+By definition of the principal square root, \textbf{\( \sqrt{4} = 2 \)}.
+
+\end{itemize}
+
+\item 
+\textbf{Final Result:}
+\begin{itemize}
+\item 
+Therefore, \textbf{\( \lim\_{x \to +\infty} \sqrt{4 + \frac{1}{x}} = 2 \)}.
+
+\end{itemize}
+
+\end{enumerate}
+
+\subsubsection{Summary}
+\begin{itemize}
+\item 
+The \textbf{square root symbol} \textbf{\( \sqrt{\cdot} \)} refers to the \textbf{principal (non-negative)} root.
+
+\item 
+In the context of limits and real numbers, \textbf{\( \sqrt{4} \)} is \textbf{\( +2 \)}.
+
+\item 
+That's why your teacher correctly concluded that the limit is \textbf{2} and not \textbf{\( \pm 2 \)}.
+
+\end{itemize}
+
+I hope this clarifies why the limit is \textbf{\( +2 \)}!
+
+\subsection{Extract x when x tends to Minus Infinity}
+
+\begin{bluebox}
+how to understand \( \lim_{x\to -\infty} \sqrt{4x^2}=\lim_{x\to \infty}(-1)\sqrt{4} \)?
+\end{bluebox}
+
+\subsubsection{Expression Analysis}
+
+We are considering:
+\begin{enumerate}
+\item 
+\( \lim_{x \to -\infty} \sqrt{4x^2} \)
+
+\item 
+\( \lim_{x \to \infty} (-1)\sqrt{4} \)
+
+\end{enumerate}
+
+\textbf{Step 1: Simplify \( \sqrt{4x^2} \):}
+
+\[
+\sqrt{4x^2} = \sqrt{4} \cdot \sqrt{x^2} = 2|x|
+\]
+
+Here, \( |x| \) is the absolute value of \( x \). When \( x \to -\infty \), \( |x| = -x \) because \( x \) is negative. Therefore:
+
+\[
+\sqrt{4x^2} = 2(-x) = -2x \quad \text{for } x < 0
+\]
+
+\textbf{Step 2: Evaluate \( \lim_{x \to -\infty} \sqrt{4x^2} \):}
+
+Since \( \sqrt{4x^2} = -2x \) as \( x \to -\infty \), the limit becomes:
+
+\[
+\lim_{x \to -\infty} \sqrt{4x^2} = \lim_{x \to -\infty} (-2x) = \infty
+\]
+
+So, the \textbf{left-hand side} of the equation suggests infinity.
+
+\textbf{Step 3: Simplify the right-hand side:}
+
+The expression on the right-hand side is:
+
+\[
+\lim_{x \to \infty} (-1)\sqrt{4} = \lim_{x \to \infty} (-1) \cdot 2 = -2
+\]
+
+This is a constant value, not dependent on \( x \).
+
+\hrulefill
+
+\subsubsection{Conclusion}
+
+This limit equality \( \lim_{x \to -\infty} \sqrt{4x^2} = \lim_{x \to \infty} (-1)\sqrt{4} \) is \textbf{incorrect} because:
+\begin{itemize}
+\item 
+\( \lim_{x \to -\infty} \sqrt{4x^2} \) evaluates to \( \infty \).
+
+\item 
+\( \lim_{x \to \infty} (-1)\sqrt{4} \) evaluates to \( -2 \).
+
+\end{itemize}
+
+\chapter{Tiangle}
+
+\section{Radian System}
+
+\begin{bluebox}
+In the unit circle, why is the angle \(\alpha\) equal to its corresponding arc?
+\end{bluebox}
+
+The equality of the angle \(\alpha\) and its corresponding arc length on the unit circle is a direct consequence of how radians are defined.
+
+\textbf{Key idea:}
+\begin{itemize}
+\item 
+\textbf{Radian measure} is defined so that the angle (in radians) is equal to the length of the subtended arc when measured on a circle of radius 1.
+
+\end{itemize}
+
+\textbf{More detail:}
+\begin{enumerate}
+\item 
+\textbf{Definition of a Radian:}\newline
+Consider a circle of radius \(r\). If you mark off an arc on the circle such that its length equals the radius \(r\), the central angle subtending that arc is defined to be 1 radian.
+
+\item 
+\textbf{Application to the Unit Circle:}\newline
+On a unit circle (where \(r = 1\)), if an angle \(\alpha\) (in radians) subtends an arc, the length of that arc is \(\alpha \times 1 = \alpha\).
+
+\item 
+\textbf{Why It Makes Sense:}\newline
+This isn’t just a coincidence; it’s the very definition of the radian measure. Degrees are arbitrary (360° in a full rotation), but radians are naturally defined by geometry. A full circle corresponds to \(2\pi\) radians, and the circumference of a unit circle is \(2\pi \cdot 1 = 2\pi\). This matches perfectly, ensuring that when you measure angles in radians on a unit circle, the angle’s magnitude corresponds directly to the length of the arc it subtends.
+
+\end{enumerate}
+
+\textbf{In summary:}\newline
+The angle \(\alpha\) is equal to its arc length on the unit circle because the radian measure is constructed so that, for a circle of radius 1, the measure of an angle in radians is exactly the length of the arc subtending that angle.
+
+\section{Well-known Results}
+
+\begin{bluebox}
+\(\sin x < x\) for all \(x>0\).
+\end{bluebox}
+
+
+Yes, the inequality \(\sin x < x\) holds for every positive real number \(x.\) This is a well-known result in calculus and analysis, and it can be understood from multiple perspectives:
+\begin{enumerate}
+\item 
+\textbf{Geometric Interpretation (Unit Circle Argument):}\newline
+Consider the unit circle and an angle \(x\) measured in radians. The sine of \(x,\) \(\sin(x),\) can be interpreted as the vertical coordinate of the point on the unit circle subtended by angle \(x.\) Now, if you draw a line segment on the unit circle representing \(\sin(x)\) and compare it with the length of the arc on the unit circle that subtends the same angle \(x,\) you find that \(\sin(x)\) is always shorter than \(x.\) This is because the straight line from the point on the unit circle to the horizontal axis is always shorter than the arc of the circle itself.
+
+\item 
+\textbf{Differentiation and Curve Analysis:}\newline
+Consider the function \(f(x) = x - \sin(x).\) Observe that:
+\begin{itemize}
+\item 
+\(f(0) = 0 - \sin(0) = 0.\)
+
+\item 
+The derivative is \(f'(x) = 1 - \cos(x).\)
+
+\end{itemize}
+
+For \(x > 0,\) \(\cos(x) \le 1,\) and specifically for small positive \(x,\) \(\cos(x) < 1.\) Thus, \(f'(x) = 1 - \cos(x) > 0\) for all small positive \(x.\) This means \(f(x)\) is initially increasing right after \(0.\)
+
+In fact, for all \(x > 0,\) \(\cos(x) \le 1\) and therefore \(f'(x) \ge 0.\) This ensures \(f(x)\) does not decrease below zero after starting at zero. Consequently, for \(x > 0,\) we have \(f(x) = x - \sin(x) > 0,\) implying \(\sin(x) < x.\)
+
+\item 
+\textbf{Power Series Comparison}
+
+Using the Taylor series expansion around \(x = 0:\)
+
+\[
+\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots
+\]
+
+For all positive \(x,\) the higher-order terms \(-\frac{x^3}{3!}\), \(+\frac{x^5}{5!}\), etc., start to reduce the value below \(x.\) Since the first-order approximation is \(x,\) and every additional term (starting with \(-\frac{x^3}{3!}\)) is smaller in magnitude but alternately negative and positive, the sum never reaches back up to \(x.\) Thus, \(\sin(x)\) is always less than \(x\) for any positive \(x.\)
+
+\end{enumerate}
+
+\textbf{Conclusion:}\newline
+Each of these arguments concludes that for every \(x > 0,\) the inequality \(\sin x < x\) is indeed true.
+
+\end{document}
